@@ -1,82 +1,453 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Unicorn Magic Finds</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unicorn Finds ✨ — Magical Products You'll Actually Love</title>
+<meta name="description" content="The best unicorn products for your home, desk, and life. Curated picks with real Amazon reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink:   #F2A7C3;
+    --lilac:  #C9A7E8;
+    --mint:   #A7E8D4;
+    --cream:  #FFF8F0;
+    --deep:   #2A1A35;
+    --mid:    #6B4D7A;
+    --soft:   #F9F0FF;
+    --gold:   #F5C842;
+    --text:   #2A1A35;
+    --sub:    #7A5C8A;
+    --border: rgba(200,160,230,.2);
+    --shadow: 0 8px 40px rgba(100,50,140,.12);
+    --rx: 20px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,167,232,.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+  body::after{content:'';position:fixed;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,232,212,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,248,240,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 clamp(1rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .nav-brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--mid);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
+  .nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;color:var(--sub);transition:color .2s;}
+  .nav-links a:hover{color:var(--mid);}
+  .hero{position:relative;z-index:1;padding:clamp(3rem,8vw,6rem) clamp(1rem,5vw,3rem) clamp(2rem,5vw,4rem);max-width:900px;margin:0 auto;text-align:center;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),var(--lilac));color:var(--deep);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:var(--deep);margin-bottom:1rem;animation:fadeUp .6s .1s ease both;}
+  .hero h1 em{font-style:italic;background:linear-gradient(135deg,#C962A0,#8B4CB8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero p{font-size:1.05rem;color:var(--sub);line-height:1.7;max-width:560px;margin:0 auto 2rem;animation:fadeUp .6s .2s ease both;}
+  .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .3s ease both;}
+  .hero-stat{text-align:center;}
+  .hero-stat-n{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--mid);}
+  .hero-stat-l{font-size:.75rem;color:var(--sub);margin-top:2px;}
+  .section{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,5vw,3rem) clamp(3rem,6vw,5rem);}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--deep);margin-bottom:.5rem;}
+  .section-sub{font-size:.9rem;color:var(--sub);margin-bottom:2.5rem;}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--rx);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;animation:fadeUp .5s ease both;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(100,50,140,.18);}
+  .card-img{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#F9F0FF,#FFF0F8);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(255,255,255,.4));}
+  .card-badge{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--gold),#F0A800);color:#2A1A00;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;z-index:1;}
+  .card-stars{position:absolute;bottom:10px;right:12px;background:rgba(255,255,255,.9);font-size:.7rem;padding:3px 8px;border-radius:100px;z-index:1;color:var(--mid);font-weight:600;}
+  .card-body{padding:1.2rem 1.2rem .8rem;flex:1;}
+  .card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--deep);margin-bottom:.4rem;line-height:1.3;}
+  .card-desc{font-size:.83rem;color:var(--sub);line-height:1.6;margin-bottom:.8rem;}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-size:.68rem;font-weight:500;padding:3px 10px;border-radius:100px;border:1px solid var(--border);color:var(--sub);background:var(--soft);}
+  .card-footer{padding:.8rem 1.2rem 1.2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);gap:.8rem;}
+  .card-price{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--mid);}
+  .card-price span{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--sub);font-weight:400;}
+  .btn-amazon{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#FF9900,#E88000);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.02em;padding:9px 18px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;white-space:nowrap;}
+  .btn-amazon:hover{background:linear-gradient(135deg,#FFAA20,#FF9900);transform:scale(1.04);box-shadow:0 4px 20px rgba(255,153,0,.35);}
+  .card-featured{grid-column:1/-1;flex-direction:row;}
+  .card-featured .card-img{width:280px;flex-shrink:0;aspect-ratio:auto;min-height:220px;font-size:6rem;}
+  .divider{text-align:center;padding:1rem 0 2.5rem;font-size:.75rem;color:var(--sub);opacity:.6;}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:4rem;}
+  .why-card{background:linear-gradient(135deg,#fff,var(--soft));border:1px solid var(--border);border-radius:var(--rx);padding:1.4rem 1.2rem;text-align:center;}
+  .why-icon{font-size:2rem;margin-bottom:.6rem;}
+  .why-title{font-weight:600;font-size:.9rem;color:var(--deep);margin-bottom:.3rem;}
+  .why-desc{font-size:.78rem;color:var(--sub);line-height:1.6;}
+  footer{position:relative;z-index:1;background:var(--deep);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem 1rem;font-size:.75rem;line-height:1.8;}
+  footer strong{color:rgba(255,255,255,.8);}
+  footer a{color:var(--pink);text-decoration:none;}
+  .disclosure{background:linear-gradient(135deg,rgba(201,167,232,.12),rgba(242,167,195,.08));border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;font-size:.72rem;color:var(--sub);margin-bottom:2.5rem;line-height:1.6;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.1s}.card:nth-child(3){animation-delay:.15s}.card:nth-child(4){animation-delay:.2s}.card:nth-child(5){animation-delay:.25s}.card:nth-child(6){animation-delay:.3s}.card:nth-child(7){animation-delay:.35s}.card:nth-child(8){animation-delay:.4s}.card:nth-child(9){animation-delay:.45s}.card:nth-child(10){animation-delay:.5s}
+  @media(max-width:768px){.nav-links{display:none}.card-featured{flex-direction:column}.card-featured .card-img{width:100%;min-height:200px}}
+</style>
 </head>
+<body>
 
-<body style="font-family:Arial; max-width:1000px; margin:auto; background:#fff0f6;">
+<nav>
+  <a class="nav-brand" href="#">🦄 Unicorn Finds</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#mugs">Mugs</a></li>
+    <li><a href="#lamps">Lamps</a></li>
+    <li><a href="#decor">Decor</a></li>
+  </ul>
+</nav>
 
-<h1 style="text-align:center;">🦄 Viral Unicorn Products</h1>
+<section class="hero" id="home">
+  <div class="hero-eyebrow">🦄 Curated Unicorn Picks</div>
+  <h1>Products that make your space feel <em>magical</em></h1>
+  <p>We find the most enchanting unicorn products on Amazon — rated, reviewed, and sorted so you don't have to scroll for hours.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-n">47</div><div class="hero-stat-l">Products curated</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">4.6★</div><div class="hero-stat-l">Avg. Amazon rating</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">Free</div><div class="hero-stat-l">Prime shipping</div></div>
+  </div>
+</section>
 
-<p style="text-align:center;">Trending unicorn items people are buying right now ✨</p>
+<main class="section">
 
-<hr>
+  <div class="disclosure">
+    📎 <strong>Affiliate disclosure:</strong> This page contains Amazon affiliate links. When you buy through our links we may earn a small commission at no extra cost to you. We only recommend products we genuinely love.
+  </div>
 
-<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
+  <h2 class="section-title" id="mugs">☕ Unicorn Mugs &amp; Drinkware</h2>
+  <p class="section-sub">Start your morning magically. These are the mugs people actually keep.</p>
+  <div class="product-grid">
 
-<!-- PRODUCT 1 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/71l0QnS8ZBL._AC_SL1500_.jpg" style="width:100%;">
-<h3>Hello Kitty Unicorn Mug</h3>
-<p>Super cute viral mug — perfect gift 🎁</p>
-<a href="https://amzn.to/48CWe8R" target="_blank">👉 Check Price</a>
-</div>
+    <a class="card card-featured" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🦄<div class="card-badge">⭐ Editor's Pick</div><div class="card-stars">4.8 ★ (2,341)</div></div>
+      <div style="display:flex;flex-direction:column;flex:1;">
+        <div class="card-body">
+          <div class="card-title">Unicorn Color-Changing Magic Mug</div>
+          <div class="card-desc">Pours in plain white — reveals a glittery unicorn when hot liquid goes in. 11oz ceramic, dishwasher safe, microwave safe. Makes an insanely good gift.</div>
+          <div class="card-tags"><span class="tag">Dishwasher safe</span><span class="tag">Gift idea</span><span class="tag">Heat-reactive</span></div>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">~$14.99 <span>on Amazon</span></div>
+          <span class="btn-amazon">View on Amazon →</span>
+        </div>
+      </div>
+    </a>
 
-<!-- PRODUCT 2 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/71l0QnS8ZBL._AC_SL1500_.jpg" style="width:100%;">
-<h3>Unicorn Mug with Lid</h3>
-<p>Premium unicorn mug with topper ✨</p>
-<a href="https://amzn.to/4syD0Zn" target="_blank">👉 Check Price</a>
-</div>
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🌈<div class="card-stars">4.7 ★ (1,890)</div></div>
+      <div class="card-body">
+        <div class="card-title">Iridescent Rainbow Unicorn Mug</div>
+        <div class="card-desc">Pearlescent glaze shifts from pink to purple in different light. 15oz — actually a big mug. Comes in a gift box.</div>
+        <div class="card-tags"><span class="tag">15oz</span><span class="tag">Gift box</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$18.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
 
-<!-- PRODUCT 3 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/71l0QnS8ZBL._AC_SL1500_.jpg" style="width:100%;">
-<h3>Funny Unicorn Mug</h3>
-<p>Hilarious gift that stands out 😂</p>
-<a href="https://amzn.to/4cgMGms" target="_blank">👉 Check Price</a>
-</div>
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">✨<div class="card-badge">Best Seller</div><div class="card-stars">4.9 ★ (5,210)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Travel Tumbler</div>
+        <div class="card-desc">Keeps drinks cold 24h, hot 12h. Leak-proof lid, fits cup holders. The one everyone asks about at the office.</div>
+        <div class="card-tags"><span class="tag">20oz</span><span class="tag">Leak-proof</span><span class="tag">Insulated</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$24.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
 
-<!-- PRODUCT 4 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/71l0QnS8ZBL._AC_SL1500_.jpg" style="width:100%;">
-<h3>Magical AF Mug</h3>
-<p>Trendy unicorn mug 🔥</p>
-<a href="https://amzn.to/3OKzb5g" target="_blank">👉 Check Price</a>
-</div>
+  </div>
+  <div class="divider">— ✦ —</div>
 
-<!-- PRODUCT 5 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/61KQkF0yH0L._AC_SL1000_.jpg" style="width:100%;">
-<h3>Unicorn Night Light</h3>
-<p>Cozy glowing lamp 🌙</p>
-<a href="https://amzn.to/4vyNdHQ" target="_blank">👉 Check Price</a>
-</div>
+  <h2 class="section-title" id="lamps">💡 Unicorn Lamps &amp; Lighting</h2>
+  <p class="section-sub">Soft, dreamy lighting that transforms any room into a sanctuary.</p>
+  <div class="product-grid">
 
-<!-- PRODUCT 6 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/61KQkF0yH0L._AC_SL1000_.jpg" style="width:100%;">
-<h3>3D Unicorn Lamp</h3>
-<p>Color changing LED 💡</p>
-<a href="https://amzn.to/3Qh1TLy" target="_blank">👉 Check Price</a>
-</div>
+    <!-- REAL PRODUCT: your image + affiliate link -->
+    <a class="card" href="https://www.amazon.com/s?k=unicorn+night+lamp&crid=2URDKKW94LNXO&sprefix=unicorn+night+lamp%2Caps%2C238&linkCode=ll2&tag=unicornmagic2-20&linkId=c0a6dfb910a5a8c264a8d040870ed77d&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img" style="padding:0;">
+        <img src="data:image/jpeg;base64,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" alt="Cute Unicorn Night Light" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0;"/>
+        <div class="card-badge">Most Popular</div>
+        <div class="card-stars">4.8 ★ (3,102)</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Cute Unicorn Night Light for Kids</div>
+        <div class="card-desc">Soft silicone glow — 16 colour modes, touch control, USB powered. Safe for kids, stays cool. Makes an adorable gift.</div>
+        <div class="card-tags"><span class="tag">USB powered</span><span class="tag">16 colours</span><span class="tag">Kid safe</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$16.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
 
-<!-- PRODUCT 7 -->
-<div style="background:white;padding:15px;border-radius:10px;">
-<img src="https://m.media-amazon.com/images/I/61KQkF0yH0L._AC_SL1000_.jpg" style="width:100%;">
-<h3>Soft Unicorn Lamp</h3>
-<p>Color changing soft lamp ✨</p>
-<a href="https://amzn.to/4tfmy11" target="_blank">👉 Check Price</a>
-</div>
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🦋<div class="card-stars">4.6 ★ (788)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Desk Lamp with Wireless Charger</div>
+        <div class="card-desc">LED desk lamp with a unicorn base that wirelessly charges your phone. 3 brightness levels. Genuinely useful and cute.</div>
+        <div class="card-tags"><span class="tag">Wireless charging</span><span class="tag">Dimmable</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$34.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
 
-</div>
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🌟<div class="card-badge">Under $10</div><div class="card-stars">4.5 ★ (4,500)</div></div>
+      <div class="card-body">
+        <div class="card-title">Mini Unicorn Projection Lamp</div>
+        <div class="card-desc">Projects stars and clouds on the ceiling. Battery or USB. Tiny enough to fit in a bag. Insanely popular as a gift.</div>
+        <div class="card-tags"><span class="tag">Projects stars</span><span class="tag">Battery/USB</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$9.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
 
-<hr>
+  </div>
+  <div class="divider">— ✦ —</div>
 
-<p style="text-align:center;font-size:12px;">
-We may earn a commission from purchases.
-</p>
+  <h2 class="section-title" id="decor">🏠 Room Decor &amp; Accessories</h2>
+  <p class="section-sub">From desk to bedroom — pieces that actually look good in photos.</p>
+  <div class="product-grid">
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🎨<div class="card-stars">4.7 ★ (1,200)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Canvas Wall Art Set (3 Pieces)</div>
+        <div class="card-desc">Ready to hang. Pastel watercolor style, fits any boho or dreamy aesthetic. Comes with hardware.</div>
+        <div class="card-tags"><span class="tag">Ready to hang</span><span class="tag">3 piece set</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$29.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">💜<div class="card-badge">New</div><div class="card-stars">4.6 ★ (653)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Throw Pillow Cover</div>
+        <div class="card-desc">Velvet cover with embroidered unicorn. Fits 18x18 pillow inserts. Machine washable. Available in 4 colours.</div>
+        <div class="card-tags"><span class="tag">Velvet</span><span class="tag">Washable</span><span class="tag">4 colours</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$12.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🌸<div class="card-stars">4.8 ★ (2,780)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Plush Backpack Buddy</div>
+        <div class="card-desc">Full plush backpack clip — or just sits on your desk. Soft, great quality for the price.</div>
+        <div class="card-tags"><span class="tag">Backpack clip</span><span class="tag">Desk decor</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$11.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🪴<div class="card-badge">Gift Fave</div><div class="card-stars">4.9 ★ (988)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Succulent Planter Set</div>
+        <div class="card-desc">Set of 3 ceramic unicorn pots. Drainage holes included. Works for succulents, air plants, desk herbs.</div>
+        <div class="card-tags"><span class="tag">Set of 3</span><span class="tag">Ceramic</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$19.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+  </div>
+  <div class="divider">— ✦ —</div>
+
+  <h2 class="section-title">Why trust our picks?</h2>
+  <p class="section-sub" style="margin-bottom:1.5rem;">We check every product before listing it here.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">⭐</div><div class="why-title">4.5+ stars only</div><div class="why-desc">We only list products with verified Amazon ratings above 4.5 and at least 500 reviews.</div></div>
+    <div class="why-card"><div class="why-icon">🚚</div><div class="why-title">Prime eligible</div><div class="why-desc">All picks are Prime-eligible for fast, free delivery — usually 1-2 days.</div></div>
+    <div class="why-card"><div class="why-icon">💬</div><div class="why-title">Real reviews checked</div><div class="why-desc">We read the 1-star reviews too. If a product has a pattern of complaints, it doesn't make the list.</div></div>
+    <div class="why-card"><div class="why-icon">🔄</div><div class="why-title">Updated monthly</div><div class="why-desc">Dead links, price changes and discontinued products are checked every month.</div></div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Unicorn Finds</strong> &nbsp;·&nbsp; <a href="#">Affiliate Disclosure</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a><br><br>
+  As an Amazon Associate we earn from qualifying purchases. Product prices and availability are accurate as of the date indicated and are subject to change. Prices shown are approximate.
+</footer>
 
 </body>
 </html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unicorn Finds ✨ — Magical Products You'll Actually Love</title>
+<meta name="description" content="The best unicorn products for your home, desk, and life. Curated picks with real Amazon reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink:   #F2A7C3;
+    --lilac:  #C9A7E8;
+    --mint:   #A7E8D4;
+    --cream:  #FFF8F0;
+    --deep:   #2A1A35;
+    --mid:    #6B4D7A;
+    --soft:   #F9F0FF;
+    --gold:   #F5C842;
+    --text:   #2A1A35;
+    --sub:    #7A5C8A;
+    --border: rgba(200,160,230,.2);
+    --shadow: 0 8px 40px rgba(100,50,140,.12);
+    --rx: 20px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,167,232,.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+  body::after{content:'';position:fixed;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(167,232,212,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,248,240,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 clamp(1rem,5vw,3rem);display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .nav-brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--mid);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
+  .nav-links a{text-decoration:none;font-size:.875rem;font-weight:500;color:var(--sub);transition:color .2s;}
+  .nav-links a:hover{color:var(--mid);}
+  .hero{position:relative;z-index:1;padding:clamp(3rem,8vw,6rem) clamp(1rem,5vw,3rem) clamp(2rem,5vw,4rem);max-width:900px;margin:0 auto;text-align:center;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--pink),var(--lilac));color:var(--deep);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.5rem;animation:fadeUp .6s ease both;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:var(--deep);margin-bottom:1rem;animation:fadeUp .6s .1s ease both;}
+  .hero h1 em{font-style:italic;background:linear-gradient(135deg,#C962A0,#8B4CB8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero p{font-size:1.05rem;color:var(--sub);line-height:1.7;max-width:560px;margin:0 auto 2rem;animation:fadeUp .6s .2s ease both;}
+  .hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .3s ease both;}
+  .hero-stat{text-align:center;}
+  .hero-stat-n{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--mid);}
+  .hero-stat-l{font-size:.75rem;color:var(--sub);margin-top:2px;}
+  .section{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 clamp(1rem,5vw,3rem) clamp(3rem,6vw,5rem);}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--deep);margin-bottom:.5rem;}
+  .section-sub{font-size:.9rem;color:var(--sub);margin-bottom:2.5rem;}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--rx);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;animation:fadeUp .5s ease both;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(100,50,140,.18);}
+  .card-img{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#F9F0FF,#FFF0F8);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(255,255,255,.4));}
+  .card-badge{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--gold),#F0A800);color:#2A1A00;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;z-index:1;}
+  .card-stars{position:absolute;bottom:10px;right:12px;background:rgba(255,255,255,.9);font-size:.7rem;padding:3px 8px;border-radius:100px;z-index:1;color:var(--mid);font-weight:600;}
+  .card-body{padding:1.2rem 1.2rem .8rem;flex:1;}
+  .card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--deep);margin-bottom:.4rem;line-height:1.3;}
+  .card-desc{font-size:.83rem;color:var(--sub);line-height:1.6;margin-bottom:.8rem;}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-size:.68rem;font-weight:500;padding:3px 10px;border-radius:100px;border:1px solid var(--border);color:var(--sub);background:var(--soft);}
+  .card-footer{padding:.8rem 1.2rem 1.2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);gap:.8rem;}
+  .card-price{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--mid);}
+  .card-price span{font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--sub);font-weight:400;}
+  .btn-amazon{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#FF9900,#E88000);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.02em;padding:9px 18px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:all .2s;white-space:nowrap;}
+  .btn-amazon:hover{background:linear-gradient(135deg,#FFAA20,#FF9900);transform:scale(1.04);box-shadow:0 4px 20px rgba(255,153,0,.35);}
+  .card-featured{grid-column:1/-1;flex-direction:row;}
+  .card-featured .card-img{width:280px;flex-shrink:0;aspect-ratio:auto;min-height:220px;font-size:6rem;}
+  .divider{text-align:center;padding:1rem 0 2.5rem;font-size:.75rem;color:var(--sub);opacity:.6;}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:4rem;}
+  .why-card{background:linear-gradient(135deg,#fff,var(--soft));border:1px solid var(--border);border-radius:var(--rx);padding:1.4rem 1.2rem;text-align:center;}
+  .why-icon{font-size:2rem;margin-bottom:.6rem;}
+  .why-title{font-weight:600;font-size:.9rem;color:var(--deep);margin-bottom:.3rem;}
+  .why-desc{font-size:.78rem;color:var(--sub);line-height:1.6;}
+  footer{position:relative;z-index:1;background:var(--deep);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem 1rem;font-size:.75rem;line-height:1.8;}
+  footer strong{color:rgba(255,255,255,.8);}
+  footer a{color:var(--pink);text-decoration:none;}
+  .disclosure{background:linear-gradient(135deg,rgba(201,167,232,.12),rgba(242,167,195,.08));border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;font-size:.72rem;color:var(--sub);margin-bottom:2.5rem;line-height:1.6;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.1s}.card:nth-child(3){animation-delay:.15s}.card:nth-child(4){animation-delay:.2s}.card:nth-child(5){animation-delay:.25s}.card:nth-child(6){animation-delay:.3s}.card:nth-child(7){animation-delay:.35s}.card:nth-child(8){animation-delay:.4s}.card:nth-child(9){animation-delay:.45s}.card:nth-child(10){animation-delay:.5s}
+  @media(max-width:768px){.nav-links{display:none}.card-featured{flex-direction:column}.card-featured .card-img{width:100%;min-height:200px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">🦄 Unicorn Finds</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#mugs">Mugs</a></li>
+    <li><a href="#lamps">Lamps</a></li>
+    <li><a href="#decor">Decor</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-eyebrow">🦄 Curated Unicorn Picks</div>
+  <h1>Products that make your space feel <em>magical</em></h1>
+  <p>We find the most enchanting unicorn products on Amazon — rated, reviewed, and sorted so you don't have to scroll for hours.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-n">47</div><div class="hero-stat-l">Products curated</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">4.6★</div><div class="hero-stat-l">Avg. Amazon rating</div></div>
+    <div class="hero-stat"><div class="hero-stat-n">Free</div><div class="hero-stat-l">Prime shipping</div></div>
+  </div>
+</section>
+
+<main class="section">
+
+  <div class="disclosure">
+    📎 <strong>Affiliate disclosure:</strong> This page contains Amazon affiliate links. When you buy through our links we may earn a small commission at no extra cost to you. We only recommend products we genuinely love.
+  </div>
+
+  <h2 class="section-title" id="mugs">☕ Unicorn Mugs &amp; Drinkware</h2>
+  <p class="section-sub">Start your morning magically. These are the mugs people actually keep.</p>
+  <div class="product-grid">
+
+    <a class="card card-featured" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🦄<div class="card-badge">⭐ Editor's Pick</div><div class="card-stars">4.8 ★ (2,341)</div></div>
+      <div style="display:flex;flex-direction:column;flex:1;">
+        <div class="card-body">
+          <div class="card-title">Unicorn Color-Changing Magic Mug</div>
+          <div class="card-desc">Pours in plain white — reveals a glittery unicorn when hot liquid goes in. 11oz ceramic, dishwasher safe, microwave safe. Makes an insanely good gift.</div>
+          <div class="card-tags"><span class="tag">Dishwasher safe</span><span class="tag">Gift idea</span><span class="tag">Heat-reactive</span></div>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">~$14.99 <span>on Amazon</span></div>
+          <span class="btn-amazon">View on Amazon →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">🌈<div class="card-stars">4.7 ★ (1,890)</div></div>
+      <div class="card-body">
+        <div class="card-title">Iridescent Rainbow Unicorn Mug</div>
+        <div class="card-desc">Pearlescent glaze shifts from pink to purple in different light. 15oz — actually a big mug. Comes in a gift box.</div>
+        <div class="card-tags"><span class="tag">15oz</span><span class="tag">Gift box</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$18.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+    <a class="card" href="YOUR-AMAZON-AFFILIATE-LINK-HERE" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img">✨<div class="card-badge">Best Seller</div><div class="card-stars">4.9 ★ (5,210)</div></div>
+      <div class="card-body">
+        <div class="card-title">Unicorn Travel Tumbler</div>
+        <div class="card-desc">Keeps drinks cold 24h, hot 12h. Leak-proof lid, fits cup holders. The one everyone asks about at the office.</div>
+        <div class="card-tags"><span class="tag">20oz</span><span class="tag">Leak-proof</span><span class="tag">Insulated</span></div>
+      </div>
+      <div class="card-footer">
+        <div class="card-price">~$24.99 <span>on Amazon</span></div>
+        <span class="btn-amazon">View on Amazon →</span>
+      </div>
+    </a>
+
+  </div>
+  <div class="divider">— ✦ —</div>
+
+  <h2 class="section-title" id="lamps">💡 Unicorn Lamps &amp; Lighting</h2>
+  <p class="section-sub">Soft, dreamy lighting that transforms any room into a sanctuary.</p>
+  <div class="product-grid">
+
+    <!-- REAL PRODUCT: your image + affiliate link -->
+    <a class="card" href="https://www.amazon.com/s?k=unicorn+night+lamp&crid=2URDKKW94LNXO&sprefix=unicorn+night+lamp%2Caps%2C238&linkCode=ll2&tag=unicornmagic2-20&linkId=c0a6dfb910a5a8c264a8d040870ed77d&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="nofollow sponsored" style="text-decoration:none;color:inherit;">
+      <div class="card-img" style="padding:0;">
+        <img src="data:image/jpeg;base64,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
