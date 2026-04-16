@@ -1,32 +1,447 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Unicorn Magic Finds</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unicorn Store ✨ — Magical Finds You'll Actually Love</title>
+<meta name="description" content="The internet's best collection of unicorn products. Mugs, lamps, decor and more — all on Amazon with fast shipping.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FDF5FF;--panel:#FFFFFF;--border:rgba(180,120,220,.15);--border2:rgba(180,120,220,.3);
+  --ink:#1A0A2E;--ink2:#5A4570;--ink3:#9B86AC;
+  --primary:#C084FC;--pd:#9333EA;--gold:#F59E0B;--pink:#F472B6;--teal:#2DD4BF;
+  --rx:18px;--rr:10px;
+  --shadow:0 4px 24px rgba(147,51,234,.12);--shadow-lg:0 12px 48px rgba(147,51,234,.18);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(ellipse 60% 50% at 20% 10%,rgba(240,171,252,.25) 0%,transparent 60%),
+  radial-gradient(ellipse 50% 40% at 80% 80%,rgba(244,114,182,.15) 0%,transparent 60%),
+  radial-gradient(ellipse 40% 60% at 60% 30%,rgba(45,212,191,.1) 0%,transparent 60%);
+  pointer-events:none;z-index:0;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+
+/* HEADER */
+header{padding:18px 0;position:sticky;top:0;z-index:100;background:rgba(253,245,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#C084FC,#F472B6);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 12px rgba(192,132,252,.4);}
+.logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;background:linear-gradient(135deg,#9333EA,#F472B6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.header-disc{font-size:11px;color:var(--ink3);text-align:right;line-height:1.5;}
+.header-disc a{color:var(--pd);text-decoration:none;}
+
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(192,132,252,.12);border:1px solid rgba(192,132,252,.3);border-radius:50px;padding:6px 18px;font-size:12px;font-weight:600;color:var(--pd);letter-spacing:.05em;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px;}
+.hero h1 em{font-style:italic;background:linear-gradient(135deg,#9333EA,#F472B6 50%,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:18px;color:var(--ink2);max-width:520px;margin:0 auto 40px;line-height:1.7;font-weight:300;}
+.hero-stats{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--pd);}
+.hstat-l{font-size:12px;color:var(--ink3);margin-top:2px;}
+.hstat-div{width:1px;height:40px;background:var(--border2);}
+
+/* SECTION */
+.section{padding:60px 0;}
+.section-hdr{text-align:center;margin-bottom:48px;}
+.section-tag{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pd);margin-bottom:12px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;color:var(--ink);}
+.section-sub{font-size:16px;color:var(--ink2);margin-top:12px;font-weight:300;}
+
+/* CATEGORY PILLS */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:48px;}
+.cat-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--rr);padding:18px 14px;text-align:center;cursor:pointer;transition:all .2s;text-decoration:none;display:block;}
+.cat-card:hover{border-color:var(--primary);background:rgba(192,132,252,.06);transform:translateY(-3px);box-shadow:var(--shadow);}
+.cat-card.active{border-color:var(--pd);background:rgba(147,51,234,.08);}
+.cat-emoji{font-size:30px;display:block;margin-bottom:7px;}
+.cat-name{font-size:13px;font-weight:600;color:var(--ink);}
+.cat-count{font-size:11px;color:var(--ink3);margin-top:2px;}
+
+/* PRODUCTS */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.product-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--rx);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.product-img-wrap{aspect-ratio:4/3;background:linear-gradient(135deg,rgba(240,171,252,.2),rgba(244,114,182,.1));display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden;}
+.product-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(255,255,255,.6));}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;z-index:1;box-shadow:0 2px 8px rgba(245,158,11,.4);}
+.product-badge.new{background:var(--teal);box-shadow:0 2px 8px rgba(45,212,191,.4);}
+.product-badge.sale{background:var(--pink);box-shadow:0 2px 8px rgba(244,114,182,.4);}
+.product-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:10px;}
+.product-cat{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
+.product-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);line-height:1.3;}
+.product-desc{font-size:13px;color:var(--ink2);line-height:1.6;font-weight:300;flex:1;}
+.product-stars{display:flex;align-items:center;gap:4px;font-size:12px;}
+.stars{color:var(--gold);letter-spacing:1px;}
+.star-count{color:var(--ink3);}
+.product-footer{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--border);background:rgba(253,245,255,.5);}
+.product-price{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);}
+.product-price span{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--ink3);font-weight:400;}
+.buy-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#9333EA,#C084FC);color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:10px 16px;border-radius:50px;text-decoration:none;transition:all .2s;box-shadow:0 4px 14px rgba(147,51,234,.35);white-space:nowrap;}
+.buy-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(147,51,234,.45);}
+
+/* FEATURED BANNER */
+.featured-banner{background:linear-gradient(135deg,#1A0A2E 0%,#3B1F6E 50%,#1A0A2E 100%);border-radius:var(--rx);padding:48px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin:60px 0;overflow:hidden;position:relative;}
+.featured-banner::before{content:'';position:absolute;top:-40px;right:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(192,132,252,.3),transparent 70%);pointer-events:none;}
+.featured-content{position:relative;z-index:1;}
+.featured-tag{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:12px;}
+.featured-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;}
+.featured-sub{font-size:15px;color:rgba(255,255,255,.65);line-height:1.6;max-width:440px;font-weight:300;margin-bottom:24px;}
+.featured-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#C084FC,#F472B6);color:#fff;font-size:14px;font-weight:600;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(192,132,252,.4);}
+.featured-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(192,132,252,.5);}
+.featured-emoji{font-size:100px;flex-shrink:0;position:relative;z-index:1;}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.how-step{background:var(--panel);border:1px solid var(--border);border-radius:var(--rx);padding:28px 24px;text-align:center;}
+.how-num{width:40px;height:40px;background:linear-gradient(135deg,#9333EA,#C084FC);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#fff;margin:0 auto 16px;box-shadow:0 4px 12px rgba(147,51,234,.3);}
+.how-title{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;}
+.how-desc{font-size:13px;color:var(--ink2);line-height:1.6;font-weight:300;}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:40px 0;margin-top:80px;text-align:center;font-size:12px;line-height:1.8;}
+footer strong{color:rgba(255,255,255,.8);}
+footer a{color:rgba(255,255,255,.4);text-decoration:none;}
+
+/* DISCLAIMER */
+.aff-note{background:rgba(192,132,252,.08);border:1px solid rgba(192,132,252,.2);border-radius:var(--rr);padding:14px 20px;font-size:12px;color:var(--ink3);text-align:center;margin:32px 0 0;line-height:1.6;}
+
+/* ANIMATIONS */
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.floating{animation:float 4s ease-in-out infinite;}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero{padding:50px 0 40px;}
+  .product-grid{grid-template-columns:1fr 1fr;gap:14px;}
+  .how-grid{grid-template-columns:1fr;}
+  .featured-banner{flex-direction:column;padding:32px 24px;}
+  .featured-emoji{font-size:60px;}
+  .header-disc{display:none;}
+  .hstat-div{display:none;}
+}
+@media(max-width:480px){
+  .product-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(3,1fr);}
+}
+</style>
 </head>
+<body>
 
-<body style="font-family:Arial; max-width:800px; margin:auto; background:#ffe4f3;">
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">🦄</div>
+        <div class="logo-text">Unicorn Store</div>
+      </a>
+      <div class="header-disc">
+        ✨ All products sold &amp; shipped by Amazon<br>
+        <a href="#disclaimer">Affiliate disclosure</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-<h1>🦄 10 Cute Unicorn Products You Need Right Now</h1>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">🦄 Curated Unicorn Picks · All on Amazon</div>
+    <h1>Magical Products<br>You'll <em>Actually</em> Love</h1>
+    <p class="hero-sub">The internet's most curated unicorn collection — home décor, kitchen gear and gifts, all available on Amazon with Prime shipping.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">50+</div><div class="hstat-l">Products</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">4.7★</div><div class="hstat-l">Avg rating</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">Prime</div><div class="hstat-l">Fast shipping</div></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><div class="hstat-n">Free</div><div class="hstat-l">Returns</div></div>
+    </div>
+  </div>
+</section>
 
-<p>We found the cutest unicorn products that actually make your space magical ✨</p>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cat-grid">
+      <a href="#mugs" class="cat-card active"><span class="cat-emoji">☕</span><div class="cat-name">Mugs</div><div class="cat-count">3 picks</div></a>
+      <a href="#lamps" class="cat-card"><span class="cat-emoji">💡</span><div class="cat-name">Lamps</div><div class="cat-count">3 picks</div></a>
+      <a href="#decor" class="cat-card"><span class="cat-emoji">🏠</span><div class="cat-name">Décor</div><div class="cat-count">3 picks</div></a>
+      <a href="#kitchen" class="cat-card"><span class="cat-emoji">🍴</span><div class="cat-name">Kitchen</div><div class="cat-count">3 picks</div></a>
+      <a href="#plush" class="cat-card"><span class="cat-emoji">🧸</span><div class="cat-name">Plush</div><div class="cat-count">2 picks</div></a>
+      <a href="#gifts" class="cat-card"><span class="cat-emoji">🎁</span><div class="cat-name">Gifts</div><div class="cat-count">2 picks</div></a>
+    </div>
+  </div>
+</section>
 
-<hr>
+<!-- MUGS -->
+<section class="section" id="mugs">
+  <div class="wrap">
+    <div class="section-hdr">
+      <div class="section-tag">☕ Mugs &amp; Drinkware</div>
+      <h2 class="section-title">Sip in Style</h2>
+      <p class="section-sub">Start every morning with a little magic.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-wrap"><span class="floating">🦄</span><div class="product-badge">Best Seller</div></div>
+        <div class="product-body">
+          <div class="product-cat">Mug</div>
+          <div class="product-name">Cute Unicorn Coffee Mug</div>
+          <div class="product-desc">Pastel rainbow design, 11oz ceramic. Microwave and dishwasher safe. The perfect morning companion for unicorn lovers.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.8 (2,340 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$18.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+coffee+mug&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(244,114,182,.2),rgba(192,132,252,.15))"><span class="floating" style="animation-delay:1s">🌈</span><div class="product-badge new">New</div></div>
+        <div class="product-body">
+          <div class="product-cat">Travel Mug</div>
+          <div class="product-name">Rainbow Unicorn Travel Mug</div>
+          <div class="product-desc">16oz insulated stainless steel. Keeps hot 6h, cold 12h. Leak-proof lid. Rainbow gradient with unicorn silhouette.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.7 (1,180 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$24.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+travel+mug&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(45,212,191,.15),rgba(192,132,252,.15))"><span class="floating" style="animation-delay:.5s">✨</span><div class="product-badge sale">Sale</div></div>
+        <div class="product-body">
+          <div class="product-cat">Gift Set</div>
+          <div class="product-name">Unicorn Mug Gift Set (2-pack)</div>
+          <div class="product-desc">Two matching 12oz mugs in gift box. Perfect for couples or birthdays. Pastel pink and purple with gold horn design.</div>
+          <div class="product-stars"><span class="stars">★★★★☆</span><span class="star-count">4.5 (876 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$29.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+mug+set&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>1. Cute Unicorn Mug</h2>
-<img src="https://via.placeholder.com/300">
-<p>Perfect cozy mug for unicorn lovers.</p>
-<a href="#" target="_blank">👉 Check Price</a>
+<!-- FEATURED BANNER -->
+<div class="wrap">
+  <div class="featured-banner">
+    <div class="featured-content">
+      <div class="featured-tag">⚡ Fan Favourite</div>
+      <h2 class="featured-title">The Unicorn LED Lamp<br>That Went Viral</h2>
+      <p class="featured-sub">Over 15,000 five-star reviews. RGB color changing, touch control, USB-powered. The one product every unicorn fan needs.</p>
+      <a href="https://www.amazon.com/s?k=unicorn+rgb+led+lamp&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="featured-btn">See it on Amazon →</a>
+    </div>
+    <div class="featured-emoji floating">🌟</div>
+  </div>
+</div>
 
-<hr>
+<!-- LAMPS -->
+<section class="section" id="lamps">
+  <div class="wrap">
+    <div class="section-hdr">
+      <div class="section-tag">💡 Lamps &amp; Lighting</div>
+      <h2 class="section-title">Light Up Your Space</h2>
+      <p class="section-sub">Magical lighting for bedrooms, desks and nurseries.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(244,114,182,.15))"><span class="floating">🌙</span><div class="product-badge">Best Seller</div></div>
+        <div class="product-body">
+          <div class="product-cat">LED Lamp</div>
+          <div class="product-name">Unicorn Night Light — RGB</div>
+          <div class="product-desc">16 color options, touch control, USB powered. Perfect for kids' rooms or aesthetic desk decor. Auto-off timer included.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.9 (15,200 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$22.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+night+light+rgb&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(192,132,252,.2),rgba(45,212,191,.1))"><span class="floating" style="animation-delay:2s">🔮</span><div class="product-badge new">New</div></div>
+        <div class="product-body">
+          <div class="product-cat">3D Lamp</div>
+          <div class="product-name">Crystal Unicorn Desk Lamp</div>
+          <div class="product-desc">Acrylic 3D illusion lamp with warm white glow. Creates stunning visual depth. Perfect for photos and content creation.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.7 (3,400 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$34.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+3d+illusion+lamp&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(244,114,182,.2),rgba(245,158,11,.1))"><span class="floating" style="animation-delay:1.5s">⭐</span></div>
+        <div class="product-body">
+          <div class="product-cat">String Lights</div>
+          <div class="product-name">Unicorn Fairy Lights — 10ft</div>
+          <div class="product-desc">Battery operated, 30 LED warm white with unicorn and star shaped bulbs. Perfect for canopy beds and windows.</div>
+          <div class="product-stars"><span class="stars">★★★★☆</span><span class="star-count">4.6 (5,780 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$14.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+fairy+lights&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>2. Unicorn LED Lamp</h2>
-<img src="https://via.placeholder.com/300">
-<p>Soft glowing light for a dreamy room.</p>
-<a href="#" target="_blank">👉 Check Price</a>
+<!-- DECOR -->
+<section class="section" id="decor">
+  <div class="wrap">
+    <div class="section-hdr">
+      <div class="section-tag">🏠 Home Décor</div>
+      <h2 class="section-title">Decorate Your World</h2>
+      <p class="section-sub">Pillows, wall art, figurines and more.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(192,132,252,.2),rgba(244,114,182,.15))"><span class="floating">🛋️</span><div class="product-badge">Best Seller</div></div>
+        <div class="product-body">
+          <div class="product-cat">Pillow</div>
+          <div class="product-name">Unicorn Throw Pillow Cover</div>
+          <div class="product-desc">18x18 inch soft velvet with zipper. Pastel rainbow unicorn print. Machine washable. Insert not included.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.8 (7,200 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$12.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+throw+pillow&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(45,212,191,.15),rgba(192,132,252,.2))"><span class="floating" style="animation-delay:.8s">🖼️</span><div class="product-badge sale">Sale</div></div>
+        <div class="product-body">
+          <div class="product-cat">Wall Art</div>
+          <div class="product-name">Unicorn Canvas Print (Set of 3)</div>
+          <div class="product-desc">3-panel watercolor artwork, 12x16 inch each. Ready to hang. Pastel pink, purple and gold. Modern boho aesthetic.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.7 (4,100 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$39.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+canvas+wall+art&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(244,114,182,.2),rgba(192,132,252,.15))"><span class="floating" style="animation-delay:1.2s">🎁</span><div class="product-badge new">Gift</div></div>
+        <div class="product-body">
+          <div class="product-cat">Gift Set</div>
+          <div class="product-name">Unicorn Gift Box — 6 Items</div>
+          <div class="product-desc">Mug, keychain, notebook, lip balm, stickers and phone stand. Beautifully packaged, ready to gift. Perfect birthday present.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.9 (2,800 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$44.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+gift+set&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<hr>
+<!-- HOW IT WORKS -->
+<section class="section" style="background:rgba(192,132,252,.05);margin:0;padding:60px 0">
+  <div class="wrap">
+    <div class="section-hdr">
+      <div class="section-tag">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step"><div class="how-num">1</div><div class="how-title">Browse our picks</div><div class="how-desc">We curate only the best-rated unicorn products on Amazon so you don't have to scroll through thousands of listings.</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-title">Click "Check Price"</div><div class="how-desc">You go directly to Amazon where you see the live price, all reviews, and can order with Prime delivery.</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-title">Amazon handles the rest</div><div class="how-desc">Amazon processes payment, ships to you and handles any returns. Full Amazon buyer protection on every order.</div></div>
+    </div>
+  </div>
+</section>
 
-<p>🌍 Products are sold and shipped by Amazon.</p>
+<!-- KITCHEN -->
+<section class="section" id="kitchen">
+  <div class="wrap">
+    <div class="section-hdr">
+      <div class="section-tag">🍴 Kitchen &amp; Dining</div>
+      <h2 class="section-title">Magical Kitchen Finds</h2>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(192,132,252,.15))"><span class="floating">🥄</span><div class="product-badge">Fan Fave</div></div>
+        <div class="product-body">
+          <div class="product-cat">Utensils</div>
+          <div class="product-name">Unicorn Spoon Rest</div>
+          <div class="product-desc">Ceramic spoon rest in pastel pink. Dishwasher safe. Fits most spoons and ladles. A cute countertop addition.</div>
+          <div class="product-stars"><span class="stars">★★★★☆</span><span class="star-count">4.5 (1,200 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$16.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+spoon+rest&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(244,114,182,.2),rgba(45,212,191,.1))"><span class="floating" style="animation-delay:.7s">🧁</span></div>
+        <div class="product-body">
+          <div class="product-cat">Baking</div>
+          <div class="product-name">Unicorn Cookie Cutter Set</div>
+          <div class="product-desc">6 stainless steel cutters in different sizes. Horn, full body and face shapes. Gift-box included.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.8 (3,500 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$11.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+cookie+cutter&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap" style="background:linear-gradient(135deg,rgba(192,132,252,.2),rgba(244,114,182,.15))"><span class="floating" style="animation-delay:1.8s">🍳</span><div class="product-badge sale">Popular</div></div>
+        <div class="product-body">
+          <div class="product-cat">Apron</div>
+          <div class="product-name">Unicorn Kitchen Apron</div>
+          <div class="product-desc">Adjustable neck strap, two front pockets. 100% cotton, machine washable. Magical pastel rainbow unicorn design.</div>
+          <div class="product-stars"><span class="stars">★★★★★</span><span class="star-count">4.7 (980 reviews)</span></div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$21.99 <span>on Amazon</span></div>
+          <a href="https://www.amazon.com/s?k=unicorn+kitchen+apron&tag=YOUR-TAG-20" target="_blank" rel="nofollow sponsored" class="buy-btn">Check Price →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<div class="wrap" id="disclaimer">
+  <div class="aff-note">
+    <strong>Affiliate Disclosure:</strong> Unicorn Store participates in the Amazon Associates program. When you click a link and make a purchase, we may earn a small commission at no extra cost to you. This helps us keep the site free and curate more magical products.
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div style="font-size:28px;margin-bottom:12px">🦄</div>
+    <strong>Unicorn Store</strong> — Magical Finds for Magical People<br>
+    All products sold and shipped by Amazon. We earn a small commission on purchases made through our links.<br><br>
+    <a href="#disclaimer">Affiliate Disclosure</a> · <a href="https://www.amazon.com?tag=YOUR-TAG-20" target="_blank">Visit Amazon</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.cat-card').forEach(card => {
+  card.addEventListener('click', function() {
+    document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.product-card,.how-step').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity .5s,transform .5s'; observer.observe(el);
+});
+</script>
 </body>
 </html>
