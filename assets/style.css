@@ -114,6 +114,19 @@ h3 { font-size: 1.14rem; margin: 0 0 .45rem; }
 .inline-pick img { width: 90px; height: 90px; object-fit: contain; border-radius: .7rem; flex: none; background: #f7eff8; }
 .inline-pick p { font-size: .85rem; margin: .15rem 0 .3rem; }
 .inline-pick a { font-size: .85rem; font-weight: 750; }
+.party-page { max-width: 860px; }
+.planner-form { display: grid; gap: 1.2rem; margin: 2rem 0; }
+.planner-form fieldset { min-width: 0; margin: 0; padding: 1.4rem; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
+.planner-form legend { padding: 0 .4rem; color: var(--plum); font: bold 1.3rem Georgia,serif; }
+.planner-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.planner-fields label { display: grid; gap: .35rem; color: var(--plum); font-size: .88rem; font-weight: 700; }
+.planner-fields input, .planner-fields select { width: 100%; min-height: 45px; padding: .6rem .75rem; color: var(--ink); background: #fff; border: 1px solid #bcb0bf; border-radius: .5rem; font: inherit; }
+.planner-fields input:focus, .planner-fields select:focus { outline: 3px solid #e8c9e2; border-color: var(--berry); }
+.field-help { color: var(--muted) !important; font-size: .84rem; }
+.planner-result { padding: 1.4rem; border: 1px solid #cbb7d8; border-radius: 1rem; background: #f6f0fb; }
+.planner-result h2 { margin-top: 0; }
+.planner-result ul { margin-bottom: .6rem; }
+.planner-print { margin-top: 1rem; border: 0; cursor: pointer; font: inherit; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; padding-bottom: 3rem; }
   .hero-collage { max-width: 590px; width: 100%; min-height: 300px; margin: 0 auto; }
@@ -134,6 +147,14 @@ h3 { font-size: 1.14rem; margin: 0 0 .45rem; }
   .footer-grid { gap: 1.5rem; }
   .inline-pick { align-items: start; }
   .inline-pick img { width: 76px; height: 76px; }
+  .planner-fields { grid-template-columns: 1fr; }
+}
+@media print {
+  .topline, .site-header, .site-footer, .planner-form, .planner-print, .disclosure, .inline-pick { display: none !important; }
+  body { background: white; color: black; }
+  .page-intro { padding: 0; background: white; }
+  .article { padding-top: 0; }
+  .planner-result { break-inside: avoid; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }

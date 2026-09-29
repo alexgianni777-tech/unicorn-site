@@ -1,28 +1,34 @@
 # Free traffic plan for Unicorn Finds
 
-## Before publishing
+## Product and account checks
 
 - Open each of the ten Amazon destinations. Confirm the exact title, image,
   destination market, stock and seller; replace or remove any mismatch. The
   generic night-light link should remain labelled as Amazon search results.
 - Confirm that the existing product images may be used outside Amazon. Replace
   any image without suitable rights with an original photograph or illustration.
-- Verify the Amazon.com Associates tracking ID and that `unicornsite.online`
-  appears on the website list in Associates Central.
-- Review the generated HTML on mobile and desktop; confirm the sitemap and
-  policy links. Merge the pull request to make the refresh live.
+- The owner confirmed that `unicornmagic2-20` is the selected US tracking ID
+  and `unicornsite.online` is on the Associates website list on 29 September
+  2026. This does not establish whether Amazon has accepted the application;
+  the owner has asked Associates support to confirm earning eligibility.
+- The site's product links lead to Amazon.com. Before aiming promotion at a
+  Swedish audience, check whether a Swedish Associates account and OneLink
+  are configured; a US store ID alone does not establish Swedish commissions.
 
 ## First week after launch
 
 1. Add the domain to Google Search Console and submit
    `https://unicornsite.online/sitemap.xml`. Ownership verification may require
    a DNS or HTML token from the account owner.
-2. Check that the home page, three guides and policy pages are indexable.
+2. Check that the home page, three guides, party planner and policy pages are indexable.
    A submitted sitemap is a discovery hint, not a promise of indexing.
 3. Record a baseline: indexed pages, impressions, clicks and queries in Search
    Console; outbound Amazon clicks and qualifying purchases in Associates.
 4. Add a short link to the most useful guide from any relevant profile that
    the site owner already controls. Avoid automated comments or link exchanges.
+5. Make one original visual of the party planner's printable result and share
+   it manually where people plan parties. Do not claim the figures are live
+   retailer prices or tested product recommendations.
 
 ## Four weeks of useful content
 

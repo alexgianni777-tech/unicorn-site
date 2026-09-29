@@ -43,6 +43,7 @@ def header(active: str = "") -> str:
     links = [
         ("Shop", "/#shop"),
         ("Gift guides", "/#guides"),
+        ("Party planner", "/tools/unicorn-party-planner.html"),
         ("Night lights", "/guides/unicorn-night-lights.html"),
         ("Our approach", "/about.html"),
     ]
@@ -68,7 +69,8 @@ def footer() -> str:
           <p>Thoughtful ideas for unicorn gifts and decor. We organise options and explain what to check before you choose. We do not sell or ship products.</p></div>
         <div class="footer-links"><strong>Explore</strong>
           <a href="/#shop">All picks</a><a href="/guides/unicorn-gifts-for-adults.html">Gift ideas</a>
-          <a href="/guides/unicorn-night-lights.html">Night lights</a><a href="/guides/unicorn-room-decor.html">Room decor</a></div>
+          <a href="/guides/unicorn-night-lights.html">Night lights</a><a href="/guides/unicorn-room-decor.html">Room decor</a>
+          <a href="/tools/unicorn-party-planner.html">Free party planner</a></div>
         <div class="footer-links"><strong>Information</strong>
           <a href="/about.html">About and affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
       </div><div class="footer-bottom">As an Amazon Associate I earn from qualifying purchases. © 2026 Unicorn Finds. Independent site; not affiliated with Amazon, Hasbro or Netflix.</div>
@@ -169,6 +171,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-gifts-for-adults.html"><span class="tile-icon" aria-hidden="true">🎁</span><h3>Unicorn gifts for adults</h3><p>How to pick a present that feels personal without guessing at size or style.</p><span class="tile-link">Read the gift guide →</span></a>
           <a class="guide-tile" href="/guides/unicorn-night-lights.html"><span class="tile-icon" aria-hidden="true">🌙</span><h3>Choosing a night light</h3><p>Compare a bedside glow, an accent lamp and a room projector.</p><span class="tile-link">Compare lighting →</span></a>
           <a class="guide-tile" href="/guides/unicorn-room-decor.html"><span class="tile-icon" aria-hidden="true">🏡</span><h3>Unicorn room decor</h3><p>Build a playful room with a few pieces that work together.</p><span class="tile-link">Explore room ideas →</span></a>
+          <a class="guide-tile" href="/tools/unicorn-party-planner.html"><span class="tile-icon" aria-hidden="true">🎉</span><h3>Free unicorn party planner</h3><p>Work out guest supplies and your own budget, then print a simple party plan.</p><span class="tile-link">Plan a party →</span></a>
         </div>
       </div></section>
       <section class="section wrap" id="shop">
@@ -210,6 +213,54 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
       <p><a class="button button-light" href="/#shop">Browse all ten picks →</a></p>
     </article></main>'''
     return page(title, description, path, body, kind="article")
+
+
+def party_planner() -> str:
+    body = '''<main id="main"><div class="page-intro"><div class="wrap">
+      <div class="breadcrumbs"><a href="/">Home</a> / Free tools</div>
+      <span class="eyebrow">Plan, then play</span><h1>Free unicorn party planner</h1>
+      <p>Estimate supplies and your own budget in one place. Print the result for a shopping trip or a conversation with another organiser.</p>
+    </div></div><div class="article wrap party-page">
+      <p>This planner runs in your browser. It does not send your numbers to us, save a guest list or assume current shop prices. Enter the prices you find and adjust the quantities for your particular party.</p>
+      <form id="party-planner" class="planner-form">
+        <fieldset><legend>People and supplies</legend><div class="planner-fields">
+          <label>Invited guests <input id="party-guests" type="number" min="1" max="300" step="1" value="12" required></label>
+          <label>Hosts and other people <input id="party-hosts" type="number" min="0" max="100" step="1" value="2" required></label>
+          <label>Extra supplies (%) <input id="party-buffer" type="number" min="0" max="100" step="1" value="10" required></label>
+        </div><p class="field-help">The supply estimate starts at one plate and one cup per person. Adjust it for reusable tableware, multiple servings and your guest list.</p></fieldset>
+        <fieldset><legend>Enter your own estimated costs</legend><div class="planner-fields">
+          <label>Currency <select id="party-currency"><option value="USD">USD ($)</option><option value="GBP">GBP (£)</option><option value="EUR">EUR (€)</option><option value="SEK">SEK (kr)</option></select></label>
+          <label>Food and drink per person <input id="party-food" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Favor per invited guest <input id="party-favor" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Cake or dessert, total <input id="party-cake" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Decorations, total <input id="party-decor" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Activities, total <input id="party-activities" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+        </div><p class="field-help">These are planning inputs, not quotes or live prices. Leaving an amount blank counts it as zero.</p></fieldset>
+      </form>
+      <section id="party-result" class="planner-result" aria-live="polite" aria-atomic="true">
+        <h2>Your starting list</h2><p>For 12 guests and 2 other people, start with 16 plates and 16 cups if using one of each per person. Plan 12 favors. Add your own estimated costs above to see a budget.</p>
+      </section>
+      <button class="button planner-print" id="party-print" type="button">Print this plan</button>
+      <h2>A flexible 90-minute party outline</h2>
+      <ol><li><strong>First 15 minutes:</strong> Welcome guests and offer a simple arrival activity while everyone settles in.</li>
+        <li><strong>Next 30 minutes:</strong> Run one main game or craft. Check the age guidance and parts of any supplies before choosing an activity.</li>
+        <li><strong>Next 20 minutes:</strong> Pause for food, drinks and cake. Ask guests about dietary needs when planning the menu.</li>
+        <li><strong>Last 25 minutes:</strong> Leave room for a quieter game, pictures and a relaxed goodbye. Keep a no-supplies backup activity ready.</li></ol>
+      <p>This outline is an example, not a fixed schedule. Allow more time for setup, cleanup, travel or a larger group.</p>
+      <h2>Before you buy</h2>
+      <ul><li>Confirm how many people are actually coming, including adults who will eat.</li>
+        <li>Check package counts, age guidance and what each set includes. The planner's plate and cup figures are only a starting point.</li>
+        <li>Compare your entered costs with your target budget and keep a little room for forgotten supplies.</li>
+        <li>If you choose a character theme such as My Little Pony, check that licensed goods really come from the named brand.</li></ul>
+      <p>A paintable planter could be one craft idea if the listing's quantity and age guidance suit your group. Confirm whether paint, brushes and protective table covering are included.</p>
+      ''' + affiliate_note() + inline_pick("planters", "A possible craft activity; verify the current pack size and included supplies before planning for a group.") + '''
+      <p>Looking for a lasting room accent after the party? <a href="/guides/unicorn-room-decor.html">Read the room decor guide</a>. For a present, <a href="/guides/unicorn-gifts-for-adults.html">start with the gift guide</a>.</p>
+    </div><script src="/assets/party-planner.js" defer></script></main>'''
+    return page(
+        "Free Unicorn Birthday Party Planner & Budget | Unicorn Finds",
+        "Plan a unicorn party with a free guest supply and budget calculator, a printable list and a flexible 90-minute outline. No account or live prices needed.",
+        "/tools/unicorn-party-planner.html", body, active="/tools/unicorn-party-planner.html",
+    )
 
 
 def write(path: str, contents: str) -> None:
@@ -280,6 +331,7 @@ def main() -> None:
         <h2>If this is a child's room</h2>
         <p>Keep small accessories and electrical items appropriate to the child's age and follow the maker's instructions. Place fragile pieces where they cannot be knocked down during play. A pretty photo is only one part of a good room choice.</p>'''
     ))
+    write("tools/unicorn-party-planner.html", party_planner())
     about_body = f'''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Behind the picks</span><h1>About Unicorn Finds</h1><p>A small independent guide to unicorn gifts, lighting and decor.</p></div></div>
       <div class="article wrap"><h2>How we choose what to show</h2>
       <p>We group existing product links by the job a gift or decoration can do. We write practical checklists to help you compare size, materials, cleaning, included parts and placement. We have not personally tested these products, and we do not reproduce Amazon customer ratings or reviews.</p>
@@ -294,7 +346,7 @@ def main() -> None:
         "/about.html", about_body, active="/about.html",
     ))
     privacy_body = '''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Site information</span><h1>Privacy</h1><p>What happens when you visit Unicorn Finds or follow a product link.</p></div></div>
-      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have accounts, forms or first-party analytics scripts, and the site code does not set its own cookies. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
+      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have accounts or first-party analytics scripts, and the site code does not set its own cookies. The party planner processes numbers in your browser and does not send or save them. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
       <h2>When you follow a link</h2><p>Product links take you to Amazon. Amazon may process your visit and purchase according to its own privacy notice and affiliate program. We do not see your payment details or the contents of your order. The site also links to third-party information; their privacy notices apply when you visit them.</p>
       <h2>Changes</h2><p>If we add analytics, a newsletter or a contact form, this page will need to be updated before those features go live. Last revised: 29 September 2026.</p>
       <p><a href="/about.html">Read the affiliate disclosure</a> · <a href="/">Back to the home page</a></p></div></main>'''
@@ -303,7 +355,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/about.html", "/privacy.html"]
+    urls = ["/", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
