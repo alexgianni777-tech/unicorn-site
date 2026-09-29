@@ -2,6 +2,10 @@
 
 Static, English-language Amazon affiliate gift guide for `unicornsite.online`.
 
+The free unicorn party planner at `/tools/unicorn-party-planner.html` estimates
+supplies and a visitor-entered budget locally in the browser. It does not send
+or save form values. The numbers are a starting point, not retailer prices.
+
 ## Build
 
 Run `python build.py` from any directory. The script reads `products.json` and
@@ -23,12 +27,12 @@ with the source when you change content. GitHub Pages serves the static files;
 The old home page mixed product images with links that did not always match.
 This refresh uses original category illustrations rather than presenting
 unverified photos as exact items. Two mismatched titles were corrected after
-checking the Amazon redirects. The current link destinations still need a
-final owner check before publication. No new product or entertainment affiliate
-links were invented during this refresh.
+checking the Amazon redirects. Recheck the destinations and exact listings
+periodically. No new product or entertainment affiliate links were invented.
 
 ## Organic traffic
 
 See [TRAFFIC.md](TRAFFIC.md) for a practical launch checklist, content ideas and
 measurement. The sitemap helps discovery but cannot guarantee indexing or
-search rankings. The site currently installs no first-party analytics.
+search rankings. The site currently installs no first-party analytics or display
+ads. Any ad integration needs a reviewed ad account and an updated privacy notice.
