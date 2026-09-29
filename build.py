@@ -346,7 +346,7 @@ def main() -> None:
         "/about.html", about_body, active="/about.html",
     ))
     privacy_body = '''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Site information</span><h1>Privacy</h1><p>What happens when you visit Unicorn Finds or follow a product link.</p></div></div>
-      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have accounts, forms or first-party analytics scripts, and the site code does not set its own cookies. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
+      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have accounts or first-party analytics scripts, and the site code does not set its own cookies. The party planner processes numbers in your browser and does not send or save them. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
       <h2>When you follow a link</h2><p>Product links take you to Amazon. Amazon may process your visit and purchase according to its own privacy notice and affiliate program. We do not see your payment details or the contents of your order. The site also links to third-party information; their privacy notices apply when you visit them.</p>
       <h2>Changes</h2><p>If we add analytics, a newsletter or a contact form, this page will need to be updated before those features go live. Last revised: 29 September 2026.</p>
       <p><a href="/about.html">Read the affiliate disclosure</a> · <a href="/">Back to the home page</a></p></div></main>'''
