@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 500" role="img" aria-label="Illustrated unicorn room decor">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f7e5ef"/><stop offset="1" stop-color="#e9f5ed"/></linearGradient>
+    <linearGradient id="mane" x2="1" y2="1"><stop stop-color="#f5a4c2"/><stop offset=".55" stop-color="#b9a4e9"/><stop offset="1" stop-color="#9bd9c8"/></linearGradient>
+  </defs>
+  <rect width="560" height="500" fill="url(#bg)"/>
+  <circle cx="465" cy="88" r="45" fill="#fff" opacity=".35"/><circle cx="88" cy="370" r="60" fill="#fff" opacity=".3"/>
+  <path d="M73 392h414" stroke="#ab8eaa" stroke-width="9" stroke-linecap="round"/>
+  <rect x="117" y="72" width="301" height="291" rx="13" fill="#fff" stroke="#b781a6" stroke-width="15"/>
+  <rect x="139" y="94" width="257" height="247" rx="5" fill="#f4eefa"/>
+  <path d="m268 155 18-46 17 48" fill="#f5d68e" stroke="#e4ba76" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M196 275c-2-74 37-122 94-122 56 0 92 49 92 121 0 45-37 68-93 68-56 0-93-23-93-67Z" fill="#fffaf5"/>
+  <path d="m218 189-16-39 48 25M332 175l43-25-12 44" fill="#fffaf5" stroke="#e9d8e8" stroke-width="4"/>
+  <path d="M235 164c29-34 79-30 98 4 11 19 8 37-4 48-20-15-37-16-54-6-17 10-31 20-58 18-5-23 3-46 18-64Z" fill="url(#mane)"/>
+  <path d="M248 269q15 16 30 0M307 269q15 16 30 0" fill="none" stroke="#584464" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="236" cy="298" r="12" fill="#f5b4ca"/><circle cx="340" cy="298" r="12" fill="#f5b4ca"/>
+  <path d="M279 302q11 10 21 0" fill="none" stroke="#b7799d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M45 379c0-33 20-49 55-49s55 16 55 49v13H45z" fill="#c1a0df"/>
+  <path d="m63 336-9-19 25 13M126 329l24-12-11 20" fill="#c1a0df"/>
+  <path d="M437 298c-17-37-5-66 15-71 12 21 13 36 9 59M463 297c3-49 18-70 36-65 1 36-14 58-33 72M452 302c-29-25-35-46-23-61 18 12 28 29 32 53" fill="#83bd9f"/>
+  <path d="M420 307h85l-10 69c-2 12-12 18-27 18h-11c-16 0-25-6-27-18z" fill="#f7d9be"/>
+  <path d="m70 106 6 11 13 2-10 9 2 13-11-6-11 6 2-13-10-9 13-2zM460 142l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="#fff"/>
+</svg>
