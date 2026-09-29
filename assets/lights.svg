@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 500" role="img" aria-label="Illustrated glowing unicorn lamp">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#392b69"/><stop offset="1" stop-color="#a674b4"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#fff7dc" stop-opacity=".9"/><stop offset="1" stop-color="#ffd7ed" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x2=".2" y2="1"><stop stop-color="#fff9ef"/><stop offset="1" stop-color="#f7d6f3"/></linearGradient>
+    <linearGradient id="mane" x2="1" y2="1"><stop stop-color="#f7a9c9"/><stop offset=".55" stop-color="#ab9ce5"/><stop offset="1" stop-color="#8ad9db"/></linearGradient>
+  </defs>
+  <rect width="560" height="500" fill="url(#bg)"/>
+  <circle cx="275" cy="260" r="205" fill="url(#glow)"/>
+  <g fill="#fff4cf"><circle cx="88" cy="100" r="4"/><circle cx="473" cy="83" r="5"/><circle cx="476" cy="383" r="3"/><circle cx="92" cy="352" r="3"/>
+    <path d="m160 70 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2zM444 180l6 12 13 2-10 9 2 13-11-6-11 6 2-13-10-9 13-2z"/></g>
+  <ellipse cx="280" cy="424" rx="176" ry="32" fill="#f8d8ff" opacity=".25"/>
+  <path d="M146 389c-18-32-7-65 26-76 17-57 62-88 119-86 63 2 101 39 105 96 35 18 37 54 20 75-18 24-50 30-91 28H230c-41 0-68-8-84-37Z" fill="#fff" opacity=".93"/>
+  <path d="M192 350c0-73 30-146 105-146 70 0 107 59 107 145 0 43-41 73-105 73-66 0-107-28-107-72Z" fill="url(#body)"/>
+  <path d="m292 185 19-94 20 98" fill="#f9e49e" stroke="#efd089" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M221 234c-23-36-10-71 17-77l34 43M356 201l32-44c26 8 35 35 19 70" fill="#fff5f0" stroke="#f5dced" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M244 187c18-27 54-42 83-25 24 15 34 38 26 61-23-12-30-8-44 1-20-17-31-18-51-9-6 18-16 26-32 29-13-19-10-38 18-57Z" fill="url(#mane)"/>
+  <path d="M251 167c-5 13-1 25 8 38M281 159c-2 18 5 27 13 38M315 165c2 15 8 25 17 33" fill="none" stroke="#fff" stroke-width="5" opacity=".55"/>
+  <path d="M248 303q17 18 34 0M319 303q17 18 34 0" fill="none" stroke="#55415e" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="237" cy="336" r="13" fill="#f7adc5" opacity=".75"/><circle cx="363" cy="336" r="13" fill="#f7adc5" opacity=".75"/>
+  <path d="M287 339q12 13 25 0" fill="none" stroke="#a37193" stroke-width="5" stroke-linecap="round"/>
+</svg>
