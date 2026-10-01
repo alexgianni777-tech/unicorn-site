@@ -1,0 +1,38 @@
+name: Unicorn site validation
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build site
+        run: python build.py
+      - name: Verify generated files are committed
+        run: |
+          git diff --exit-code --             index.html             guides/unicorn-gifts-for-adults.html             guides/unicorn-night-lights.html             guides/unicorn-room-decor.html             tools/unicorn-party-planner.html             about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
+      - name: Affiliate and conversion smoke checks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          assert "As an Amazon Associate I earn from qualifying purchases." in html
+          assert 'id="quick-picks"' in html
+          assert html.count('class="quick-pick"') == 4
+          assert html.count("product-cta") == 10
+          assert html.count('rel="sponsored nofollow noopener noreferrer"') >= 14
+          assert "Check current Amazon listing" in html
+          assert "Compare the quick picks" in html
+          print("Unicorn conversion checks passed.")
+          PY
