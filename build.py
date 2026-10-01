@@ -123,7 +123,7 @@ def product_card(product: dict) -> str:
       </div>
       <div class="product-content"><h3>{esc(product['title'])}</h3>
         <p>{esc(product['description'])}</p>
-        <a class="button" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank">{('Browse on Amazon' if product['id'] == 'night-light-search' else 'See on Amazon')} <span aria-hidden="true">↗</span></a>
+        <a class="button product-cta" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank">{('Compare options on Amazon' if product['id'] == 'night-light-search' else 'Check current Amazon listing')} <span aria-hidden="true">↗</span></a>
         <span class="product-footnote">Paid link · Check the current listing</span>
       </div>
     </article>'''
@@ -146,13 +146,34 @@ def category(category_id: str, heading: str, intro: str) -> str:
     </section>'''
 
 
+def quick_pick(product_id: str, badge: str, why: str) -> str:
+    product = BY_ID[product_id]
+    cta = "Compare options on Amazon" if product_id == "night-light-search" else "Check current Amazon listing"
+    return f'''<article class="quick-pick">
+      <div class="quick-pick-icon"><img src="/{esc(product['image'])}" alt="" loading="lazy" width="88" height="78"></div>
+      <div class="quick-pick-copy"><span class="quick-badge">{esc(badge)}</span><h3>{esc(product['title'])}</h3>
+        <p>{esc(why)}</p>
+        <a class="quick-link" href="{esc(product['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{cta} <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>'''
+
+
+def comparison_row(product_id: str, fit: str, check: str) -> str:
+    product = BY_ID[product_id]
+    return f'''<tr>
+      <th scope="row"><a href="#{esc(product['id'])}">{esc(product['title'])}</a></th>
+      <td>{esc(fit)}</td><td>{esc(check)}</td>
+      <td><a class="table-cta" href="{esc(product['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer">Amazon ↗</a></td>
+    </tr>'''
+
+
 def home() -> str:
     body = f'''<main id="main">
       <section class="hero"><div class="hero-inner">
-        <div><div class="eyebrow">Gifts, little joys &amp; room ideas</div>
-          <h1>Find your kind of <em>unicorn magic.</em></h1>
-          <p class="hero-lede">Browse ten unicorn-themed finds for mugs, night lights and decor. Use our practical guides to choose a gift or style a room, then check the latest details with the seller.</p>
-          <div class="hero-actions"><a class="button" href="#shop">Explore the picks ↓</a><a class="button button-light" href="#guides">Read the guides</a></div>
+        <div><div class="eyebrow">Unicorn gifts made easier</div>
+          <h1>Find a unicorn gift <em>without the guesswork.</em></h1>
+          <p class="hero-lede">Start with four quick picks, compare what each is good for, or browse all ten unicorn-themed ideas for mugs, lights and room decor.</p>
+          <div class="hero-actions"><a class="button" href="#quick-picks">See the quick picks ↓</a><a class="button button-light" href="#shop">Browse all ten</a></div>
           <p class="hero-note">Independent gift guide · Amazon affiliate links are clearly marked</p>
         </div>
         <div class="hero-collage" aria-label="Illustrations of unicorn-inspired gift ideas">
@@ -164,6 +185,28 @@ def home() -> str:
       <div class="jump wrap" aria-label="Jump to a category"><span>Browse by mood</span>
         <a href="#drinkware">☕ Mugs &amp; drinkware</a><a href="#lights">✦ Night lights</a><a href="#decor">♡ Decor &amp; little gifts</a>
       </div>
+      <section class="section wrap quick-section" id="quick-picks">
+        <div class="section-heading"><span class="eyebrow">Short on time?</span><h2>Four easy places to start</h2>
+          <p>Choose by the kind of gift you want to give. These are shortcuts into the collection, not rankings or hands-on reviews.</p></div>
+        <div class="quick-grid">
+          {quick_pick('mug-set','Coffee & tea gift','A small, playful gift for someone who already uses mugs. Check the current design and care instructions.')}
+          {quick_pick('cloud-lamp','Bedside glow','A compact room accent when you want a decorative light rather than a large room effect.')}
+          {quick_pick('projector','Bigger room effect','A starting point for someone who wants light across a wall or ceiling rather than one small lamp.')}
+          {quick_pick('planters','Creative gift','A craft-style option for someone who enjoys painting or small desk and shelf projects.')}
+        </div>
+        <div class="compare-block">
+          <div class="compare-heading"><h3>Compare the quick picks</h3><p>Use the last column to check the current Amazon listing before deciding.</p></div>
+          <div class="table-scroll"><table class="pick-table">
+            <thead><tr><th>Pick</th><th>Good when you want…</th><th>Check before buying</th><th>Current listing</th></tr></thead>
+            <tbody>
+              {comparison_row('mug-set','a small everyday gift','capacity and care instructions')}
+              {comparison_row('cloud-lamp','a compact bedside accent','power method and dimensions')}
+              {comparison_row('projector','a room-wide lighting effect','projection distance and controls')}
+              {comparison_row('planters','a hands-on craft gift','set quantity and included supplies')}
+            </tbody>
+          </table></div>
+        </div>
+      </section>
       <section class="section section-tint" id="guides"><div class="wrap">
         <div class="section-heading"><span class="eyebrow">Start with an idea</span><h2>Find the right kind of magic</h2>
           <p>Three short guides for different decisions. Each explains what matters before you head to a retailer.</p></div>
@@ -175,8 +218,8 @@ def home() -> str:
         </div>
       </div></section>
       <section class="section wrap" id="shop">
-        <div class="section-heading"><span class="eyebrow">The collection</span><h2>Ten finds, three easy ways to browse</h2>
-          <p>These are ideas to investigate, not hands-on reviews or a promise of current price, rating, stock or delivery. Confirm the exact item on Amazon before ordering.</p></div>
+        <div class="section-heading"><span class="eyebrow">The full collection</span><h2>All ten unicorn finds</h2>
+          <p>Browse by use, then check the exact listing on Amazon. These are curated starting points, not hands-on reviews or promises of current price, rating, stock or delivery.</p></div>
         {affiliate_note()}
         {category('drinkware','Unicorn mugs &amp; drinkware','For a desk, a morning routine or a themed gift box. Think about how the recipient will use it before choosing a decorative shape.')}
         {category('lights','Night lights &amp; glowing rooms','A gentle bedside light, a decorative lamp and a projector create very different effects. The lighting guide helps you compare them.')}
@@ -196,8 +239,8 @@ def home() -> str:
       </section>
     </main>'''
     return page(
-        "Unicorn Gifts, Night Lights & Room Decor | Unicorn Finds",
-        "Explore ten unicorn-themed gift ideas, mugs, night lights and room decor, with practical buying guides and clearly marked Amazon links.",
+        "Unicorn Gifts: 10 Easy Gift Ideas, Lights & Decor | Unicorn Finds",
+        "Find unicorn gift ideas faster with four quick picks, a simple comparison and ten curated mugs, lights and room decor ideas with clearly marked Amazon links.",
         "/", body,
     )
 
