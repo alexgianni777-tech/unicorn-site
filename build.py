@@ -188,6 +188,7 @@ def home() -> str:
       <section class="section wrap quick-section" id="quick-picks">
         <div class="section-heading"><span class="eyebrow">Short on time?</span><h2>Four easy places to start</h2>
           <p>Choose by the kind of gift you want to give. These are shortcuts into the collection, not rankings or hands-on reviews.</p></div>
+        <p class="quick-disclosure">As an Amazon Associate I earn from qualifying purchases. The Amazon links below are paid links.</p>
         <div class="quick-grid">
           {quick_pick('mug-set','Coffee & tea gift','A small, playful gift for someone who already uses mugs. Check the current design and care instructions.')}
           {quick_pick('cloud-lamp','Bedside glow','A compact room accent when you want a decorative light rather than a large room effect.')}
