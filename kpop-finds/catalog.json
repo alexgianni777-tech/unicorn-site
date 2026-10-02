@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "bts",
+    "name": "BTS",
+    "initial": "BTS",
+    "signal": "Major global demand",
+    "summary": "Active 2026 world-tour merch plus persistent search and fandom demand.",
+    "official": "https://shop.weverse.io/en/shop/USD/artists/2",
+    "items": [
+      [
+        "Official-style albums & vinyl",
+        "bts album vinyl kpop"
+      ],
+      [
+        "Light stick & concert accessories",
+        "BTS light stick concert merch"
+      ],
+      [
+        "Tour apparel & hoodies",
+        "BTS tour hoodie shirt merch"
+      ],
+      [
+        "Photocard & display accessories",
+        "BTS photocard binder holder"
+      ]
+    ]
+  },
+  {
+    "slug": "blackpink",
+    "name": "BLACKPINK",
+    "initial": "BP",
+    "signal": "High global attention",
+    "summary": "Group merch plus strong solo-member interest across JENNIE, LISA, ROSÉ and JISOO.",
+    "official": "https://shop.weverse.io/en/shop/USD/artists/32",
+    "items": [
+      [
+        "Light stick & concert accessories",
+        "BLACKPINK light stick merch"
+      ],
+      [
+        "DEADLINE / tour-style apparel",
+        "BLACKPINK DEADLINE tour merch shirt"
+      ],
+      [
+        "Albums, vinyl & collector editions",
+        "BLACKPINK album vinyl"
+      ],
+      [
+        "Member-inspired gifts",
+        "BLACKPINK Jennie Lisa Rose Jisoo merch"
+      ]
+    ]
+  },
+  {
+    "slug": "kpop-demon-hunters",
+    "name": "KPop Demon Hunters",
+    "initial": "GOLD",
+    "signal": "Breakout fan franchise",
+    "summary": "Golden, HUNTR/X and Saja Boys products span dolls, collectibles, apparel and soundtrack merch.",
+    "official": "https://www.netflix.shop/collections/kpop-demon-hunters",
+    "items": [
+      [
+        "Golden / HUNTR/X apparel",
+        "KPop Demon Hunters Golden HUNTR X shirt"
+      ],
+      [
+        "Rumi, Mira & Zoey dolls",
+        "KPop Demon Hunters Rumi Mira Zoey doll"
+      ],
+      [
+        "Figures & collectibles",
+        "KPop Demon Hunters Funko collectibles"
+      ],
+      [
+        "Soundtrack & posters",
+        "KPop Demon Hunters soundtrack poster"
+      ]
+    ]
+  },
+  {
+    "slug": "stray-kids",
+    "name": "Stray Kids",
+    "initial": "SKZ",
+    "signal": "Strong current attention",
+    "summary": "SKZOO, albums, light sticks and tour merchandise create several high-intent gift paths.",
+    "official": "https://jypj-store.com/collections/stray-kids-official-goods",
+    "items": [
+      [
+        "SKZOO plush & character merch",
+        "Stray Kids SKZOO plush official merch"
+      ],
+      [
+        "Light stick & concert accessories",
+        "Stray Kids light stick merch"
+      ],
+      [
+        "Albums & collector versions",
+        "Stray Kids album kpop"
+      ],
+      [
+        "Tour shirts & hoodies",
+        "Stray Kids tour merch hoodie shirt"
+      ]
+    ]
+  },
+  {
+    "slug": "katseye",
+    "name": "KATSEYE",
+    "initial": "EYE",
+    "signal": "Fast-rising interest",
+    "summary": "WILD-era CDs, vinyl, tour shirts and member versions make KATSEYE a strong trend-led category.",
+    "official": "https://shop.katseye.world/",
+    "items": [
+      [
+        "WILD CDs & vinyl",
+        "KATSEYE WILD album vinyl CD"
+      ],
+      [
+        "Tour shirts & apparel",
+        "KATSEYE WILDWORLD tour shirt merch"
+      ],
+      [
+        "Member gifts & photocards",
+        "KATSEYE photocard member merch"
+      ],
+      [
+        "Keyrings & small accessories",
+        "KATSEYE keychain merch"
+      ]
+    ]
+  },
+  {
+    "slug": "enhypen",
+    "name": "ENHYPEN",
+    "initial": "EN-",
+    "signal": "Active tour fandom",
+    "summary": "Current tour merch, keyrings, albums and light-stick accessories offer broad gift intent.",
+    "official": "https://shop.weverse.io/en/shop/USD/artists/10",
+    "items": [
+      [
+        "Albums & collector versions",
+        "ENHYPEN album kpop"
+      ],
+      [
+        "Light stick & concert accessories",
+        "ENHYPEN light stick merch"
+      ],
+      [
+        "Keyrings & small collectibles",
+        "ENHYPEN keyring merch"
+      ],
+      [
+        "Tour-style apparel",
+        "ENHYPEN tour hoodie shirt merch"
+      ]
+    ]
+  },
+  {
+    "slug": "aespa",
+    "name": "aespa",
+    "initial": "ae",
+    "signal": "High 2026 visibility",
+    "summary": "Fanlight accessories, albums, trading cards and concert goods support both collectors and gift buyers.",
+    "official": "https://global.shop.smtown.com/collections/aespa",
+    "items": [
+      [
+        "Fanlight & accessories",
+        "aespa fanlight light stick merch"
+      ],
+      [
+        "Albums & vinyl",
+        "aespa album vinyl kpop"
+      ],
+      [
+        "Trading cards & binders",
+        "aespa photocard trading cards"
+      ],
+      [
+        "Concert apparel & accessories",
+        "aespa tour merch shirt bag"
+      ]
+    ]
+  },
+  {
+    "slug": "twice",
+    "name": "TWICE",
+    "initial": "TW",
+    "signal": "Established fan demand",
+    "summary": "Candybong, albums, member goods and tour merchandise remain gift-friendly evergreen categories.",
+    "official": "https://twiceshop.com/",
+    "items": [
+      [
+        "Candybong & concert accessories",
+        "TWICE Candybong light stick"
+      ],
+      [
+        "Albums & vinyl",
+        "TWICE album vinyl kpop"
+      ],
+      [
+        "Member & Lovelys gifts",
+        "TWICE member merch keychain"
+      ],
+      [
+        "Tour shirts & apparel",
+        "TWICE world tour merch shirt hoodie"
+      ]
+    ]
+  }
+]
