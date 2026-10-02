@@ -35,3 +35,9 @@ h1 em{font-style:normal;background:linear-gradient(90deg,#ff70bc,#b695ff,#66e9f8
 .footer{border-top:1px solid #222131;padding:42px 0;color:var(--muted);font-size:.82rem}.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.footer a{color:#ddd9eb}
 @media(max-width:950px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:380px}.artist-grid{grid-template-columns:repeat(2,1fr)}.merch-grid{grid-template-columns:repeat(2,1fr)}.finder{grid-template-columns:1fr}.navlinks a:not(.proto){display:none}}
 @media(max-width:620px){.hero{padding-top:55px}.hero-art{min-height:320px}.disc{width:190px;height:190px}.ticket{left:8%;top:135px;width:84%}.artist-grid,.merch-grid,.trust,.linkcards{grid-template-columns:1fr}.section-head,.footer-grid{display:block}.footer-grid>*{margin-bottom:12px}}
+
+.ad-slot{width:min(1180px,calc(100% - 34px));margin:22px auto 0;padding:12px 0;text-align:center}
+.ad-slot[hidden]{display:none!important}
+.ad-label{display:block;margin-bottom:6px;color:#817d95;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase}
+.ad-mount{min-height:90px;border-radius:16px;overflow:hidden}
+.guide-ad{max-width:850px;margin:0 auto 52px;border-top:1px solid var(--line);padding-top:24px}
