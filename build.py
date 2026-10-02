@@ -43,6 +43,7 @@ def header(active: str = "") -> str:
     links = [
         ("Shop", "/#shop"),
         ("Gift guides", "/#guides"),
+        ("Gift finder", "/tools/unicorn-gift-finder.html"),
         ("Party planner", "/tools/unicorn-party-planner.html"),
         ("Night lights", "/guides/unicorn-night-lights.html"),
         ("Our approach", "/about.html"),
@@ -68,9 +69,10 @@ def footer() -> str:
         <div><a class="brand" href="/">Unicorn Finds</a>
           <p>Thoughtful ideas for unicorn gifts and decor. We organise options and explain what to check before you choose. We do not sell or ship products.</p></div>
         <div class="footer-links"><strong>Explore</strong>
-          <a href="/#shop">All picks</a><a href="/guides/unicorn-gifts-for-adults.html">Gift ideas</a>
-          <a href="/guides/unicorn-night-lights.html">Night lights</a><a href="/guides/unicorn-room-decor.html">Room decor</a>
-          <a href="/tools/unicorn-party-planner.html">Free party planner</a></div>
+          <a href="/#shop">All picks</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a>
+          <a href="/guides/unicorn-birthday-gifts.html">Birthday gifts</a><a href="/guides/unicorn-gifts-for-kids.html">Gifts for kids</a>
+          <a href="/guides/unicorn-gifts-for-adults.html">Gifts for adults</a><a href="/guides/unicorn-night-lights.html">Night lights</a>
+          <a href="/guides/unicorn-room-decor.html">Room decor</a><a href="/tools/unicorn-party-planner.html">Free party planner</a></div>
         <div class="footer-links"><strong>Information</strong>
           <a href="/about.html">About and affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
       </div><div class="footer-bottom">As an Amazon Associate I earn from qualifying purchases. © 2026 Unicorn Finds. Independent site; not affiliated with Amazon, Hasbro or Netflix.</div>
@@ -210,8 +212,11 @@ def home() -> str:
       </section>
       <section class="section section-tint" id="guides"><div class="wrap">
         <div class="section-heading"><span class="eyebrow">Start with an idea</span><h2>Find the right kind of magic</h2>
-          <p>Three short guides for different decisions. Each explains what matters before you head to a retailer.</p></div>
+          <p>Pick a recipient or occasion, or use the free gift finder to narrow the ten-item collection in seconds.</p></div>
         <div class="guide-grid">
+          <a class="guide-tile" href="/tools/unicorn-gift-finder.html"><span class="tile-icon" aria-hidden="true">✨</span><h3>Unicorn gift finder</h3><p>Choose the kind of gift you want and get three relevant starting points.</p><span class="tile-link">Find a gift →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-birthday-gifts.html"><span class="tile-icon" aria-hidden="true">🎂</span><h3>Unicorn birthday gifts</h3><p>Pick a birthday present by use: everyday, creative, room decor or a small surprise.</p><span class="tile-link">Browse birthday ideas →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-gifts-for-kids.html"><span class="tile-icon" aria-hidden="true">🌈</span><h3>Unicorn gifts for kids</h3><p>Compare playful ideas while checking age guidance, size and practical details.</p><span class="tile-link">Read the kids guide →</span></a>
           <a class="guide-tile" href="/guides/unicorn-gifts-for-adults.html"><span class="tile-icon" aria-hidden="true">🎁</span><h3>Unicorn gifts for adults</h3><p>How to pick a present that feels personal without guessing at size or style.</p><span class="tile-link">Read the gift guide →</span></a>
           <a class="guide-tile" href="/guides/unicorn-night-lights.html"><span class="tile-icon" aria-hidden="true">🌙</span><h3>Choosing a night light</h3><p>Compare a bedside glow, an accent lamp and a room projector.</p><span class="tile-link">Compare lighting →</span></a>
           <a class="guide-tile" href="/guides/unicorn-room-decor.html"><span class="tile-icon" aria-hidden="true">🏡</span><h3>Unicorn room decor</h3><p>Build a playful room with a few pieces that work together.</p><span class="tile-link">Explore room ideas →</span></a>
@@ -257,6 +262,47 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
       <p><a class="button button-light" href="/#shop">Browse all ten picks →</a></p>
     </article></main>'''
     return page(title, description, path, body, kind="article")
+
+
+def gift_finder() -> str:
+    body = '''<main id="main"><div class="page-intro"><div class="wrap">
+      <div class="breadcrumbs"><a href="/">Home</a> / Free tools</div>
+      <span class="eyebrow">A faster way to choose</span><h1>Unicorn gift finder</h1>
+      <p>Choose the kind of gift you want. We will narrow the existing collection to three starting points, then you can check the current Amazon listings.</p>
+    </div></div><div class="article wrap finder-page">
+      ''' + affiliate_note() + '''
+      <section class="finder-box" aria-labelledby="finder-heading"><h2 id="finder-heading">What kind of gift are you looking for?</h2>
+        <p>There is no hidden scoring and no claim that these are hands-on reviews. The buttons simply match your choice to products already in this guide.</p>
+        <div class="finder-choices" role="group" aria-label="Gift type">
+          <button type="button" class="finder-choice" data-mode="everyday">Everyday gift</button>
+          <button type="button" class="finder-choice" data-mode="glow">Room glow</button>
+          <button type="button" class="finder-choice" data-mode="creative">Creative gift</button>
+          <button type="button" class="finder-choice" data-mode="small">Small surprise</button>
+        </div>
+      </section>
+      <section id="finder-result" class="finder-result" aria-live="polite">
+        <h2>Your three starting points</h2>
+        <p>Choose a gift type above to see three ideas.</p>
+      </section>
+      <div id="finder-products" hidden>
+        <template data-product="mug-set">''' + inline_pick("mug-set", "A playful mug idea; check the current design, capacity and care instructions.") + '''</template>
+        <template data-product="tumbler">''' + inline_pick("tumbler", "A drinkware option; verify capacity, lid design and cleaning instructions.") + '''</template>
+        <template data-product="keychain">''' + inline_pick("keychain", "A compact bag or key accessory; check the size and attachment.") + '''</template>
+        <template data-product="cloud-lamp">''' + inline_pick("cloud-lamp", "A compact accent light; check power details and dimensions.") + '''</template>
+        <template data-product="projector">''' + inline_pick("projector", "A larger lighting effect; check projection distance, controls and power.") + '''</template>
+        <template data-product="night-light-search">''' + inline_pick("night-light-search", "Compare several lamp styles and confirm the exact listing you choose.") + '''</template>
+        <template data-product="planters">''' + inline_pick("planters", "A craft-style idea; check the set quantity and included supplies.") + '''</template>
+        <template data-product="wall-art">''' + inline_pick("wall-art", "A room-decor idea; verify measurements and whether frames are included.") + '''</template>
+        <template data-product="pillow-cover">''' + inline_pick("pillow-cover", "A small room refresh; check dimensions, fabric and whether an insert is included.") + '''</template>
+        <template data-product="sculpted-mug">''' + inline_pick("sculpted-mug", "A more decorative mug; check size, cleaning advice and included parts.") + '''</template>
+      </div>
+      <p class="finder-next"><a href="/guides/unicorn-birthday-gifts.html">Shopping for a birthday? Read the birthday guide →</a></p>
+    </div><script src="/assets/gift-finder.js" defer></script></main>'''
+    return page(
+        "Unicorn Gift Finder: Choose a Gift in Seconds | Unicorn Finds",
+        "Use a free unicorn gift finder to narrow ten curated gift ideas to three starting points for everyday gifts, room lighting, creative gifts or small surprises.",
+        "/tools/unicorn-gift-finder.html", body, active="/tools/unicorn-gift-finder.html",
+    )
 
 
 def party_planner() -> str:
@@ -335,6 +381,49 @@ def main() -> None:
         <h2>Make the decision in five minutes</h2>
         <ol><li>Choose one use: drinking, decorating or carrying.</li><li>Check the recipient's available space and preferred colours.</li><li>Read the current listing for dimensions and care instructions.</li><li>Check which version, quantity and seller are selected.</li><li>Keep the receipt or review the return terms if this is a gift.</li></ol>'''
     ))
+    write("guides/unicorn-birthday-gifts.html", guide_page(
+        "Unicorn Birthday Gifts: Practical Ideas by Gift Type | Unicorn Finds",
+        "Choose a unicorn birthday gift by how it will be used. Compare drinkware, creative gifts, lighting and small surprises with clearly marked Amazon links.",
+        "/guides/unicorn-birthday-gifts.html",
+        "A birthday gift is easier to choose when you start with how the person will use it rather than trying to find one universal 'best' unicorn present.",
+        '''<h2>Start with the kind of birthday moment</h2>
+        <p>For an everyday gift, drinkware is easy to understand and use. For someone who likes making things, a paintable item can turn the present into an activity. For a bedroom refresh, lighting or decor has a bigger visual effect. If you are unsure about their room or style, a smaller accessory is easier to place.</p>
+        <h2>Everyday birthday ideas</h2>'''
+        + inline_pick("mug-set", "A small everyday present; check the design, capacity and washing instructions.")
+        + inline_pick("tumbler", "A cold-drink option; check lid style, capacity and cleaning instructions.")
+        + '''<h2>Creative birthday ideas</h2>
+        <p>A craft-style present works best when the recipient actually enjoys making or decorating things. Check the current listing for quantities, included materials and stated age guidance.</p>'''
+        + inline_pick("planters", "A paintable project; verify how many pieces and supplies are included.")
+        + '''<h2>For a room makeover</h2>
+        <p>A compact lamp and a projector create very different effects. Measure the available space and confirm the power method before ordering.</p>'''
+        + inline_pick("cloud-lamp", "A smaller bedside or shelf accent; check power method and dimensions.")
+        + inline_pick("projector", "A room-wide effect; check projection distance, controls and included scenes.")
+        + '''<h2>When you need a smaller surprise</h2>
+        <p>If you do not know the recipient's room measurements or drinkware preferences, a small accessory may require less guessing. Still check the dimensions because close-up listing photos can make compact products appear larger.</p>'''
+        + inline_pick("keychain", "A compact accessory; verify size and attachment style.")
+        + '''<h2>Birthday checklist before checkout</h2>
+        <ol><li>Confirm the exact version selected on Amazon.</li><li>Check dimensions, included parts and age guidance where relevant.</li><li>Check the seller, delivery estimate and return terms on the current listing.</li><li>If it is going straight to the recipient, confirm the shipping address and gift options during checkout.</li></ol>'''
+    ))
+    write("guides/unicorn-gifts-for-kids.html", guide_page(
+        "Unicorn Gifts for Kids: What to Check Before You Buy | Unicorn Finds",
+        "Explore unicorn gift ideas for kids while checking age guidance, size, small parts, power method and what is included before purchasing.",
+        "/guides/unicorn-gifts-for-kids.html",
+        "For a child's gift, the theme matters, but age guidance, size and how the item will actually be used matter more.",
+        '''<h2>Choose by activity, not just appearance</h2>
+        <p>Think about whether the child enjoys crafts, room decor, carrying small accessories or using a special cup. That narrows the choice more reliably than selecting whichever listing has the brightest photo.</p>
+        <h2>For a child who likes making things</h2>
+        <p>Craft products can be enjoyable when the stated age guidance, parts and supplies fit the child. Check what is included and whether adult help or surface protection is recommended.</p>'''
+        + inline_pick("planters", "A paintable project idea; check age guidance, quantity and included painting supplies.")
+        + '''<h2>For a bedroom or reading corner</h2>
+        <p>With lighting, confirm the product's stated age guidance and safety instructions. Check power, controls and dimensions, and place electrical or fragile items according to the maker's instructions.</p>'''
+        + inline_pick("cloud-lamp", "A compact room accent; verify power details, dimensions and current age guidance.")
+        + inline_pick("night-light-search", "Compare different lamp styles and confirm the exact item before buying.")
+        + '''<h2>For an older child who wants something useful</h2>
+        <p>Drinkware can be practical, but check material, capacity, care instructions and whether the lid or straw suits the intended use.</p>'''
+        + inline_pick("tumbler", "A drinkware option; verify material, capacity, lid and cleaning instructions.")
+        + '''<h2>Safety and fit checklist</h2>
+        <ul><li>Follow the manufacturer's current age guidance.</li><li>Check for small parts and included accessories.</li><li>Verify power requirements for lamps and projectors.</li><li>Measure the space for decor rather than judging size from photos.</li><li>Confirm the exact seller, version and return terms on Amazon.</li></ul>'''
+    ))
     write("guides/unicorn-night-lights.html", guide_page(
         "How to Choose a Unicorn Night Light | Unicorn Finds",
         "Compare unicorn night lights, bedside lamps and projectors by brightness, power, controls and room use before choosing a gift.",
@@ -376,6 +465,7 @@ def main() -> None:
         <p>Keep small accessories and electrical items appropriate to the child's age and follow the maker's instructions. Place fragile pieces where they cannot be knocked down during play. A pretty photo is only one part of a good room choice.</p>'''
     ))
     write("tools/unicorn-party-planner.html", party_planner())
+    write("tools/unicorn-gift-finder.html", gift_finder())
     about_body = f'''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Behind the picks</span><h1>About Unicorn Finds</h1><p>A small independent guide to unicorn gifts, lighting and decor.</p></div></div>
       <div class="article wrap"><h2>How we choose what to show</h2>
       <p>We group existing product links by the job a gift or decoration can do. We write practical checklists to help you compare size, materials, cleaning, included parts and placement. We have not personally tested these products, and we do not reproduce Amazon customer ratings or reviews.</p>
@@ -399,7 +489,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
