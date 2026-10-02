@@ -141,15 +141,17 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
 
 
 def product_card(product: dict) -> str:
+    browse = "/s?" in product["url"]
+    cta = "Browse similar on Amazon" if browse else "View on Amazon"
     return f'''<article class="product" id="{esc(product['id'])}">
-      <div class="product-picture">
+      <a class="product-picture" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank" aria-label="{esc(cta + ': ' + product['title'])}">
         <img src="/{esc(product['image'])}" alt="{esc(product['alt'])}" loading="lazy" width="560" height="500">
         <span class="product-type">{esc(product['label'])}</span>
-      </div>
+      </a>
       <div class="product-content"><h3>{esc(product['title'])}</h3>
         <p>{esc(product['description'])}</p>
-        <a class="button product-cta" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank">{('Compare options on Amazon' if product['id'] == 'night-light-search' else 'Check current Amazon listing')} <span aria-hidden="true">↗</span></a>
-        <span class="product-footnote">Paid link · Check the current listing</span>
+        <a class="button product-cta" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank">{esc(cta)} <span aria-hidden="true">↗</span></a>
+        <span class="product-footnote">Paid link · Check the selected item, seller and current details on Amazon</span>
       </div>
     </article>'''
 
@@ -159,7 +161,7 @@ def inline_pick(product_id: str, why: str) -> str:
     return f'''<aside class="inline-pick">
       <img src="/{esc(product['image'])}" alt="{esc(product['alt'])}" loading="lazy" width="90" height="90">
       <div><strong>{esc(product['title'])}</strong><p>{esc(why)}</p>
-      <a href="{esc(product['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{('Browse on Amazon' if product_id == 'night-light-search' else 'See on Amazon')} ↗ (paid link)</a></div>
+      <a href="{esc(product['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{('Browse similar on Amazon' if '/s?' in product['url'] else 'View on Amazon')} ↗ (paid link)</a></div>
     </aside>'''
 
 
@@ -173,7 +175,7 @@ def category(category_id: str, heading: str, intro: str) -> str:
 
 def quick_pick(product_id: str, badge: str, why: str) -> str:
     product = BY_ID[product_id]
-    cta = "Compare options on Amazon" if product_id == "night-light-search" else "Check current Amazon listing"
+    cta = "Browse similar on Amazon" if "/s?" in product["url"] else "View on Amazon"
     return f'''<article class="quick-pick">
       <div class="quick-pick-icon"><img src="/{esc(product['image'])}" alt="" loading="lazy" width="88" height="78"></div>
       <div class="quick-pick-copy"><span class="quick-badge">{esc(badge)}</span><h3>{esc(product['title'])}</h3>
@@ -195,40 +197,40 @@ def comparison_row(product_id: str, fit: str, check: str) -> str:
 def home() -> str:
     body = f'''<main id="main">
       <section class="hero"><div class="hero-inner">
-        <div><div class="eyebrow">Unicorn gifts made easier</div>
-          <h1>Find a unicorn gift <em>without the guesswork.</em></h1>
-          <p class="hero-lede">Start with four quick picks, compare what each is good for, or browse all ten unicorn-themed ideas for mugs, lights and room decor.</p>
-          <div class="hero-actions"><a class="button" href="#quick-picks">See the quick picks ↓</a><a class="button button-light" href="#shop">Browse all ten</a></div>
-          <p class="hero-note">Independent gift guide · Amazon affiliate links are clearly marked</p>
+        <div><div class="eyebrow">Ten gift ideas · real product photos</div>
+          <h1>Give a little magic <em>they’ll actually use.</em></h1>
+          <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
+          <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="#shop">See all ten ideas</a></div>
+          <p class="hero-note">Independent gift guide · clear paid-link disclosure · current Amazon details checked before you buy</p>
         </div>
-        <div class="hero-collage" aria-label="Illustrations of unicorn-inspired gift ideas">
-          <div class="hero-image"><img src="/assets/mugs.svg" alt="Illustrated unicorn mug" width="560" height="500" fetchpriority="high"></div>
-          <div class="hero-image"><img src="/assets/lights.svg" alt="Illustrated unicorn night light" width="560" height="500"></div>
-          <span class="hero-stamp" aria-hidden="true">Make room for wonder ✦</span>
+        <div class="hero-collage" aria-label="Unicorn gift product photos">
+          <div class="hero-image"><img src="/assets/products/cloud-lamp.jpg" alt="Unicorn lamp on a cloud base" width="560" height="500" fetchpriority="high"></div>
+          <div class="hero-image"><img src="/assets/products/sculpted-mug.jpg" alt="Sculpted unicorn mug with lid" width="560" height="500"></div>
+          <span class="hero-stamp" aria-hidden="true">Cute. Useful. Gift-ready. ✦</span>
         </div>
       </div></section>
       <div class="jump wrap" aria-label="Jump to a category"><span>Browse by mood</span>
         <a href="#drinkware">☕ Mugs &amp; drinkware</a><a href="#lights">✦ Night lights</a><a href="#decor">♡ Decor &amp; little gifts</a>
       </div>
       <section class="section wrap quick-section" id="quick-picks">
-        <div class="section-heading"><span class="eyebrow">Short on time?</span><h2>Four easy places to start</h2>
-          <p>Choose by the kind of gift you want to give. These are shortcuts into the collection, not rankings or hands-on reviews.</p></div>
-        <p class="quick-disclosure">As an Amazon Associate I earn from qualifying purchases. The Amazon links below are paid links.</p>
+        <div class="section-heading"><span class="eyebrow">Short on time?</span><h2>Four gifts with instant visual appeal</h2>
+          <p>Choose the kind of reaction you want: a fun coffee break, a softer bedside glow, a full-room effect or a small surprise that is easy to give.</p></div>
+        <p class="quick-disclosure">As an Amazon Associate I earn from qualifying purchases. These are editorial shortcuts, not hands-on reviews; Amazon links below are paid links.</p>
         <div class="quick-grid">
-          {quick_pick('mug-set','Coffee & tea gift','A small, playful gift for someone who already uses mugs. Check the current design and care instructions.')}
-          {quick_pick('cloud-lamp','Bedside glow','A compact room accent when you want a decorative light rather than a large room effect.')}
-          {quick_pick('projector','Bigger room effect','A starting point for someone who wants light across a wall or ceiling rather than one small lamp.')}
-          {quick_pick('planters','Creative gift','A craft-style option for someone who enjoys painting or small desk and shelf projects.')}
+          {quick_pick('sculpted-mug','Coffee-break smile','A playful desk or kitchen gift with more personality than a plain mug.')}
+          {quick_pick('cloud-lamp','Cosy bedside glow','A compact room accent that can make a shelf or bedside table feel instantly more special.')}
+          {quick_pick('projector','Big room moment','For someone who would enjoy a ceiling or wall effect rather than one small decorative light.')}
+          {quick_pick('keychain','Easy little surprise','A small, portable gift for a backpack, handbag or keys when you do not want to guess at room style.')}
         </div>
         <div class="compare-block">
           <div class="compare-heading"><h3>Compare the quick picks</h3><p>Use the last column to check the current Amazon listing before deciding.</p></div>
           <div class="table-scroll"><table class="pick-table">
             <thead><tr><th>Pick</th><th>Good when you want…</th><th>Check before buying</th><th>Current listing</th></tr></thead>
             <tbody>
-              {comparison_row('mug-set','a small everyday gift','capacity and care instructions')}
+              {comparison_row('sculpted-mug','a playful coffee or tea gift','capacity, lid and care instructions')}
               {comparison_row('cloud-lamp','a compact bedside accent','power method and dimensions')}
               {comparison_row('projector','a room-wide lighting effect','projection distance and controls')}
-              {comparison_row('planters','a hands-on craft gift','set quantity and included supplies')}
+              {comparison_row('keychain','a small portable surprise','size and attachment style')}
             </tbody>
           </table></div>
         </div>
