@@ -229,3 +229,10 @@ h3 { font-size: 1.14rem; margin: 0 0 .45rem; }
 @media (max-width: 620px) {
   .related-grid { grid-template-columns: 1fr; }
 }
+
+.ad-slot { width: min(1180px, calc(100% - 34px)); margin: 1.5rem auto 0; padding: .85rem 0 0; text-align: center; }
+.ad-slot[hidden] { display: none !important; }
+.ad-label { display: block; margin-bottom: .35rem; color: var(--muted); font-size: .68rem; line-height: 1; text-transform: uppercase; letter-spacing: .12em; }
+.ad-mount { min-height: 90px; border-radius: 1rem; overflow: hidden; }
+.article .ad-slot { width: 100%; margin: 2rem 0; padding-top: 1rem; border-top: 1px solid var(--line); }
+@media (max-width: 680px) { .ad-mount { min-height: 70px; } }
