@@ -1,0 +1,32 @@
+name: Sync schema branch
+
+on:
+  push:
+    branches: ["fix-article-schema"]
+    paths:
+      - "build.py"
+      - ".github/workflows/sync-schema-branch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix-article-schema
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build generated site
+        run: python build.py
+      - name: Commit generated pages
+        run: |
+          git config user.name "unicorn-site-bot"
+          git config user.email "actions@github.com"
+          git add index.html guides/ tools/ about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
+          git diff --cached --quiet && exit 0
+          git commit -m "build: sync article schema pages"
+          git push origin HEAD:fix-article-schema
