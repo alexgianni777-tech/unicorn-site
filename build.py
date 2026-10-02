@@ -130,6 +130,7 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
   <meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}">
   {f'<meta name="twitter:image" content="{esc(social_image)}">' if social_image else ''}
   <script type="application/ld+json">{structured}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108579336605864" crossorigin="anonymous"></script>
   <script src="/assets/ads-config.js"></script>
   <script src="/assets/ads.js" defer></script>
 </head>
