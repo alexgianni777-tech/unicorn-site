@@ -20,19 +20,37 @@ jobs:
         run: python build.py
       - name: Verify generated files are committed
         run: |
-          git diff --exit-code --             index.html             guides/unicorn-gifts-for-adults.html             guides/unicorn-night-lights.html             guides/unicorn-room-decor.html             tools/unicorn-party-planner.html             about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
-      - name: Affiliate and conversion smoke checks
+          git diff --exit-code --             index.html             guides/unicorn-birthday-gifts.html             guides/unicorn-gifts-for-kids.html             guides/unicorn-gifts-for-adults.html             guides/unicorn-night-lights.html             guides/unicorn-room-decor.html             tools/unicorn-gift-finder.html             tools/unicorn-party-planner.html             about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
+      - name: Affiliate and funnel smoke checks
         run: |
           python - <<'PY'
           from pathlib import Path
 
-          html = Path("index.html").read_text(encoding="utf-8")
-          assert "As an Amazon Associate I earn from qualifying purchases." in html
-          assert 'id="quick-picks"' in html
-          assert html.count('class="quick-pick"') == 4
-          assert html.count("product-cta") == 10
-          assert html.count('rel="sponsored nofollow noopener noreferrer"') >= 14
-          assert "Check current Amazon listing" in html
-          assert "Compare the quick picks" in html
-          print("Unicorn conversion checks passed.")
+          home = Path("index.html").read_text(encoding="utf-8")
+          finder = Path("tools/unicorn-gift-finder.html").read_text(encoding="utf-8")
+          birthday = Path("guides/unicorn-birthday-gifts.html").read_text(encoding="utf-8")
+          kids = Path("guides/unicorn-gifts-for-kids.html").read_text(encoding="utf-8")
+          sitemap = Path("sitemap.xml").read_text(encoding="utf-8")
+
+          assert "As an Amazon Associate I earn from qualifying purchases." in home
+          assert 'id="quick-picks"' in home
+          assert home.count('class="quick-pick"') == 4
+          assert home.count("product-cta") == 10
+          assert home.count('rel="sponsored nofollow noopener noreferrer"') >= 14
+          assert "/tools/unicorn-gift-finder.html" in home
+
+          assert "/assets/gift-finder.js" in finder
+          assert finder.count('rel="sponsored nofollow noopener noreferrer"') == 10
+          assert "Unicorn gift finder" in finder
+          assert birthday.count('rel="sponsored nofollow noopener noreferrer"') >= 6
+          assert kids.count('rel="sponsored nofollow noopener noreferrer"') >= 4
+
+          for path in [
+              "/guides/unicorn-birthday-gifts.html",
+              "/guides/unicorn-gifts-for-kids.html",
+              "/tools/unicorn-gift-finder.html",
+          ]:
+              assert path in sitemap
+
+          print("Unicorn growth funnel checks passed.")
           PY
