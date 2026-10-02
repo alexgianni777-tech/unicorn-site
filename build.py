@@ -130,6 +130,8 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
   <meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}">
   {f'<meta name="twitter:image" content="{esc(social_image)}">' if social_image else ''}
   <script type="application/ld+json">{structured}</script>
+  <script src="/assets/ads-config.js"></script>
+  <script src="/assets/ads.js" defer></script>
 </head>
 <body>
 {header(active)}
@@ -138,6 +140,13 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
 </body>
 </html>
 '''
+
+
+def ad_slot(label: str, key: str) -> str:
+    return f'''<aside class="ad-slot" data-ad-key="{esc(key)}" aria-label="Advertisement" hidden>
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-mount" data-ad-label="{esc(label)}"></div>
+    </aside>'''
 
 
 def product_card(product: dict) -> str:
@@ -235,6 +244,7 @@ def home() -> str:
           </table></div>
         </div>
       </section>
+      {ad_slot('Homepage banner after quick picks', 'home_top')}
       <section class="section section-tint" id="guides"><div class="wrap">
         <div class="section-heading"><span class="eyebrow">Start with an idea</span><h2>Find the right kind of magic</h2>
           <p>Pick a recipient or occasion, or use the free gift finder to narrow the ten-item collection in seconds.</p></div>
@@ -261,6 +271,7 @@ def home() -> str:
         {category('lights','Night lights &amp; glowing rooms','A gentle bedside light, a decorative lamp and a projector create very different effects. The lighting guide helps you compare them.')}
         {category('decor','Decor &amp; small gifts','A wall, a sofa, a shelf or a backpack can carry the theme. Check sizes and what the listing actually includes.')}
       </section>
+      {ad_slot('Homepage banner after collection', 'home_mid')}
       <section class="section section-tint"><div class="wrap">
         <div class="section-heading"><span class="eyebrow">Why this guide exists</span><h2>Small details make a better pick</h2></div>
         <div class="principles"><div class="principle"><h3>Choose for the person</h3><p>Start with the recipient's taste and how they will use the gift, rather than a star count.</p></div>
@@ -316,6 +327,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
     </div></div><article class="article wrap">
       {affiliate_note()}
       {article}
+      {ad_slot('Guide banner', 'article_mid')}
       <div class="callout"><p><strong>One last check:</strong> Retail listings can change. Confirm the exact item, size, seller, price, availability and return terms on Amazon before purchasing.</p></div>
       {related}
       <p><a class="button button-light" href="/#shop">Browse all ten picks →</a></p>
@@ -670,9 +682,10 @@ def main() -> None:
         "/about.html", about_body, active="/about.html",
     ))
     privacy_body = '''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Site information</span><h1>Privacy</h1><p>What happens when you visit Unicorn Finds or follow a product link.</p></div></div>
-      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have accounts or first-party analytics scripts, and the site code does not set its own cookies. The party planner processes numbers in your browser and does not send or save them. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
+      <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have user accounts. The party planner processes numbers in your browser and does not send or save them. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
+      <h2>Advertising</h2><p>The site is prepared for Google AdSense display advertising. Ad code remains disabled until an approved publisher ID and ad units are configured. When advertising is enabled, Google and its advertising partners may use cookies or other local storage and process data to deliver, measure and protect advertising. Where consent is required, an appropriate consent management platform should be used before personalised advertising is served.</p>
       <h2>When you follow a link</h2><p>Product links take you to Amazon. Amazon may process your visit and purchase according to its own privacy notice and affiliate program. We do not see your payment details or the contents of your order. The site also links to third-party information; their privacy notices apply when you visit them.</p>
-      <h2>Changes</h2><p>If we add analytics, a newsletter or a contact form, this page will need to be updated before those features go live. Last revised: 29 September 2026.</p>
+      <h2>Changes</h2><p>If we enable advertising, analytics, a newsletter or a contact form, this page will be reviewed again before those features go live. Last revised: 2 October 2026.</p>
       <p><a href="/about.html">Read the affiliate disclosure</a> · <a href="/">Back to the home page</a></p></div></main>'''
     write("privacy.html", page(
         "Privacy | Unicorn Finds",

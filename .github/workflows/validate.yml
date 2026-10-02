@@ -45,6 +45,11 @@ jobs:
           assert home.count("product-cta") == 10
           assert home.count('rel="sponsored nofollow noopener noreferrer"') >= 14
           assert "/tools/unicorn-gift-finder.html" in home
+          assert Path("assets/ads-config.js").exists()
+          assert Path("assets/ads.js").exists()
+          assert 'data-ad-key="home_top"' in home
+          assert 'data-ad-key="home_mid"' in home
+          assert 'hidden' in home
           product_images = [
               "mug-set.jpg", "sculpted-mug.jpg", "tumbler.jpg", "night-light-search.jpg",
               "cloud-lamp.jpg", "projector.jpg", "wall-art.jpg", "pillow-cover.jpg",
