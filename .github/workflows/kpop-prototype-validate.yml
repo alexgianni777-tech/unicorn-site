@@ -1,0 +1,55 @@
+name: K-Pop Finds prototype validation
+
+on:
+  push:
+    branches:
+      - "prototype/kpop-finds-2026-10-02"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate prototype
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, re
+
+          root = Path("kpop-finds")
+          index = (root / "index.html").read_text(encoding="utf-8")
+          catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+          guides = list((root / "guides").glob("*.html"))
+
+          assert len(catalog) == 8
+          assert len(guides) == 10
+          assert "noindex,nofollow" in index
+          assert "As an Amazon Associate I earn from qualifying purchases." in index
+          assert index.count('class="artist-card"') == 8
+          assert (root / "assets/style.css").exists()
+          assert (root / "assets/app.js").exists()
+
+          for artist in catalog:
+              p = root / "guides" / f'{artist["slug"]}.html'
+              assert p.exists(), p
+              html = p.read_text(encoding="utf-8")
+              assert "noindex,nofollow" in html
+              assert artist["official"] in html
+              assert 'rel="sponsored nofollow noopener noreferrer"' in html
+
+          for p in guides:
+              html = p.read_text(encoding="utf-8")
+              for href in re.findall(r'href="([^"]+)"', html):
+                  if href.startswith("../") and not href.startswith("../#"):
+                      target = (p.parent / href.split("#")[0]).resolve()
+                      assert target.exists(), (p, href)
+
+          print("K-Pop Finds prototype checks passed.")
+          PY
