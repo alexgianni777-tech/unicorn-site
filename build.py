@@ -252,6 +252,17 @@ def home() -> str:
 
 
 def guide_page(title: str, description: str, path: str, intro: str, article: str) -> str:
+    related = '''<nav class="related-guides" aria-label="Related unicorn guides">
+      <h2>Keep exploring</h2>
+      <div class="related-grid">
+        <a href="/guides/unicorn-birthday-gifts.html"><strong>Birthday gifts</strong><span>Gift ideas by use and occasion →</span></a>
+        <a href="/guides/unicorn-gifts-for-kids.html"><strong>Gifts for kids</strong><span>Age, size and practical checks →</span></a>
+        <a href="/guides/unicorn-gifts-for-adults.html"><strong>Gifts for adults</strong><span>Useful gifts without guessing at style →</span></a>
+        <a href="/guides/unicorn-night-lights.html"><strong>Night lights</strong><span>Compare lamps and projectors →</span></a>
+        <a href="/guides/unicorn-room-decor.html"><strong>Room decor</strong><span>Build a balanced unicorn room →</span></a>
+        <a href="/tools/unicorn-gift-finder.html"><strong>Gift finder</strong><span>Narrow the collection to three ideas →</span></a>
+      </div>
+    </nav>'''
     body = f'''<main id="main"><div class="page-intro"><div class="wrap">
       <div class="breadcrumbs"><a href="/">Home</a> / Guides</div>
       <span class="eyebrow">Unicorn Finds guide</span><h1>{esc(title.split(' | ')[0])}</h1><p>{esc(intro)}</p>
@@ -259,6 +270,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
       {affiliate_note()}
       {article}
       <div class="callout"><p><strong>One last check:</strong> Retail listings can change. Confirm the exact item, size, seller, price, availability and return terms on Amazon before purchasing.</p></div>
+      {related}
       <p><a class="button button-light" href="/#shop">Browse all ten picks →</a></p>
     </article></main>'''
     return page(title, description, path, body, kind="article")
