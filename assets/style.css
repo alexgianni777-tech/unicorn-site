@@ -214,3 +214,15 @@ h3 { font-size: 1.14rem; margin: 0 0 .45rem; }
   .finder-choices { grid-template-columns: 1fr; }
   .finder-choice { text-align: center; }
 }
+
+/* Related guide hub: improves crawl paths and gives readers a next useful step */
+.related-guides { margin: 2rem 0 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.related-guides h2 { margin-top: 0; font-size: 1.7rem; }
+.related-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+.related-grid a { display: grid; gap: .15rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: .85rem; background: #fff; text-decoration: none; }
+.related-grid a:hover { border-color: #c28dbb; background: #fcf7fb; }
+.related-grid strong { color: var(--plum); }
+.related-grid span { color: var(--muted); font-size: .82rem; }
+@media (max-width: 620px) {
+  .related-grid { grid-template-columns: 1fr; }
+}
