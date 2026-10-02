@@ -5,8 +5,8 @@
     "title": "Colour-changing unicorn mug",
     "label": "A surprise with a warm drink",
     "description": "This link currently points to a colour-changing mug. Check the selected design, capacity and washing instructions on the retailer's page.",
-    "image": "assets/mugs.svg",
-    "alt": "Illustration of a unicorn-themed mug",
+    "image": "assets/products/mug-set.jpg",
+    "alt": "Product photo of a unicorn-themed mug set",
     "url": "https://amzn.to/42epIGq"
   },
   {
@@ -15,8 +15,8 @@
     "title": "Sculpted unicorn mug with lid",
     "label": "For a desk or gift box",
     "description": "The sculpted shape makes this more of a statement piece than an everyday plain mug. Check the seller's cleaning advice, dimensions and what is included.",
-    "image": "assets/mugs.svg",
-    "alt": "Illustration of a unicorn-themed mug",
+    "image": "assets/products/sculpted-mug.jpg",
+    "alt": "Product photo of a sculpted unicorn mug with lid",
     "url": "https://amzn.to/3QliG00"
   },
   {
@@ -25,8 +25,8 @@
     "title": "Unicorn tumbler with straw",
     "label": "For cold drinks",
     "description": "A cheerful alternative to a mug. Before buying, compare the capacity, lid design, cleaning instructions and whether the straw is included.",
-    "image": "assets/mugs.svg",
-    "alt": "Illustration of unicorn-themed drinkware",
+    "image": "assets/products/tumbler.jpg",
+    "alt": "Product photo of a unicorn-themed tumbler with straw",
     "url": "https://amzn.to/42gN8Lo"
   },
   {
@@ -35,8 +35,8 @@
     "title": "Browse unicorn night lights",
     "label": "Compare several options",
     "description": "This link opens Amazon search results, not one specific lamp. Compare the light level, power source, controls and seller details on the listings you find.",
-    "image": "assets/lights.svg",
-    "alt": "Illustration of a glowing unicorn-style night light",
+    "image": "assets/products/night-light-search.jpg",
+    "alt": "Example product photo of a unicorn night light",
     "url": "https://www.amazon.com/s?k=unicorn+night+lamp&crid=2URDKKW94LNXO&sprefix=unicorn+night+lamp%2Caps%2C238&linkCode=ll2&tag=unicornmagic2-20&linkId=c0a6dfb910a5a8c264a8d040870ed77d&language=en_US&ref_=as_li_ss_tl"
   },
   {
@@ -45,8 +45,8 @@
     "title": "Unicorn lamp with cloud base",
     "label": "For a bedside table",
     "description": "A compact accent light for a unicorn-themed room. Check the current listing for its charging method, power supply and dimensions.",
-    "image": "assets/lights.svg",
-    "alt": "Illustration of a unicorn-style lamp",
+    "image": "assets/products/cloud-lamp.jpg",
+    "alt": "Product photo of a unicorn lamp on a cloud base",
     "url": "https://amzn.to/4sFGXv4"
   },
   {
@@ -55,8 +55,8 @@
     "title": "Unicorn-themed star projector",
     "label": "For a room makeover",
     "description": "A projector can create a bigger effect than a small lamp. Check the projection distance, included scenes, controls and power requirements.",
-    "image": "assets/lights.svg",
-    "alt": "Illustration of unicorn-themed lighting",
+    "image": "assets/products/projector.jpg",
+    "alt": "Product photo of a unicorn-themed star projector",
     "url": "https://amzn.to/3OL3x7O"
   },
   {
@@ -65,8 +65,8 @@
     "title": "Unicorn wall art set",
     "label": "For an empty wall",
     "description": "A group of prints can bring a room together. Verify the size of each piece and whether frames or hanging hardware are included.",
-    "image": "assets/decor.svg",
-    "alt": "Illustration of unicorn-themed room decor",
+    "image": "assets/products/wall-art.jpg",
+    "alt": "Product photo of a unicorn wall art set",
     "url": "https://amzn.to/48tvgkf"
   },
   {
@@ -75,8 +75,8 @@
     "title": "Unicorn galaxy pillow cover",
     "label": "A small room refresh",
     "description": "A cushion cover is an easy way to try the theme without replacing furniture. Check the dimensions, fabric and whether an insert is sold separately.",
-    "image": "assets/decor.svg",
-    "alt": "Illustration of unicorn-themed room decor",
+    "image": "assets/products/pillow-cover.jpg",
+    "alt": "Product photo of a unicorn galaxy pillow cover",
     "url": "https://amzn.to/4t0IVGV"
   },
   {
@@ -85,8 +85,8 @@
     "title": "Plush unicorn keychain",
     "label": "A small gift",
     "description": "Useful when you want a little unicorn detail on a bag or set of keys. Check the size and attachment style in the seller's photos.",
-    "image": "assets/decor.svg",
-    "alt": "Illustration of a small unicorn-themed gift",
+    "image": "assets/products/keychain.jpg",
+    "alt": "Product photo of a plush unicorn keychain",
     "url": "https://amzn.to/41Hupsc"
   },
   {
@@ -95,8 +95,8 @@
     "title": "Paintable unicorn planters",
     "label": "A small DIY gift",
     "description": "This link currently points to paintable planters. Check the number and size of pots, what painting supplies are included and whether they have drainage.",
-    "image": "assets/decor.svg",
-    "alt": "Illustration of unicorn-themed room decor",
+    "image": "assets/products/planters.jpg",
+    "alt": "Product photo of a unicorn planter set",
     "url": "https://amzn.to/3OJNhUy"
   }
 ]
