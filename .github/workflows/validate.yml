@@ -47,6 +47,7 @@ jobs:
           assert "/tools/unicorn-gift-finder.html" in home
           assert Path("assets/ads-config.js").exists()
           assert Path("assets/ads.js").exists()
+          assert "ca-pub-8108579336605864" in home
           assert 'data-ad-key="home_top"' in home
           assert 'data-ad-key="home_mid"' in home
           assert 'hidden' in home
