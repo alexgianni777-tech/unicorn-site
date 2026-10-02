@@ -105,7 +105,9 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
   <meta property="og:title" content="{esc(title)}">
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:url" content="{esc(canonical)}">
-  <meta name="twitter:card" content="summary">
+  {f'<meta property="og:image" content="{esc(social_image)}">' if social_image else ''}
+  <meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}">
+  {f'<meta name="twitter:image" content="{esc(social_image)}">' if social_image else ''}
   <script type="application/ld+json">{structured}</script>
 </head>
 <body>
@@ -252,6 +254,14 @@ def home() -> str:
 
 
 def guide_page(title: str, description: str, path: str, intro: str, article: str) -> str:
+    article_meta = {
+        "/guides/unicorn-birthday-gifts.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-gifts-for-kids.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-gifts-for-adults.html": ("/assets/mugs.svg", "2026-09-29"),
+        "/guides/unicorn-night-lights.html": ("/assets/lights.svg", "2026-09-29"),
+        "/guides/unicorn-room-decor.html": ("/assets/decor.svg", "2026-09-29"),
+    }
+    article_image, article_published = article_meta.get(path, ("/assets/decor.svg", "2026-09-29"))
     related = '''<nav class="related-guides" aria-label="Related unicorn guides">
       <h2>Keep exploring</h2>
       <div class="related-grid">
@@ -273,7 +283,10 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
       {related}
       <p><a class="button button-light" href="/#shop">Browse all ten picks →</a></p>
     </article></main>'''
-    return page(title, description, path, body, kind="article")
+    return page(
+        title, description, path, body, kind="article",
+        image=article_image, published=article_published, modified="2026-10-02",
+    )
 
 
 def gift_finder() -> str:
@@ -374,7 +387,7 @@ def write(path: str, contents: str) -> None:
 def main() -> None:
     write("index.html", home())
     write("guides/unicorn-gifts-for-adults.html", guide_page(
-        "Unicorn Gifts for Adults: A Practical Gift Guide | Unicorn Finds",
+        "Unicorn Gifts for Adults: Gift Guide | Unicorn Finds",
         "Choose a unicorn gift for an adult by use, style and care needs. Compare mugs, small accessories and decor without relying on changing prices or ratings.",
         "/guides/unicorn-gifts-for-adults.html",
         "A unicorn gift can be playful and still fit a grown-up's daily routine. Start with what the person actually uses.",
@@ -394,7 +407,7 @@ def main() -> None:
         <ol><li>Choose one use: drinking, decorating or carrying.</li><li>Check the recipient's available space and preferred colours.</li><li>Read the current listing for dimensions and care instructions.</li><li>Check which version, quantity and seller are selected.</li><li>Keep the receipt or review the return terms if this is a gift.</li></ol>'''
     ))
     write("guides/unicorn-birthday-gifts.html", guide_page(
-        "Unicorn Birthday Gifts: Practical Ideas by Gift Type | Unicorn Finds",
+        "Unicorn Birthday Gifts by Gift Type | Unicorn Finds",
         "Choose a unicorn birthday gift by how it will be used. Compare drinkware, creative gifts, lighting and small surprises with clearly marked Amazon links.",
         "/guides/unicorn-birthday-gifts.html",
         "A birthday gift is easier to choose when you start with how the person will use it rather than trying to find one universal 'best' unicorn present.",
@@ -417,7 +430,7 @@ def main() -> None:
         <ol><li>Confirm the exact version selected on Amazon.</li><li>Check dimensions, included parts and age guidance where relevant.</li><li>Check the seller, delivery estimate and return terms on the current listing.</li><li>If it is going straight to the recipient, confirm the shipping address and gift options during checkout.</li></ol>'''
     ))
     write("guides/unicorn-gifts-for-kids.html", guide_page(
-        "Unicorn Gifts for Kids: What to Check Before You Buy | Unicorn Finds",
+        "Unicorn Gifts for Kids: Buying Guide | Unicorn Finds",
         "Explore unicorn gift ideas for kids while checking age guidance, size, small parts, power method and what is included before purchasing.",
         "/guides/unicorn-gifts-for-kids.html",
         "For a child's gift, the theme matters, but age guidance, size and how the item will actually be used matter more.",
