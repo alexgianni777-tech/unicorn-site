@@ -79,7 +79,8 @@ def footer() -> str:
     </div></footer>'''
 
 
-def page(title: str, description: str, path: str, body: str, *, active: str = "", kind: str = "website") -> str:
+def page(title: str, description: str, path: str, body: str, *, active: str = "", kind: str = "website",
+         image: str | None = None, published: str | None = None, modified: str | None = None) -> str:
     canonical = BASE + path
     json_ld = {
         "@context": "https://schema.org",
@@ -89,7 +90,20 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
         "url": canonical,
         "isPartOf": {"@type": "WebSite", "name": "Unicorn Finds", "url": BASE + "/"},
     }
+    if kind == "article":
+        json_ld.update({
+            "headline": title.split(" | ")[0],
+            "image": [BASE + (image or "/assets/decor.svg")],
+            "datePublished": published or "2026-09-29",
+            "dateModified": modified or published or "2026-09-29",
+            "author": {
+                "@type": "Organization",
+                "name": "Unicorn Finds",
+                "url": BASE + "/about.html",
+            },
+        })
     structured = json.dumps(json_ld, ensure_ascii=False).replace("<", "\\u003c")
+    social_image = BASE + image if image else ""
     return f'''<!doctype html>
 <html lang="en">
 <head>
