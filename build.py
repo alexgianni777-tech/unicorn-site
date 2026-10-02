@@ -265,7 +265,7 @@ def home() -> str:
       </section>
     </main>'''
     return page(
-        "Unicorn Gifts: 10 Easy Gift Ideas, Lights & Decor | Unicorn Finds",
+        "Unicorn Gifts: 10 Gift Ideas & Decor | Unicorn Finds",
         "Find unicorn gift ideas faster with four quick picks, a simple comparison and ten curated mugs, lights and room decor ideas with clearly marked Amazon links.",
         "/", body,
     )
@@ -342,7 +342,7 @@ def gift_finder() -> str:
       <p class="finder-next"><a href="/guides/unicorn-birthday-gifts.html">Shopping for a birthday? Read the birthday guide →</a></p>
     </div><script src="/assets/gift-finder.js" defer></script></main>'''
     return page(
-        "Unicorn Gift Finder: Choose a Gift in Seconds | Unicorn Finds",
+        "Unicorn Gift Finder: Quick Gift Ideas | Unicorn Finds",
         "Use a free unicorn gift finder to narrow ten curated gift ideas to three starting points for everyday gifts, room lighting, creative gifts or small surprises.",
         "/tools/unicorn-gift-finder.html", body, active="/tools/unicorn-gift-finder.html",
     )
