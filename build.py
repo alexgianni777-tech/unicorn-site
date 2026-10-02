@@ -100,6 +100,10 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
                 "@type": "Organization",
                 "name": "Unicorn Finds",
                 "url": BASE + "/about.html",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": BASE + "/assets/favicon.svg",
+                },
             },
         })
     structured = json.dumps(json_ld, ensure_ascii=False).replace("<", "\\u003c")
