@@ -45,6 +45,16 @@ jobs:
           assert home.count("product-cta") == 10
           assert home.count('rel="sponsored nofollow noopener noreferrer"') >= 14
           assert "/tools/unicorn-gift-finder.html" in home
+          product_images = [
+              "mug-set.jpg", "sculpted-mug.jpg", "tumbler.jpg", "night-light-search.jpg",
+              "cloud-lamp.jpg", "projector.jpg", "wall-art.jpg", "pillow-cover.jpg",
+              "keychain.jpg", "planters.jpg",
+          ]
+          for image in product_images:
+              assert Path("assets/products", image).exists(), image
+              assert f"/assets/products/{image}" in home, image
+          assert "Browse similar on Amazon" in home
+          assert "View on Amazon" in home
 
           assert "/assets/gift-finder.js" in finder
           assert finder.count('rel="sponsored nofollow noopener noreferrer"') == 10
