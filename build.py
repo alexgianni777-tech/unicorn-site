@@ -240,6 +240,11 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-gifts-for-adults.html"><span class="tile-icon" aria-hidden="true">🎁</span><h3>Unicorn gifts for adults</h3><p>How to pick a present that feels personal without guessing at size or style.</p><span class="tile-link">Read the gift guide →</span></a>
           <a class="guide-tile" href="/guides/unicorn-night-lights.html"><span class="tile-icon" aria-hidden="true">🌙</span><h3>Choosing a night light</h3><p>Compare a bedside glow, an accent lamp and a room projector.</p><span class="tile-link">Compare lighting →</span></a>
           <a class="guide-tile" href="/guides/unicorn-room-decor.html"><span class="tile-icon" aria-hidden="true">🏡</span><h3>Unicorn room decor</h3><p>Build a playful room with a few pieces that work together.</p><span class="tile-link">Explore room ideas →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-gift-basket-ideas.html"><span class="tile-icon" aria-hidden="true">🧺</span><h3>Unicorn gift basket ideas</h3><p>Build a useful themed bundle without filling it with random extras.</p><span class="tile-link">Build a gift basket →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-gifts-for-teens.html"><span class="tile-icon" aria-hidden="true">💫</span><h3>Unicorn gifts for teens</h3><p>Choose something playful that still fits a teen's room, desk or daily routine.</p><span class="tile-link">Read the teen guide →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-party-favor-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn party favor ideas</h3><p>Plan small take-home gifts by usefulness, quantity and age guidance.</p><span class="tile-link">Plan party favors →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-bedroom-ideas.html"><span class="tile-icon" aria-hidden="true">🛏️</span><h3>Unicorn bedroom ideas</h3><p>Plan a calmer themed bedroom by zones, scale and repeatable colours.</p><span class="tile-link">Plan the room →</span></a>
+          <a class="guide-tile" href="/guides/small-unicorn-gifts-stocking-stuffers.html"><span class="tile-icon" aria-hidden="true">🧦</span><h3>Small unicorn gifts</h3><p>Stocking-stuffer and little-surprise ideas with size and usefulness in mind.</p><span class="tile-link">See small gift ideas →</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-planner.html"><span class="tile-icon" aria-hidden="true">🎉</span><h3>Free unicorn party planner</h3><p>Work out guest supplies and your own budget, then print a simple party plan.</p><span class="tile-link">Plan a party →</span></a>
         </div>
       </div></section>
@@ -278,6 +283,11 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
         "/guides/unicorn-gifts-for-adults.html": ("/assets/mugs.svg", "2026-09-29"),
         "/guides/unicorn-night-lights.html": ("/assets/lights.svg", "2026-09-29"),
         "/guides/unicorn-room-decor.html": ("/assets/decor.svg", "2026-09-29"),
+        "/guides/unicorn-gift-basket-ideas.html": ("/assets/mugs.svg", "2026-10-02"),
+        "/guides/unicorn-gifts-for-teens.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-party-favor-ideas.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-bedroom-ideas.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/small-unicorn-gifts-stocking-stuffers.html": ("/assets/decor.svg", "2026-10-02"),
     }
     article_image, article_published = article_meta.get(path, ("/assets/decor.svg", "2026-09-29"))
     related = '''<nav class="related-guides" aria-label="Related unicorn guides">
@@ -507,6 +517,134 @@ def main() -> None:
         <h2>If this is a child's room</h2>
         <p>Keep small accessories and electrical items appropriate to the child's age and follow the maker's instructions. Place fragile pieces where they cannot be knocked down during play. A pretty photo is only one part of a good room choice.</p>'''
     ))
+
+    write("guides/unicorn-gift-basket-ideas.html", guide_page(
+        "Unicorn Gift Basket Ideas: Build a Better Bundle | Unicorn Finds",
+        "Build a unicorn gift basket around one useful anchor item, a small supporting gift and a simple theme. Includes practical checks for size, care and presentation.",
+        "/guides/unicorn-gift-basket-ideas.html",
+        "A good unicorn gift basket feels coordinated because every item has a reason to be there, not because every surface is covered in unicorns.",
+        '''<h2>Start with one anchor gift</h2>
+        <p>The easiest way to avoid a basket full of filler is to choose one item that can stand on its own. Think about the recipient's routine first: a mug for someone who keeps a drink at a desk, a tumbler for cold drinks, a small lamp for a reading corner, or a creative item for someone who likes hands-on projects. Once the anchor is clear, the rest of the basket can support that use instead of competing with it.</p>
+        <p>Keep the theme visible but not repetitive. One unicorn-shaped or illustrated item can carry the idea; the other pieces can simply match its colours or purpose. That makes the bundle easier to use after the wrapping is gone.</p>'''
+        + inline_pick("mug-set", "A simple anchor for a cosy drink-themed basket; check the current design, capacity and care instructions.")
+        + '''<h2>Use a three-part formula</h2>
+        <p>A practical basket can be built from three roles: an anchor item, a smaller supporting item and something consumable or personal that you add yourself. For example, a mug can be paired with a small unicorn accessory and the recipient's preferred tea or cocoa. A craft item can be paired with a plain sketchbook or protective table mat. The goal is not to maximise the number of objects; it is to make the bundle feel deliberate.</p>
+        <p>Before buying, compare the physical sizes. Listing photos often make small items look substantial, while a sculpted mug or lamp can take up more room than expected. Measure the container you plan to use and leave enough space for paper filler rather than forcing products together.</p>'''
+        + inline_pick("keychain", "A compact supporting gift for a basket; verify its dimensions and attachment style on the current listing.")
+        + '''<h2>Build around a hobby or place</h2>
+        <p>A theme works better when it points to a real activity. A desk basket might use drinkware plus a small accessory. A bedroom basket could centre on one light or cushion cover and use plain coordinating items around it. A creative basket could start with paintable planters and add supplies only after you confirm what the current set already includes.</p>
+        <p>If you are giving room decor, check what the recipient already owns. A cushion cover may require an insert, wall art may arrive without frames, and a lamp needs an appropriate place and power source. Those details matter more than adding another decorative object.</p>'''
+        + inline_pick("planters", "A creative anchor idea; check the current pack quantity, included supplies and any stated age guidance.")
+        + '''<h2>Keep the presentation easy to unpack</h2>
+        <p>Choose a container that can be reused or recycled and avoid hiding essential product information. If an item has care instructions, age guidance or electrical information, keep that packaging with the gift. For fragile pieces, use enough padding that the recipient can lift each item out without pulling on another product.</p>
+        <p>You do not need a traditional wicker basket. A gift bag, small storage box or plain reusable tote can work just as well. A restrained container also keeps the unicorn theme from becoming visually overwhelming.</p>
+        <h2>Five checks before checkout</h2>
+        <ol><li>Choose the anchor gift before buying supporting items.</li><li>Check the exact dimensions of every product and the container.</li><li>Confirm what is included so you do not duplicate accessories or supplies.</li><li>Read care, power and age guidance where relevant.</li><li>Check the selected seller, version, return terms and current availability on Amazon.</li></ol>
+        <p>If you would rather choose one present than assemble a bundle, use the <a href="/tools/unicorn-gift-finder.html">unicorn gift finder</a>. For an occasion-specific approach, the <a href="/guides/unicorn-birthday-gifts.html">birthday gift guide</a> groups ideas by how they will be used.</p>'''
+    ))
+    write("guides/unicorn-gifts-for-teens.html", guide_page(
+        "Unicorn Gifts for Teens: Practical Ideas | Unicorn Finds",
+        "Choose a unicorn gift for a teen by daily use, room style and how bold the theme should be. Compare drinkware, lighting, decor and small accessories.",
+        "/guides/unicorn-gifts-for-teens.html",
+        "For a teen, the safest starting point is usually how they use their room, desk or bag—not an assumption that every unicorn design will suit their style.",
+        '''<h2>Start with how visible the theme should be</h2>
+        <p>Some teens enjoy a bold fantasy look; others prefer one small reference that fits into an otherwise neutral room or outfit. Before choosing, think about whether the gift will sit on a desk, travel in a bag, be used every day or become part of bedroom decor. A useful item with one playful detail can be easier to live with than a large themed object.</p>
+        <p>Colour matters too. If you know the person's room or favourite colours, use that as a filter. If you do not, a smaller accessory or practical item usually requires less guessing than wall art or a large decorative piece.</p>
+        <h2>For school, desk or everyday use</h2>
+        <p>Drinkware can work when the recipient already uses a bottle or mug regularly. Check capacity, lid style, material and cleaning instructions instead of choosing only from the printed design. For anything carried to school or activities, think about whether the shape is easy to pack and whether the current listing describes the lid as suitable for the intended use.</p>'''
+        + inline_pick("tumbler", "A practical everyday option; verify capacity, lid design, material and cleaning instructions.")
+        + inline_pick("mug-set", "A desk or home-drink idea; check the current finish, capacity and care guidance.")
+        + '''<h2>For a bedroom or gaming corner</h2>
+        <p>Lighting changes the atmosphere of a room without using wall space. A compact lamp gives a local accent, while a projector can affect a much larger area. Measure the surface or projection distance and confirm power requirements before ordering. If the light is for overnight use, read the maker's controls and safety instructions rather than assuming every decorative light works as a night light.</p>'''
+        + inline_pick("cloud-lamp", "A smaller room accent; check the current dimensions, power method and controls.")
+        + inline_pick("projector", "A broader room effect; check projection distance, controls and power requirements.")
+        + '''<h2>For someone who likes subtle accessories</h2>
+        <p>A small keychain or bag charm can carry the theme without changing the whole room. Check the attachment style and dimensions because close-up product images can make a compact accessory look much larger. This type of gift also works when you are less certain about the person's decor preferences.</p>'''
+        + inline_pick("keychain", "A compact option for a bag or keys; verify size and attachment style.")
+        + '''<h2>Do not confuse generic unicorns with character merchandise</h2>
+        <p>If the teen is specifically a My Little Pony fan, check that the product is actually licensed and shows the character or brand they want. A generic unicorn design is not the same thing. My Little Pony is a Hasbro brand, and Unicorn Finds is not affiliated with Hasbro.</p>
+        <h2>A quick decision rule</h2>
+        <p>If you know the teen's room well, lighting or decor can feel personal. If you know their routines but not their room, choose drinkware or a small accessory. If you know they enjoy crafts, a creative item may be more engaging than passive decor. In every case, confirm the selected version and current listing details before buying.</p>
+        <p>For more room-specific planning, see the <a href="/guides/unicorn-bedroom-ideas.html">unicorn bedroom ideas guide</a>. If you need a smaller present, use the <a href="/guides/small-unicorn-gifts-stocking-stuffers.html">small unicorn gifts guide</a>.</p>'''
+    ))
+    write("guides/unicorn-party-favor-ideas.html", guide_page(
+        "Unicorn Party Favor Ideas: Small Take-Home Gifts | Unicorn Finds",
+        "Plan unicorn party favors by quantity, usefulness, age guidance and packing. Includes ideas for small accessories and creative take-home items.",
+        "/guides/unicorn-party-favor-ideas.html",
+        "A party favor works best when it is small enough to hand out easily, useful after the party and appropriate for the guests.",
+        '''<h2>Decide whether you want one favor or a mini bag</h2>
+        <p>Before shopping, choose the format. One small take-home item is simple to count and pack. A mini favor bag can feel fuller, but it also creates more decisions, more packaging and more chances to buy filler that nobody uses. For a themed party, the bag or tag can carry part of the unicorn look so every object inside does not need to be heavily themed.</p>
+        <p>Start with the guest count from your invitation list and add only a small buffer for late changes or damaged packaging. The <a href="/tools/unicorn-party-planner.html">free unicorn party planner</a> can help you think through quantities separately from live retailer prices.</p>
+        <h2>Small accessories are easy to distribute</h2>
+        <p>A compact accessory can work as a single favor when its size and attachment suit the guests. Check the current dimensions and any stated age guidance. If the favor has a clip, ring or small detachable part, read the manufacturer's information before giving it to younger children.</p>'''
+        + inline_pick("keychain", "A possible single-item favor; verify size, attachment style and any current age guidance.")
+        + '''<h2>Creative favors can become part of the activity</h2>
+        <p>A craft item can do two jobs: it can be an activity during the party and something guests take home. That only works when the pack quantity, materials and time required fit the group. Check exactly what is included. If paints or brushes are not supplied, add those costs and setup needs to your plan rather than discovering the gap on party day.</p>
+        <p>For a group craft, protect the table and decide how wet or unfinished items will travel home. A favor that needs hours to dry may be less convenient than it first appears.</p>'''
+        + inline_pick("planters", "A possible craft-and-take-home idea; confirm pack quantity, supplies and age guidance on the current listing.")
+        + '''<h2>Avoid overfilling favor bags</h2>
+        <p>Three useful small items are usually easier to appreciate than a bag full of random plastic pieces. One themed object, one plain consumable and one personalised note can create a complete favor without excess. If you include sweets or food, handle dietary information separately and do not use this site as a source for allergy advice.</p>
+        <p>Keep packaging simple. Paper bags, recyclable boxes or reusable pouches are easier to label and transport than elaborate containers that become another thing to manage.</p>
+        <h2>Match the favor to the party age and setting</h2>
+        <p>For younger guests, small parts and craft materials need closer attention. For older children or teens, a small bag accessory can feel more useful than a toy-like trinket. If guests are travelling home by car, a small box may be fine; if they are walking or taking public transport, lighter favors are easier to carry.</p>
+        <h2>Favor checklist</h2>
+        <ol><li>Count confirmed guests and choose a modest buffer.</li><li>Check pack quantities rather than assuming one listing equals one guest.</li><li>Read age guidance and small-parts information.</li><li>Confirm what craft supplies or packaging are actually included.</li><li>Label each favor if different versions are intended for different guests.</li><li>Check the current seller, selected variation and return terms before ordering.</li></ol>
+        <p>For the rest of the event, use the <a href="/tools/unicorn-party-planner.html">party planner</a>. If the birthday child still needs a present, the <a href="/guides/unicorn-birthday-gifts.html">unicorn birthday gifts guide</a> separates everyday, creative and room-focused ideas.</p>'''
+    ))
+    write("guides/unicorn-bedroom-ideas.html", guide_page(
+        "Unicorn Bedroom Ideas: Plan the Room by Zones | Unicorn Finds",
+        "Plan a unicorn bedroom by focal point, zones, scale and colour. Use lighting, wall art, cushions and small accents without making every surface compete.",
+        "/guides/unicorn-bedroom-ideas.html",
+        "A unicorn bedroom can feel playful without feeling crowded when you plan the room in zones and let one or two pieces do most of the visual work.",
+        '''<h2>Start with the room, not the shopping list</h2>
+        <p>Look at what is already fixed: wall colour, bed position, storage, desk and available outlets. Then choose where the theme should be strongest. A wall above the bed, a reading corner or a desk shelf can become the focal zone. This is more flexible than trying to make every object in the room match.</p>
+        <p>Take basic measurements before ordering anything. Wall width, shelf depth, cushion size and the space around a bedside table will tell you which ideas are realistic. Product photos are useful for style, but they do not show scale in your room.</p>
+        <h2>Zone 1: create one focal point</h2>
+        <p>A focal point can be wall art, a lamp or a larger lighting effect. If you choose wall art, check the dimensions of every piece and whether frames or hanging hardware are included. If you choose lighting, consider the power source and where cables will run. Keep the other nearby surfaces quieter so the focal point is easy to notice.</p>'''
+        + inline_pick("wall-art", "A possible wall focal point; verify each print's dimensions and whether frames or hardware are included.")
+        + '''<h2>Zone 2: add texture near the bed or chair</h2>
+        <p>A cushion cover can repeat a colour from the focal point without repeating the exact same image. Check the cover size and whether an insert is included. One soft accent is often enough; using several different unicorn prints on bedding, cushions and curtains can make the room harder to update later.</p>'''
+        + inline_pick("pillow-cover", "A smaller textile accent; confirm dimensions, fabric and whether an insert is sold separately.")
+        + '''<h2>Zone 3: use lighting for atmosphere</h2>
+        <p>A compact lamp suits a shelf or bedside surface, while a projector is designed for a wider effect. Decide whether the goal is a small decorative glow or a room-wide scene. Then check dimensions, controls, power requirements and the manufacturer's instructions for placement. For a child's room, follow the stated age and safety guidance rather than treating every decorative light as suitable for unattended overnight use.</p>'''
+        + inline_pick("cloud-lamp", "A compact accent-light idea; check the current size, power method and controls.")
+        + inline_pick("projector", "For a broader ceiling or wall effect; verify projection distance, controls and power.")
+        + '''<h2>Zone 4: keep the desk useful</h2>
+        <p>A desk can carry one small themed object without becoming a display shelf. A paintable planter or small accessory can work if there is enough clear working space. Check what the planter set includes and whether the finished item has a practical place after the craft is done.</p>'''
+        + inline_pick("planters", "A creative desk or shelf accent; verify quantity, included supplies and finished dimensions.")
+        + '''<h2>Use a simple colour rule</h2>
+        <p>Pick two or three colours already present in the room and let new unicorn pieces repeat them. The items do not need to be from one set. A shared palette is usually enough to make different textures and shapes feel connected. Leave plain surfaces visible so the theme has contrast.</p>
+        <h2>Build the room in stages</h2>
+        <ol><li>Measure the room and choose one focal zone.</li><li>Add one focal item and live with it before filling other surfaces.</li><li>Repeat one or two colours in a textile or small accent.</li><li>Add lighting only after confirming placement and power.</li><li>Stop when each zone has a purpose; empty space is part of the design.</li></ol>
+        <p>The existing <a href="/guides/unicorn-room-decor.html">room decor guide</a> focuses on individual decor choices. This bedroom guide is for planning how those choices work together across the whole room.</p>'''
+    ))
+    write("guides/small-unicorn-gifts-stocking-stuffers.html", guide_page(
+        "Small Unicorn Gifts & Stocking Stuffers | Unicorn Finds",
+        "Find small unicorn gift and stocking-stuffer ideas by usefulness, size and ease of gifting. Includes compact accessories, creative gifts and drinkware checks.",
+        "/guides/small-unicorn-gifts-stocking-stuffers.html",
+        "A small gift should feel intentionally chosen, not like a miniature version of a bigger present.",
+        '''<h2>Define small by the situation</h2>
+        <p>A stocking stuffer, classroom exchange, little thank-you gift and add-on birthday surprise all have different size limits. Before choosing, think about where the gift needs to fit and whether the recipient has to carry it home. Check actual dimensions rather than relying on close-up listing photos.</p>
+        <p>Small also does not have to mean disposable. A useful accessory, a compact creative item or practical drinkware can feel more substantial than several novelty pieces.</p>
+        <h2>For the smallest surprise</h2>
+        <p>A keychain or bag charm is easy to wrap and does not require knowledge of the recipient's room measurements. The important checks are attachment style, physical size and whether any small parts make it unsuitable for the intended recipient. If it is going into a stocking, make sure the packaging itself will fit.</p>'''
+        + inline_pick("keychain", "A compact accessory idea; verify the size and attachment style on the current listing.")
+        + '''<h2>For a small creative gift</h2>
+        <p>A paintable item can feel bigger than its footprint because it includes an activity. Check the number of pieces, finished dimensions and what painting supplies are included. If you are giving it to a child, follow the maker's current age guidance and instructions.</p>'''
+        + inline_pick("planters", "A small craft-style present; check pack quantity, included supplies and stated age guidance.")
+        + '''<h2>When drinkware still counts as a small gift</h2>
+        <p>A mug is not a stocking stuffer in every household, but it can be a compact standalone present or part of a larger gift bag. A more decorative sculpted mug can take extra cabinet space, so check dimensions and care instructions. A standard-shaped mug may be easier to use every day.</p>'''
+        + inline_pick("mug-set", "A compact everyday gift; check capacity, current design and washing guidance.")
+        + inline_pick("sculpted-mug", "A more decorative option; verify dimensions, lid details and cleaning advice.")
+        + '''<h2>Small room accents require measurement too</h2>
+        <p>If you want a little decor gift, a cushion cover or compact light may still need information you do not know: insert size, shelf depth, power source or available outlets. When you are uncertain, a portable accessory is the lower-guesswork choice.</p>
+        <h2>How to make a small gift feel complete</h2>
+        <p>Presentation can do more than adding another product. A short note explaining why you chose the item, simple tissue paper or a reusable pouch can make one small gift feel finished. If you are combining several small pieces, use the <a href="/guides/unicorn-gift-basket-ideas.html">gift basket guide</a> so each item has a role instead of becoming filler.</p>
+        <h2>Small-gift checklist</h2>
+        <ol><li>Check the actual dimensions and packaging size.</li><li>Choose something that fits a real habit, hobby or place.</li><li>Read age guidance and small-parts information where relevant.</li><li>Confirm care instructions, included parts and selected variation.</li><li>Check the current Amazon seller, availability and return terms before checkout.</li></ol>
+        <p>Shopping for an older recipient? The <a href="/guides/unicorn-gifts-for-teens.html">teen gift guide</a> focuses on subtle, practical ways to use the theme.</p>'''
+    ))
+
     write("tools/unicorn-party-planner.html", party_planner())
     write("tools/unicorn-gift-finder.html", gift_finder())
     about_body = f'''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Behind the picks</span><h1>About Unicorn Finds</h1><p>A small independent guide to unicorn gifts, lighting and decor.</p></div></div>
@@ -532,7 +670,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
