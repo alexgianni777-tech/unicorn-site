@@ -1,0 +1,32 @@
+name: Sync product photo pages
+
+on:
+  push:
+    branches:
+      - "fix/restore-product-images-2026-10-02"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild static site
+        run: python build.py
+      - name: Commit generated pages when needed
+        run: |
+          if git diff --quiet; then
+            echo "Generated pages already match."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html guides tools about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
+          git commit -m "Sync product photos into generated pages"
+          git push
