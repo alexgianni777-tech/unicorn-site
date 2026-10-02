@@ -63,3 +63,32 @@ program and tracking agreement. My Little Pony is a Hasbro brand; only add
 product-specific Amazon paid links after verifying that the listed item is
 genuine licensed merchandise and that the Amazon tracking link is yours. Do
 not imply an official partnership.
+
+
+## Pinterest launch sprint
+
+The site now has enough destination pages to distribute instead of adding another large batch of articles. Use Pinterest as a traffic test for the existing guides.
+
+### Boards
+
+Create a small set of tightly themed boards rather than one generic board:
+
+- Unicorn gift ideas
+- Unicorn birthday ideas
+- Unicorn bedroom and room decor
+- Unicorn party ideas
+- Small gifts and stocking stuffers
+
+### First 15 pins
+
+Make one original vertical visual for each indexable destination page. Link each pin to the relevant guide or tool, not directly to Amazon. Use simple benefit-led titles such as "7 unicorn bedroom ideas without the clutter", "How to build a unicorn gift basket" and "Small unicorn gifts that are easy to give".
+
+Do not use Amazon product photos, artist/brand artwork, scraped images or retailer ratings. Use original illustrations, licensed assets or photographs you own. The pin description should accurately describe the destination page and avoid claiming hands-on testing.
+
+### Publishing rhythm
+
+Start with 1–2 useful pins per day for two weeks rather than publishing a large burst. After that, create a second visual angle only for pages that earn impressions, saves or outbound clicks. Keep the destination URL stable so Pinterest and Search Console data can be compared page by page.
+
+### Measure
+
+Track Pinterest impressions, saves and outbound clicks alongside Search Console impressions/clicks and Amazon Associates clicks/qualifying purchases. The first decision point is not follower count: it is whether Pinterest creates repeatable visits to guides that then produce Amazon intent.
