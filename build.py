@@ -261,6 +261,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-party-favor-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn party favor ideas</h3><p>Plan small take-home gifts by usefulness, quantity and age guidance.</p><span class="tile-link">Plan party favors →</span></a>
           <a class="guide-tile" href="/guides/unicorn-bedroom-ideas.html"><span class="tile-icon" aria-hidden="true">🛏️</span><h3>Unicorn bedroom ideas</h3><p>Plan a calmer themed bedroom by zones, scale and repeatable colours.</p><span class="tile-link">Plan the room →</span></a>
           <a class="guide-tile" href="/guides/small-unicorn-gifts-stocking-stuffers.html"><span class="tile-icon" aria-hidden="true">🧦</span><h3>Small unicorn gifts</h3><p>Stocking-stuffer and little-surprise ideas with size and usefulness in mind.</p><span class="tile-link">See small gift ideas →</span></a>
+          <a class="guide-tile" href="/tools/birthday-cake-servings-calculator.html"><span class="tile-icon" aria-hidden="true">🎂</span><h3>Cake servings calculator</h3><p>Calculate how many cakes to order using your guest count and baker’s portion sizes.</p><span class="tile-link">Plan cake portions</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-planner.html"><span class="tile-icon" aria-hidden="true">🎉</span><h3>Free unicorn party planner</h3><p>Work out guest supplies and your own budget, then print a simple party plan.</p><span class="tile-link">Plan a party →</span></a>
         </div>
       </div></section>
@@ -407,6 +408,7 @@ def party_planner() -> str:
         <h2>Your starting list</h2><p>For 12 guests and 2 other people, start with 16 plates and 16 cups if using one of each per person. Plan 12 favors. Add your own estimated costs above to see a budget.</p>
       </section>
       <button class="button planner-print" id="party-print" type="button">Print this plan</button>
+      <p>Ordering cake? Use the <a href="/tools/birthday-cake-servings-calculator.html">birthday cake servings calculator</a> to check portions and cake quantities.</p>
       <h2>A flexible 90-minute party outline</h2>
       <ol><li><strong>First 15 minutes:</strong> Welcome guests and offer a simple arrival activity while everyone settles in.</li>
         <li><strong>Next 30 minutes:</strong> Run one main game or craft. Check the age guidance and parts of any supplies before choosing an activity.</li>
@@ -429,6 +431,44 @@ def party_planner() -> str:
     )
 
 
+def cake_calculator() -> str:
+    body = """<main id="main"><div class="page-intro"><div class="wrap">
+      <div class="breadcrumbs"><a href="/">Home</a> / Free party tools</div>
+      <h1>Birthday cake servings calculator</h1>
+      <p>Work out how many cakes to order for a unicorn party or any birthday. Use your baker's stated servings instead of guessing from a photo.</p>
+    </div></div><div class="article wrap party-page">
+      <form id="cake-calculator" class="planner-form">
+        <fieldset><legend>Your cake plan</legend><div class="planner-fields">
+          <label>People eating cake <input id="cake-guests" type="number" min="1" max="1000" step="1" value="20" required></label>
+          <label>Extra servings (%) <input id="cake-buffer" type="number" min="0" max="100" step="1" value="10" required></label>
+          <label>Servings per cake <input id="cake-servings" type="number" min="1" max="1000" step="1" value="12" required></label>
+        </div><p class="field-help">Include adults who will eat cake. The default 12 servings is an example, not a standard cake size. Enter the portion count for the cake you are considering.</p></fieldset>
+      </form>
+      <section id="cake-result" class="planner-result" aria-live="polite" aria-atomic="true">
+        <h2>Example: order 2 cakes</h2><p>For 20 people plus 10% extra, plan 22 servings. Two cakes with 12 servings each provide 24 servings, leaving 4 after one serving per person.</p>
+      </section>
+      <noscript><p>To calculate another plan without JavaScript: multiply people by (1 + extra percentage / 100), round up, then divide by servings per cake and round up again.</p></noscript>
+      <button class="button planner-print" id="cake-print" type="button" hidden>Print cake plan</button>
+      <h2>How much cake do you need for 20, 30 or 50 guests?</h2>
+      <p>This example uses a 10% allowance and cakes labelled as 12 servings each. Substitute your baker's portion count; these figures are not a cake-diameter chart.</p>
+      <div class="table-scroll"><table class="pick-table"><thead><tr><th>People</th><th>Target servings</th><th>12-serving cakes</th><th>Total servings</th></tr></thead>
+      <tbody><tr><td>20</td><td>22</td><td>2</td><td>24</td></tr><tr><td>30</td><td>33</td><td>3</td><td>36</td></tr><tr><td>50</td><td>55</td><td>5</td><td>60</td></tr></tbody></table></div>
+      <h2>Choose a cake size with your baker</h2>
+      <p>Ask how many portions the exact cake serves and what size each portion is. Diameter alone does not tell you the serving count: height, shape and cutting pattern also matter. If one cake is too small, compare a larger cake with two smaller ones by changing the servings input.</p>
+      <p>The calculator assumes cakes of the same serving capacity. For a mixed order, add the stated servings of each cake and compare the sum with the target servings shown above.</p>
+      <h2>A worked example</h2>
+      <p>For 20 people and 10% extra, the target is 22 servings. At 12 servings per cake, 22 divided by 12 is 1.83, so round up to 2 cakes. That provides 24 servings: 4 beyond the guest count and 2 beyond the target that already includes your allowance.</p>
+      <h2>Plan the rest of the birthday</h2>
+      <p>Use the <a href="/tools/unicorn-party-planner.html">free party budget and supplies planner</a> for plates, cups and your own estimated costs. For take-home gifts, see our <a href="/guides/unicorn-party-favor-ideas.html">unicorn party favor ideas</a>.</p>
+      <h2>Before ordering</h2>
+      <ul><li>Confirm attendance and whether accompanying adults want cake.</li><li>Ask about dietary requirements and arrange suitable alternatives with your baker.</li><li>Confirm portion sizes, collection time, storage instructions and the final price.</li><li>A decorative cake and plain extra portions can be compared as a mixed order; ask the baker for a quote.</li></ul>
+      <p>Your calculator inputs stay in your browser and are not saved or sent by this tool. See our <a href="/privacy.html">privacy notice</a> for information about advertising.</p>
+    </div><script src="/assets/cake-calculator.js" defer></script></main>"""
+    return page("Birthday Cake Servings Calculator | Unicorn Finds",
+        "Calculate cakes and servings for a birthday party using guest count, extra portions and your baker's serving estimate. Free calculator with a printable plan.",
+        "/tools/birthday-cake-servings-calculator.html", body)
+
+
 def write(path: str, contents: str) -> None:
     destination = ROOT / path
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -437,6 +477,7 @@ def write(path: str, contents: str) -> None:
 
 def main() -> None:
     write("index.html", home())
+    write("tools/birthday-cake-servings-calculator.html", cake_calculator())
     write("guides/unicorn-gifts-for-adults.html", guide_page(
         "Unicorn Gifts for Adults: Gift Guide | Unicorn Finds",
         "Choose a unicorn gift for an adult by use, style and care needs. Compare mugs, small accessories and decor without relying on changing prices or ratings.",
@@ -700,7 +741,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
