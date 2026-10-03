@@ -335,7 +335,8 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
     </article></main>'''
     return page(
         title, description, path, body, kind="article",
-        image=article_image, published=article_published, modified="2026-10-02",
+        image=article_image, published=article_published,
+        modified="2026-10-03" if path == "/guides/unicorn-night-lights.html" else "2026-10-02",
     )
 
 
@@ -504,9 +505,15 @@ def main() -> None:
         "Compare unicorn night lights, bedside lamps and projectors by brightness, power, controls and room use before choosing a gift.",
         "/guides/unicorn-night-lights.html",
         "A bedside glow and a room projector solve different problems. This guide helps you choose the effect first.",
-        '''<h2>Decide what the light needs to do</h2>
+        '''<section aria-labelledby="lighting-shortlist"><h2 id="lighting-shortlist">Choose your room effect</h2>
+        <p>Start with the space you want to light. These are curated ideas, not hands-on reviews. The links below go to Amazon.com; check delivery to your country.</p>'''
+        + inline_pick("cloud-lamp", "For a bedside table or shelf: start with this decorative lamp if you want one compact focal point. Check dimensions, power supply and whether brightness can be adjusted.")
+        + inline_pick("projector", "For a ceiling or wall: compare this projector if you want a broader room effect. Check projection distance, scenes, controls and any timer before choosing.")
+        + inline_pick("night-light-search", "Still deciding? Browse Amazon search results for other unicorn night-light styles. Compare dimming and power options on the individual listings.")
+        + '''<p><a href="#lighting-checklist">Check power, controls and placement before buying</a></p></section>
+        <h2>Decide what the light needs to do</h2>
         <p>For a bedside table, a compact lamp keeps the effect local. For a large wall or ceiling, a projector changes the whole room. If the light will be used at bedtime, check whether it can be dimmed or switched off easily. For a decorative display, colour choices may matter more than brightness.</p>
-        <h2>Check the practical details</h2>
+        <h2 id="lighting-checklist">Check the practical details</h2>
         <ul><li><strong>Power:</strong> confirm whether the product uses batteries, a USB cable or a mains adapter, and what is included.</li><li><strong>Controls:</strong> consider whether a child can operate the button, or whether a remote could be misplaced.</li><li><strong>Placement:</strong> compare dimensions with the shelf or bedside surface. For a projector, check the recommended distance.</li><li><strong>Cleaning and care:</strong> read the maker's instructions, especially for soft or shaped lamps.</li></ul>
         <p>For a child's room, follow the product's stated age guidance and safety instructions. Do not assume that every lamp or projector is suitable for unsupervised use.</p>
         <h2>Browse before committing to a style</h2>
