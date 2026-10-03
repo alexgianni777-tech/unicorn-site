@@ -434,9 +434,12 @@ def party_planner() -> str:
 def cake_calculator() -> str:
     body = """<main id="main"><div class="page-intro"><div class="wrap">
       <div class="breadcrumbs"><a href="/">Home</a> / Free party tools</div>
-      <h1>Birthday cake servings calculator</h1>
+      <h1>Plan your unicorn birthday cake</h1>
       <p>Work out how many cakes to order for a unicorn party or any birthday. Use your baker's stated servings instead of guessing from a photo.</p>
+      <div class="hero-actions"><a class="button" href="#cake-calculator">Calculate servings</a><a class="button button-light" href="#cake-tools">Explore decorating tools</a></div>
     </div></div><div class="article wrap party-page">
+      <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real unicorn birthday cake with a gold horn, ears and pink buttercream decoration on a pink cake stand" width="1000" height="1250" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
+      <h2>Calculate your cake servings</h2>
       <form id="cake-calculator" class="planner-form">
         <fieldset><legend>Your cake plan</legend><div class="planner-fields">
           <label>People eating cake <input id="cake-guests" type="number" min="1" max="1000" step="1" value="20" required></label>
@@ -449,6 +452,12 @@ def cake_calculator() -> str:
       </section>
       <noscript><p>To calculate another plan without JavaScript: multiply people by (1 + extra percentage / 100), round up, then divide by servings per cake and round up again.</p></noscript>
       <button class="button planner-print" id="cake-print" type="button" hidden>Print cake plan</button>
+
+      <section id="cake-tools" aria-labelledby="cake-tools-title"><h2 id="cake-tools-title">Tools for your unicorn cake</h2>
+      <p>Start with the finish you want: a smooth base, a piped mane and a horn-and-ears topper. Check what you already own before buying a full kit.</p>
+      """ + affiliate_note() + """
+      <p>These paid links open Amazon.com search results, not specific tested products. Compare the exact contents, dimensions and delivery to your country.</p>
+      <div class="cake-tools-grid"><article class="cake-tool"><span class="eyebrow">01 · Smooth the frosting</span><h3>Cake turntable and scraper</h3><p>A rotating stand, offset spatula and scraper can help you reach the sides of the cake. Compare stand diameter, stability and what the kit includes.</p><a class="button" href="https://www.amazon.com/s?k=cake+decorating+turntable+scraper+spatula+kit&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Browse on Amazon</a><small>Paid link · Search results</small></article><article class="cake-tool"><span class="eyebrow">02 · Pipe a colourful mane</span><h3>Piping bags and tips</h3><p>Compare star tips and piping bags for swirls and rosettes. Check tip sizes, bag compatibility and whether couplers are included.</p><a class="button" href="https://www.amazon.com/s?k=cake+decorating+piping+bags+star+tips+set&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Browse on Amazon</a><small>Paid link · Search results</small></article><article class="cake-tool"><span class="eyebrow">03 · Add the unicorn details</span><h3>Horn and ears cake toppers</h3><p>Look for a topper that suits the cake height and width. Confirm whether it is edible; remove non-edible decorations before serving.</p><a class="button" href="https://www.amazon.com/s?k=unicorn+cake+topper+horn+ears&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Browse on Amazon</a><small>Paid link · Search results</small></article><article class="cake-tool"><span class="eyebrow">04 · Choose your cake shape</span><h3>Round cake pans</h3><p>Match pan dimensions and depth to your recipe. A pan diameter is not a serving guarantee; use the baker or recipe serving estimate above.</p><a class="button" href="https://www.amazon.com/s?k=round+cake+pans+set&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Browse on Amazon</a><small>Paid link · Search results</small></article></div><p>For colour, choose products explicitly labelled for food use. Follow the recipe and product instructions; decorative craft glitter is not a substitute for edible decoration.</p></section>
       <h2>How much cake do you need for 20, 30 or 50 guests?</h2>
       <p>This example uses a 10% allowance and cakes labelled as 12 servings each. Substitute your baker's portion count; these figures are not a cake-diameter chart.</p>
       <div class="table-scroll"><table class="pick-table"><thead><tr><th>People</th><th>Target servings</th><th>12-serving cakes</th><th>Total servings</th></tr></thead>
