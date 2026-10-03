@@ -1,25 +1,25 @@
 # AdSense setup for Unicorn Finds
 
-The site now contains three manual ad positions, but **no Google ad request is made until real AdSense values are added**.
+Google AdSense is approved for the publisher account used by Unicorn Finds.
 
-## Prepared positions
+## Live publisher setup
 
-- `home_top`: after the four quick picks.
-- `home_mid`: after the full product collection.
-- `article_mid`: near the end of each editorial guide, before related guides.
+- Publisher ID: `ca-pub-8108579336605864`
+- AdSense code is included on every generated page.
+- `ads.txt` declares `pub-8108579336605864` as a direct Google seller.
+- Manual ad containers remain available for `home_top`, `home_mid`, and `article_mid`.
+- Their slot IDs are intentionally empty unless manual display units are created in AdSense.
 
-The placements deliberately stay away from the main Amazon product CTA so display ads do not compete directly with the affiliate conversion path.
+## Recommended serving mode
 
-## When the AdSense account is ready
+Use **Auto ads** first. The site-wide AdSense code is already present, so Auto ads can serve without manual slot IDs once Auto ads is enabled for `unicornsite.online` in AdSense.
 
-1. Add `unicornsite.online` under AdSense **Sites** and request review.
-2. Use the AdSense verification code if Google asks for it.
-3. In AdSense, create three responsive display ad units (or reuse one unit if preferred).
-4. Put the publisher ID (`ca-pub-...`) and the numeric slot IDs in `assets/ads-config.js`.
-5. Add/update `ads.txt` using the exact line shown by AdSense for this publisher account.
-6. In **Privacy & messaging**, enable Google's European regulations message or another Google-certified CMP before serving personalised ads to EEA/UK/Swiss users.
-7. Re-check the privacy page after ads go live.
+The reserved manual placements can be activated later if we want tighter control over ad density or compare manual units against Auto ads.
 
-## Current safety state
+## Consent and policy
 
-With an empty `publisherId`, the ad containers stay hidden and the AdSense network script is not loaded.
+For EEA/UK/Swiss traffic, keep Google's European regulations message or another Google-certified CMP enabled as required. The privacy page now reflects live AdSense use.
+
+## Conversion guardrail
+
+Do not place manual display ads immediately beside the main Amazon affiliate CTA. Affiliate product cards and high-intent shopping buttons should remain visually distinct from advertising.

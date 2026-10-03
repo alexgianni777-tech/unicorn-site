@@ -684,9 +684,9 @@ def main() -> None:
     ))
     privacy_body = '''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Site information</span><h1>Privacy</h1><p>What happens when you visit Unicorn Finds or follow a product link.</p></div></div>
       <div class="article wrap"><h2>On this site</h2><p>This is a static website. It does not have user accounts. The party planner processes numbers in your browser and does not send or save them. The hosting provider may process technical request data needed to serve pages; its own privacy terms apply.</p>
-      <h2>Advertising</h2><p>The site is prepared for Google AdSense display advertising. Ad code remains disabled until an approved publisher ID and ad units are configured. When advertising is enabled, Google and its advertising partners may use cookies or other local storage and process data to deliver, measure and protect advertising. Where consent is required, an appropriate consent management platform should be used before personalised advertising is served.</p>
+      <h2>Advertising</h2><p>Unicorn Finds uses Google AdSense to serve and measure advertising. Google and its advertising partners may use cookies, device identifiers or other local storage to select, deliver, measure and protect ads. Depending on your location and consent choices, ads may be personalised or non-personalised. Where consent is required, Google’s consent tools or another Google-certified consent management platform are used before personalised advertising is served.</p>
       <h2>When you follow a link</h2><p>Product links take you to Amazon. Amazon may process your visit and purchase according to its own privacy notice and affiliate program. We do not see your payment details or the contents of your order. The site also links to third-party information; their privacy notices apply when you visit them.</p>
-      <h2>Changes</h2><p>If we enable advertising, analytics, a newsletter or a contact form, this page will be reviewed again before those features go live. Last revised: 2 October 2026.</p>
+      <h2>Changes</h2><p>This page is reviewed when advertising, analytics, newsletter or contact features change. Last revised: 3 October 2026.</p>
       <p><a href="/about.html">Read the affiliate disclosure</a> · <a href="/">Back to the home page</a></p></div></main>'''
     write("privacy.html", page(
         "Privacy | Unicorn Finds",
@@ -699,6 +699,7 @@ def main() -> None:
     ) + '</urlset>\n'
     write("sitemap.xml", sitemap)
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: https://unicornsite.online/sitemap.xml\n")
+    write("ads.txt", "google.com, pub-8108579336605864, DIRECT, f08c47fec0942fa0\n")
     write("unicorn-store (2).html", '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://unicornsite.online/"><meta http-equiv="refresh" content="0; url=/"><title>Unicorn Finds has moved</title></head><body><p>The store is now at <a href="/">Unicorn Finds</a>.</p></body></html>\n''')
 
 
