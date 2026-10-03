@@ -20,7 +20,7 @@ jobs:
         run: python build.py
       - name: Verify generated files are committed
         run: |
-          git diff --exit-code --             index.html             guides/unicorn-birthday-gifts.html             guides/unicorn-gifts-for-kids.html             guides/unicorn-gifts-for-adults.html             guides/unicorn-night-lights.html             guides/unicorn-room-decor.html             guides/unicorn-gift-basket-ideas.html             guides/unicorn-gifts-for-teens.html             guides/unicorn-party-favor-ideas.html             guides/unicorn-bedroom-ideas.html             guides/small-unicorn-gifts-stocking-stuffers.html             tools/unicorn-gift-finder.html             tools/unicorn-party-planner.html             about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
+          git diff --exit-code --             index.html             guides/index.html             guides/unicorn-birthday-gifts.html             guides/unicorn-gifts-for-kids.html             guides/unicorn-gifts-for-adults.html             guides/unicorn-night-lights.html             guides/unicorn-room-decor.html             guides/unicorn-gift-basket-ideas.html             guides/unicorn-gifts-for-teens.html             guides/unicorn-party-favor-ideas.html             guides/unicorn-bedroom-ideas.html             guides/small-unicorn-gifts-stocking-stuffers.html             tools/unicorn-gift-finder.html             tools/unicorn-party-planner.html             about.html privacy.html sitemap.xml robots.txt "unicorn-store (2).html"
       - name: Affiliate and funnel smoke checks
         run: |
           python - <<'PY'
@@ -31,6 +31,7 @@ jobs:
           birthday = Path("guides/unicorn-birthday-gifts.html").read_text(encoding="utf-8")
           kids = Path("guides/unicorn-gifts-for-kids.html").read_text(encoding="utf-8")
           sitemap = Path("sitemap.xml").read_text(encoding="utf-8")
+          guide_hub = Path("guides/index.html").read_text(encoding="utf-8")
           editorial = [
               Path("guides/unicorn-gift-basket-ideas.html"),
               Path("guides/unicorn-gifts-for-teens.html"),
@@ -65,10 +66,14 @@ jobs:
           assert "/assets/gift-finder.js" in finder
           assert finder.count('rel="sponsored nofollow noopener noreferrer"') == 10
           assert "Unicorn gift finder" in finder
+          assert "Unicorn gift guides" in guide_hub
+          assert "/guides/unicorn-birthday-gifts.html" in guide_hub
+          assert "/guides/unicorn-room-decor.html" in guide_hub
           assert birthday.count('rel="sponsored nofollow noopener noreferrer"') >= 6
           assert kids.count('rel="sponsored nofollow noopener noreferrer"') >= 4
 
           for path in [
+              "/guides/index.html",
               "/guides/unicorn-birthday-gifts.html",
               "/guides/unicorn-gifts-for-kids.html",
               "/guides/unicorn-gift-basket-ideas.html",
