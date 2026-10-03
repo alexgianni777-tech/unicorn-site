@@ -261,6 +261,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-party-favor-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn party favor ideas</h3><p>Plan small take-home gifts by usefulness, quantity and age guidance.</p><span class="tile-link">Plan party favors →</span></a>
           <a class="guide-tile" href="/guides/unicorn-bedroom-ideas.html"><span class="tile-icon" aria-hidden="true">🛏️</span><h3>Unicorn bedroom ideas</h3><p>Plan a calmer themed bedroom by zones, scale and repeatable colours.</p><span class="tile-link">Plan the room →</span></a>
           <a class="guide-tile" href="/guides/small-unicorn-gifts-stocking-stuffers.html"><span class="tile-icon" aria-hidden="true">🧦</span><h3>Small unicorn gifts</h3><p>Stocking-stuffer and little-surprise ideas with size and usefulness in mind.</p><span class="tile-link">See small gift ideas →</span></a>
+          <a class="guide-tile" href="/tools/unicorn-party-games.html"><span class="tile-icon" aria-hidden="true">🌈</span><h3>Party games &amp; free bingo</h3><p>Five easy games, printable cards and a word caller for your unicorn party.</p><span class="tile-link">Choose a game</span></a>
           <a class="guide-tile" href="/tools/birthday-cake-servings-calculator.html"><span class="tile-icon" aria-hidden="true">🎂</span><h3>Cake servings calculator</h3><p>Calculate how many cakes to order using your guest count and baker’s portion sizes.</p><span class="tile-link">Plan cake portions</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-planner.html"><span class="tile-icon" aria-hidden="true">🎉</span><h3>Free unicorn party planner</h3><p>Work out guest supplies and your own budget, then print a simple party plan.</p><span class="tile-link">Plan a party →</span></a>
         </div>
@@ -409,7 +410,7 @@ def party_planner() -> str:
       </section>
       <button class="button planner-print" id="party-print" type="button">Print this plan</button>
       <p>Ordering cake? Use the <a href="/tools/birthday-cake-servings-calculator.html">birthday cake servings calculator</a> to check portions and cake quantities.</p>
-      <h2>A flexible 90-minute party outline</h2>
+      <p>Choose activities from our <a href="/tools/unicorn-party-games.html">unicorn party games and free printable bingo</a>.</p><h2>A flexible 90-minute party outline</h2>
       <ol><li><strong>First 15 minutes:</strong> Welcome guests and offer a simple arrival activity while everyone settles in.</li>
         <li><strong>Next 30 minutes:</strong> Run one main game or craft. Check the age guidance and parts of any supplies before choosing an activity.</li>
         <li><strong>Next 20 minutes:</strong> Pause for food, drinks and cake. Ask guests about dietary needs when planning the menu.</li>
@@ -472,7 +473,7 @@ def cake_calculator() -> str:
       <p>The calculator assumes cakes of the same serving capacity. For a mixed order, add the stated servings of each cake and compare the sum with the target servings shown above.</p>
       <h2>A worked example</h2>
       <p>For 20 people and 10% extra, the target is 22 servings. At 12 servings per cake, 22 divided by 12 is 1.83, so round up to 2 cakes. That provides 24 servings: 4 beyond the guest count and 2 beyond the target that already includes your allowance.</p>
-      <h2>Plan the rest of the birthday</h2>
+      <h2>Plan the rest of the birthday</h2><p>Add <a href="/tools/unicorn-party-games.html">unicorn party games and free bingo</a> to your celebration.</p>
       <p>Use the <a href="/tools/unicorn-party-planner.html">free party budget and supplies planner</a> for plates, cups and your own estimated costs. For take-home gifts, see our <a href="/guides/unicorn-party-favor-ideas.html">unicorn party favor ideas</a>.</p>
       <section aria-labelledby="cake-checklist-title"><h2 id="cake-checklist-title">Your unicorn cake preparation checklist</h2>
       <p>Tick off your plan as you go, then use “Print cake plan” above. Ticks are not saved after you reload.</p>
@@ -504,6 +505,43 @@ def cake_calculator() -> str:
         "/tools/birthday-cake-servings-calculator.html", body).replace('/assets/style.css', '/assets/style.css?v=cake-20261003')
 
 
+def party_games() -> str:
+    games = [
+        ("Pin the horn on the unicorn", "Suggested ages 5+ · 3–12 players · 10–15 minutes", "Draw a unicorn head on a large sheet of paper. Give each player a paper horn with reusable adhesive. Players take turns placing it while looking away; an optional blindfold needs adult supervision and a clear standing area. Do not spin players. The nearest horn wins; younger children can play with their eyes open.", "unicorn+pin+the+horn+party+game", "Browse ready-made horn games"),
+        ("Rainbow treasure hunt", "Suggested ages 4+ · 2–12 players · 15–20 minutes", "Hide six coloured paper clues in an agreed area. Try these prompts: find somewhere shoes rest; look beside a storybook; check near a chair; look where coats hang; find a cushion; finish beside the party table. Adapt each clue to your space and keep clues away from roads, water and climbing spots. Let everyone share the final discovery.", "unicorn+party+favor+bags", "Browse unicorn favor bags"),
+        ("Unicorn ring toss", "Suggested ages 5+ · 2–12 players · 10 minutes", "Use a floor-standing target and soft rings. Mark a throwing line, give each player three throws and award one point per ring that lands on the target. Bring the line closer for younger players. Keep the target off people's heads and let everyone finish throwing before collecting rings.", "unicorn+ring+toss+game", "Browse unicorn ring-toss sets"),
+        ("Decorate your own unicorn", "Suggested ages 4+ with an adult · 2–12 players · 15–25 minutes", "Draw a simple unicorn outline on paper and offer crayons, paper shapes and washable colouring supplies. Invite each child to give their unicorn a name and one magical ability. Display everyone's creation rather than judging a winner. Choose age-appropriate supplies and follow their labels.", "unicorn+craft+kit+kids", "Browse unicorn craft kits"),
+        ("Unicorn word bingo", "Suggested ages 6+ or with reading help · 2–12 players · 10–20 minutes", "Print one different card per player using the generator below. The host calls words at random and players mark matching squares. Agree the winning pattern first: four across, down or diagonally. No free square. Check each winning word against the host's called-word list.", "unicorn+bingo+game", "Browse ready-made unicorn bingo"),
+    ]
+    sections = "".join(f'<section class="game-rule"><h2>{esc(name)}</h2><p class="eyebrow">{esc(meta)}</p><p>{esc(rule)}</p><a href="https://www.amazon.com/s?k={query}&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">{esc(label)} (paid link)</a></section>' for name,meta,rule,query,label in games)
+    body = """<main id="main"><div class="page-intro"><div class="wrap">
+      <div class="breadcrumbs"><a href="/">Home</a> / Party games</div><h1>Unicorn party games &amp; free printable bingo</h1>
+      <p>Five easy party activities, with suggested ages, group sizes and instructions. Make different bingo cards for up to 12 players, then use the on-screen word caller to host.</p>
+      <a class="button" href="#bingo">Make free bingo cards</a>
+    </div></div><div class="article wrap games-page">
+      <section id="bingo" aria-labelledby="bingo-title"><h2 id="bingo-title">Free unicorn bingo generator</h2>
+      <p>Each card has 16 words in a 4 × 4 grid. Cards use different selections from the same 24-word pool. Children who are still learning to read can play with a helper.</p>
+      <noscript><p>Enable JavaScript to generate cards. You can still use all five party-game instructions below without it.</p></noscript>
+      <form id="bingo-form" class="planner-form"><label for="bingo-count">Number of players (1–12)</label>
+        <input id="bingo-count" type="number" min="1" max="12" step="1" value="4" required>
+        <button class="button" type="submit">Generate cards</button></form>
+      <p id="bingo-status" role="status"></p>
+      <button class="button planner-print" id="bingo-print" type="button" hidden>Print cards and host word list</button>
+      <div id="bingo-cards"></div>
+      <section id="bingo-host" hidden><h3>Host word caller</h3><p>Print the cards first, then call words here. Mark printed cards with a pencil. Generating new cards starts a new game and clears the caller.</p>
+        <button class="button" id="bingo-call" type="button">Call next word</button>
+        <p id="bingo-current" role="status">Ready for the first word.</p><p id="bingo-history"></p></section>
+      <section class="bingo-word-list"><h3>Host word list</h3><p>Unicorn · Rainbow · Star · Moon · Cloud · Sparkle · Castle · Crown · Wand · Wings · Flower · Heart · Crystal · Meadow · Cupcake · Ribbon · Balloon · Wish · Magic · Sunshine · Butterfly · Jewel · Dream · Friendship</p><p>Winning pattern: four in a row across, down or diagonally. No free square.</p></section>
+      <p class="field-help">Free for your personal party use. No account or download required. The tool does not save your cards or send your inputs; keep the page open while hosting. Printing can also save a PDF through your browser.</p></section>
+      <h2>Pick games for your party</h2><p>These ages, group sizes and timings are planning suggestions, not product age ratings. Adjust for the children, space and available supervision.</p>
+      """ + affiliate_note() + """<p>Amazon links below open search results for supplies, not specific reviewed products. Check age labels, pack quantities and delivery to your country. You can play the paper-based versions with supplies you already have.</p>""" + sections + """
+      <h2>A simple three-activity plan</h2><ol><li>Start with decorating a unicorn while guests arrive.</li><li>Move to a short treasure hunt or ring toss after everyone has settled in.</li><li>Finish with bingo when a seated activity suits the group.</li></ol>
+      <p>Leave room for food and breaks. Use the <a href="/tools/unicorn-party-planner.html">party budget and supplies planner</a> for quantities and the <a href="/tools/birthday-cake-servings-calculator.html">unicorn cake guide</a> for cake ideas, videos and portions.</p>
+      <h2>Do you need prizes?</h2><p>No. Applause, choosing the next game or naming the group's unicorn can be enough. If you use take-home gifts, consider one for every child; our <a href="/guides/unicorn-party-favor-ideas.html">party favor guide</a> helps with quantities and age checks.</p>
+    </div><script src="/assets/unicorn-bingo.js" defer></script></main>"""
+    return page("Unicorn Party Games & Free Printable Bingo | Unicorn Finds", "Plan five unicorn party games and generate free printable bingo cards for up to 12 players. Includes a random word caller, rules and optional party supplies.", "/tools/unicorn-party-games.html", body).replace('</head>', '<link rel="stylesheet" href="/assets/unicorn-bingo.css"></head>')
+
+
 def write(path: str, contents: str) -> None:
     destination = ROOT / path
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -512,6 +550,7 @@ def write(path: str, contents: str) -> None:
 
 def main() -> None:
     write("index.html", home())
+    write("tools/unicorn-party-games.html", party_games())
     write("tools/birthday-cake-servings-calculator.html", cake_calculator())
     write("guides/unicorn-gifts-for-adults.html", guide_page(
         "Unicorn Gifts for Adults: Gift Guide | Unicorn Finds",
@@ -776,7 +815,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'

@@ -1,0 +1,22 @@
+#bingo { scroll-margin-top: 6rem; }
+#bingo-form { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+#bingo-count { width:5rem; padding:.7rem; font:inherit; }
+#bingo-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:1.5rem 0; }
+.bingo-card { padding:1rem; border:2px solid #8b397b; border-radius:.8rem; background:#fff; break-inside:avoid; }
+.article .bingo-card h3 { margin:0 0 1rem; font-size:1.2rem; color:#40204f; }
+.bingo-card table { width:100%; table-layout:fixed; border-collapse:collapse; }
+.bingo-card td { border:1px solid #b99fbd; height:4rem; text-align:center; font-size:.875rem; padding:.15rem; overflow-wrap:anywhere; }
+#bingo-host { border:1px solid #b99fbd; padding:1.2rem; border-radius:.7rem; }
+#bingo-current { font-size:1.4rem; font-weight:700; }
+.game-rule { margin:2rem 0; padding-bottom:1rem; border-bottom:1px solid #dfd0df; }
+@media(max-width:620px){#bingo-cards{grid-template-columns:1fr;}}
+@media print {
+ @page { margin:12mm; }
+ .games-page { max-width:none; width:100%; padding:0; }
+ .games-page > :not(#bingo), #bingo > :not(#bingo-cards):not(.bingo-word-list), .page-intro, .skip { display:none !important; }
+ #bingo-cards { display:block; margin:0; }
+ .bingo-card { margin:0 0 8mm; padding:5mm; }
+ .bingo-card:nth-child(2n) { break-after:page; }
+ .bingo-card td { height:16mm; font-size:12pt; }
+ .bingo-word-list { break-inside:avoid; }
+}
