@@ -439,6 +439,11 @@ def cake_calculator() -> str:
       <div class="hero-actions"><a class="button" href="#cake-calculator">Calculate servings</a><a class="button button-light" href="#cake-tools">Explore decorating tools</a></div>
     </div></div><div class="article wrap party-page">
       <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real unicorn birthday cake with a gold horn, ears and pink buttercream decoration on a pink cake stand" width="1000" height="1250" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
+      <section id="cake-video" aria-labelledby="cake-video-title"><h2 id="cake-video-title">Watch: decorate a unicorn cake</h2>
+      <p>Follow Cupcake Jemma's <em>Full Unicorn Cake Tutorial &amp; How-To</em> for the unicorn finish. This decorating tutorial starts with a baked, filled and crumb-coated cake. Use the cake and buttercream recipes linked in the creator's video description for the baking stage.</p>
+      <div id="cake-video-player" class="cake-video-box"><button class="button" id="cake-video-load" type="button" hidden>Load YouTube tutorial</button><p>Loading the player connects to YouTube. The creator's video remains on YouTube.</p></div>
+      <p><a href="https://www.youtube.com/watch?v=INsj_kdOVCE" target="_blank" rel="noopener noreferrer">Watch the tutorial and open its recipe links on YouTube</a></p>
+      <p>Prefer a different style? See Cupcake Jemma's <a href="https://www.youtube.com/watch?v=wQlJniA_t88" target="_blank" rel="noopener noreferrer">sprinkle unicorn cake baking tutorial</a>, with ingredient quantities in its description.</p></section>
       <h2>Calculate your cake servings</h2>
       <form id="cake-calculator" class="planner-form">
         <fieldset><legend>Your cake plan</legend><div class="planner-fields">
@@ -469,12 +474,33 @@ def cake_calculator() -> str:
       <p>For 20 people and 10% extra, the target is 22 servings. At 12 servings per cake, 22 divided by 12 is 1.83, so round up to 2 cakes. That provides 24 servings: 4 beyond the guest count and 2 beyond the target that already includes your allowance.</p>
       <h2>Plan the rest of the birthday</h2>
       <p>Use the <a href="/tools/unicorn-party-planner.html">free party budget and supplies planner</a> for plates, cups and your own estimated costs. For take-home gifts, see our <a href="/guides/unicorn-party-favor-ideas.html">unicorn party favor ideas</a>.</p>
+      <section aria-labelledby="cake-checklist-title"><h2 id="cake-checklist-title">Your unicorn cake preparation checklist</h2>
+      <p>Tick off your plan as you go, then use “Print cake plan” above. Ticks are not saved after you reload.</p>
+      <div class="cake-checklist">
+        <label><input type="checkbox" class="cake-task"> Confirm guests, portions and dietary requirements.</label>
+        <label><input type="checkbox" class="cake-task"> Choose a tested cake and frosting recipe; check its yield and pan sizes.</label>
+        <label><input type="checkbox" class="cake-task"> Check the tools you own before shopping for extras.</label>
+        <label><input type="checkbox" class="cake-task"> Plan baking, cooling and decorating time from your recipe.</label>
+        <label><input type="checkbox" class="cake-task"> Choose food-safe colours and confirm which decorations are edible.</label>
+        <label><input type="checkbox" class="cake-task"> Arrange a suitable cake board, box and storage for the finished cake.</label>
+      </div><p id="cake-task-progress" role="status">0 of 6 planning steps complete.</p></section>
+      <h2>Choose how much you want to make yourself</h2>
+      <div class="table-scroll"><table class="pick-table"><thead><tr><th>Approach</th><th>Your work</th><th>What to check</th></tr></thead><tbody>
+      <tr><td>Decorate a ready-made cake</td><td>Add a suitable topper and your chosen finishing details.</td><td>Existing frosting, cake height, topping weight and storage instructions.</td></tr>
+      <tr><td>Bake and decorate</td><td>Follow a tested recipe, then add the unicorn finish.</td><td>Recipe yield, pan sizes, cooling time and piping tools.</td></tr>
+      <tr><td>Order from a baker</td><td>Agree portions, design and collection.</td><td>Written price, dietary requirements, serving size and transport.</td></tr>
+      </tbody></table></div>
+      <h2>Unicorn cake planning questions</h2>
+      <details><summary>Do I need a special unicorn-shaped pan?</summary><p>A horn-and-ears design can be added to a round cake, as in the decorating tutorial above. Choose the pans required by the recipe rather than buying a novelty pan automatically.</p></details>
+      <details><summary>What should a beginner buy first?</summary><p>Start with the recipe and design. Check whether you already have suitable pans, a spatula and a cake board. Add piping bags and the required tips if you want a piped mane; a ready-made topper is another option. Compare kit contents to avoid duplicates.</p></details>
+      <details><summary>Can I use the photograph as a serving-size guide?</summary><p>No. The photo is style inspiration, not a portion chart or a tested recipe. Use your recipe's yield or your baker's portion estimate in the calculator.</p></details>
+      <details><summary>How far ahead can I make the cake?</summary><p>Use the storage and make-ahead instructions for your exact cake, filling and frosting. Different fillings need different handling; the decoration does not determine a safe storage time.</p></details>
       <h2>Before ordering</h2>
       <ul><li>Confirm attendance and whether accompanying adults want cake.</li><li>Ask about dietary requirements and arrange suitable alternatives with your baker.</li><li>Confirm portion sizes, collection time, storage instructions and the final price.</li><li>A decorative cake and plain extra portions can be compared as a mixed order; ask the baker for a quote.</li></ul>
       <p>Your calculator inputs stay in your browser and are not saved or sent by this tool. See our <a href="/privacy.html">privacy notice</a> for information about advertising.</p>
     </div><script src="/assets/cake-calculator.js" defer></script></main>"""
-    return page("Birthday Cake Servings Calculator | Unicorn Finds",
-        "Calculate cakes and servings for a birthday party using guest count, extra portions and your baker's serving estimate. Free calculator with a printable plan.",
+    return page("Unicorn Cake Guide, Tools & Servings Calculator | Unicorn Finds",
+        "Plan a unicorn birthday cake with real cake inspiration, decorating videos, an interactive checklist, baking-tool ideas and a free cake servings calculator.",
         "/tools/birthday-cake-servings-calculator.html", body)
 
 

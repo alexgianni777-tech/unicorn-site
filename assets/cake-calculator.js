@@ -32,3 +32,25 @@ if (typeof document !== 'undefined') {
   print.addEventListener('click', () => window.print());
   update();
 }
+
+if (typeof document !== 'undefined') {
+  const loadVideo = document.getElementById('cake-video-load');
+  if (loadVideo) {
+    loadVideo.hidden = false;
+    loadVideo.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/INsj_kdOVCE';
+      frame.title = 'Full Unicorn Cake Tutorial & How-To by Cupcake Jemma';
+      frame.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.allowFullscreen = true;
+      frame.style.cssText = 'width:100%;aspect-ratio:16/9;border:0;display:block';
+      document.getElementById('cake-video-player').replaceChildren(frame);
+    }, { once: true });
+  }
+  const tasks = [...document.querySelectorAll('.cake-task')];
+  const progress = document.getElementById('cake-task-progress');
+  if (progress) tasks.forEach(task => task.addEventListener('change', () => {
+    progress.textContent = `${tasks.filter(item => item.checked).length} of ${tasks.length} planning steps complete.`;
+  }));
+}
