@@ -438,7 +438,7 @@ def cake_calculator() -> str:
       <p>Work out how many cakes to order for a unicorn party or any birthday. Use your baker's stated servings instead of guessing from a photo.</p>
       <div class="hero-actions"><a class="button" href="#cake-calculator">Calculate servings</a><a class="button button-light" href="#cake-tools">Explore decorating tools</a></div>
     </div></div><div class="article wrap party-page">
-      <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real unicorn birthday cake with a gold horn, ears and pink buttercream decoration on a pink cake stand" width="1000" height="1250" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
+      <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real white birthday cake with pink drip icing, colourful decorations and a silver unicorn topper on a pink stand" width="1000" height="1675" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
       <section id="cake-video" aria-labelledby="cake-video-title"><h2 id="cake-video-title">Watch: decorate a unicorn cake</h2>
       <p>Follow Cupcake Jemma's <em>Full Unicorn Cake Tutorial &amp; How-To</em> for the unicorn finish. This decorating tutorial starts with a baked, filled and crumb-coated cake. Use the cake and buttercream recipes linked in the creator's video description for the baking stage.</p>
       <div id="cake-video-player" class="cake-video-box"><button class="button" id="cake-video-load" type="button" hidden>Load YouTube tutorial</button><p>Loading the player connects to YouTube. The creator's video remains on YouTube.</p></div>
@@ -501,7 +501,7 @@ def cake_calculator() -> str:
     </div><script src="/assets/cake-calculator.js" defer></script></main>"""
     return page("Unicorn Cake Guide, Tools & Servings Calculator | Unicorn Finds",
         "Plan a unicorn birthday cake with real cake inspiration, decorating videos, an interactive checklist, baking-tool ideas and a free cake servings calculator.",
-        "/tools/birthday-cake-servings-calculator.html", body)
+        "/tools/birthday-cake-servings-calculator.html", body).replace('/assets/style.css', '/assets/style.css?v=cake-20261003')
 
 
 def write(path: str, contents: str) -> None:
