@@ -42,7 +42,7 @@ def affiliate_note() -> str:
 def header(active: str = "") -> str:
     links = [
         ("Shop", "/#shop"),
-        ("Gift guides", "/#guides"),
+        ("Gift guides", "/guides/index.html"),
         ("Gift finder", "/tools/unicorn-gift-finder.html"),
         ("Party planner", "/tools/unicorn-party-planner.html"),
         ("Night lights", "/guides/unicorn-night-lights.html"),
@@ -69,7 +69,7 @@ def footer() -> str:
         <div><a class="brand" href="/">Unicorn Finds</a>
           <p>Thoughtful ideas for unicorn gifts and decor. We organise options and explain what to check before you choose. We do not sell or ship products.</p></div>
         <div class="footer-links"><strong>Explore</strong>
-          <a href="/#shop">All picks</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a>
+          <a href="/#shop">All picks</a><a href="/guides/index.html">All gift guides</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a>
           <a href="/guides/unicorn-birthday-gifts.html">Birthday gifts</a><a href="/guides/unicorn-gifts-for-kids.html">Gifts for kids</a>
           <a href="/guides/unicorn-gifts-for-teens.html">Gifts for teens</a><a href="/guides/unicorn-gifts-for-adults.html">Gifts for adults</a>
           <a href="/guides/unicorn-gift-basket-ideas.html">Gift baskets</a><a href="/guides/small-unicorn-gifts-stocking-stuffers.html">Small gifts</a>
@@ -187,7 +187,7 @@ def quick_pick(product_id: str, badge: str, why: str) -> str:
     product = BY_ID[product_id]
     cta = "Browse similar on Amazon" if "/s?" in product["url"] else "View on Amazon"
     return f'''<article class="quick-pick">
-      <div class="quick-pick-icon"><img src="/{esc(product['image'])}" alt="" loading="lazy" width="88" height="78"></div>
+      <div class="quick-pick-icon"><img src="/{esc(product['image'])}" alt="{esc(product['alt'])}" loading="lazy" width="88" height="78"></div>
       <div class="quick-pick-copy"><span class="quick-badge">{esc(badge)}</span><h3>{esc(product['title'])}</h3>
         <p>{esc(why)}</p>
         <a class="quick-link" href="{esc(product['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer">{cta} <span aria-hidden="true">↗</span></a>
@@ -541,7 +541,7 @@ def main() -> None:
     ))
 
     write("guides/unicorn-gift-basket-ideas.html", guide_page(
-        "Unicorn Gift Basket Ideas: Build a Better Bundle | Unicorn Finds",
+        "Unicorn Gift Basket Ideas | Unicorn Finds",
         "Build a unicorn gift basket around one useful anchor item, a small supporting gift and a simple theme. Includes practical checks for size, care and presentation.",
         "/guides/unicorn-gift-basket-ideas.html",
         "A good unicorn gift basket feels coordinated because every item has a reason to be there, not because every surface is covered in unicorns.",
@@ -590,7 +590,7 @@ def main() -> None:
         <p>For more room-specific planning, see the <a href="/guides/unicorn-bedroom-ideas.html">unicorn bedroom ideas guide</a>. If you need a smaller present, use the <a href="/guides/small-unicorn-gifts-stocking-stuffers.html">small unicorn gifts guide</a>.</p>'''
     ))
     write("guides/unicorn-party-favor-ideas.html", guide_page(
-        "Unicorn Party Favor Ideas: Small Take-Home Gifts | Unicorn Finds",
+        "Unicorn Party Favor Ideas | Unicorn Finds",
         "Plan unicorn party favors by quantity, usefulness, age guidance and packing. Includes ideas for small accessories and creative take-home items.",
         "/guides/unicorn-party-favor-ideas.html",
         "A party favor works best when it is small enough to hand out easily, useful after the party and appropriate for the guests.",
@@ -614,7 +614,7 @@ def main() -> None:
         <p>For the rest of the event, use the <a href="/tools/unicorn-party-planner.html">party planner</a>. If the birthday child still needs a present, the <a href="/guides/unicorn-birthday-gifts.html">unicorn birthday gifts guide</a> separates everyday, creative and room-focused ideas.</p>'''
     ))
     write("guides/unicorn-bedroom-ideas.html", guide_page(
-        "Unicorn Bedroom Ideas: Plan the Room by Zones | Unicorn Finds",
+        "Unicorn Bedroom Ideas | Unicorn Finds",
         "Plan a unicorn bedroom by focal point, zones, scale and colour. Use lighting, wall art, cushions and small accents without making every surface compete.",
         "/guides/unicorn-bedroom-ideas.html",
         "A unicorn bedroom can feel playful without feeling crowded when you plan the room in zones and let one or two pieces do most of the visual work.",
@@ -693,7 +693,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
