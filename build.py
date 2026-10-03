@@ -542,7 +542,7 @@ def main() -> None:
 
     write("guides/unicorn-gift-basket-ideas.html", guide_page(
         "Unicorn Gift Basket Ideas | Unicorn Finds",
-        "Build a unicorn gift basket around one useful anchor item, a small supporting gift and a simple theme. Includes practical checks for size, care and presentation.",
+        "Build a unicorn gift basket around one useful anchor item, a supporting gift and a simple theme, with practical checks for size, care and presentation.",
         "/guides/unicorn-gift-basket-ideas.html",
         "A good unicorn gift basket feels coordinated because every item has a reason to be there, not because every surface is covered in unicorns.",
         '''<h2>Start with one anchor gift</h2>
