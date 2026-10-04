@@ -8,6 +8,7 @@ availability, Amazon ratings or customer reviews are stored here.
 from __future__ import annotations
 
 import html
+from memory_game import render as memory_game
 from treasure_hunt import render as treasure_hunt
 import json
 from pathlib import Path
@@ -262,6 +263,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-party-favor-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn party favor ideas</h3><p>Plan small take-home gifts by usefulness, quantity and age guidance.</p><span class="tile-link">Plan party favors →</span></a>
           <a class="guide-tile" href="/guides/unicorn-bedroom-ideas.html"><span class="tile-icon" aria-hidden="true">🛏️</span><h3>Unicorn bedroom ideas</h3><p>Plan a calmer themed bedroom by zones, scale and repeatable colours.</p><span class="tile-link">Plan the room →</span></a>
           <a class="guide-tile" href="/guides/small-unicorn-gifts-stocking-stuffers.html"><span class="tile-icon" aria-hidden="true">🧦</span><h3>Small unicorn gifts</h3><p>Stocking-stuffer and little-surprise ideas with size and usefulness in mind.</p><span class="tile-link">See small gift ideas →</span></a>
+          <a class="guide-tile" href="/tools/unicorn-memory-game.html"><span class="tile-icon" aria-hidden="true">🦄</span><h3>Play unicorn memory</h3><p>Find six matching pairs in a free browser game. No timer or sign-up.</p><span class="tile-link">Play now →</span></a>
           <a class="guide-tile" href="/tools/unicorn-treasure-hunt.html"><span class="tile-icon" aria-hidden="true">✨</span><h3>Free unicorn treasure hunt</h3><p>Print six hiding cards and a picture-matching sheet for an easy party adventure.</p><span class="tile-link">Get the printable game →</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-games.html"><span class="tile-icon" aria-hidden="true">🌈</span><h3>Party games &amp; free bingo</h3><p>Five easy games, printable cards and a word caller for your unicorn party.</p><span class="tile-link">Choose a game</span></a>
           <a class="guide-tile" href="/tools/birthday-cake-servings-calculator.html"><span class="tile-icon" aria-hidden="true">🎂</span><h3>Cake servings calculator</h3><p>Calculate how many cakes to order using your guest count and baker’s portion sizes.</p><span class="tile-link">Plan cake portions</span></a>
@@ -556,7 +558,7 @@ def party_games() -> str:
         <p id="bingo-current" role="status">Ready for the first word.</p><p id="bingo-history"></p></section>
       <section class="bingo-word-list"><h3>Host word list</h3><p>Unicorn · Rainbow · Star · Moon · Cloud · Sparkle · Castle · Crown · Wand · Wings · Flower · Heart · Crystal · Meadow · Cupcake · Ribbon · Balloon · Wish · Magic · Sunshine · Butterfly · Jewel · Dream · Friendship</p><p>Winning pattern: four in a row across, down or diagonally. No free square.</p></section>
       <p class="field-help">Free for your personal party use. No account or download required. The tool does not save your cards or send your inputs; keep the page open while hosting. Printing can also save a PDF through your browser.</p></section>
-      <aside class="callout"><h2>New: free printable unicorn treasure hunt</h2><p>Hide six picture cards, then let children find and tick matching symbols. Includes a player sheet and simple setup instructions.</p><a class="button" href="/tools/unicorn-treasure-hunt.html">Get the free treasure hunt</a></aside><h2>Pick games for your party</h2><p>These ages, group sizes and timings are planning suggestions, not product age ratings. Adjust for the children, space and available supervision.</p>
+      <aside class="callout"><h2>New: free printable unicorn treasure hunt</h2><p>Hide six picture cards, then let children find and tick matching symbols. Includes a player sheet and simple setup instructions.</p><a class="button" href="/tools/unicorn-treasure-hunt.html">Get the free treasure hunt</a></aside><aside class="callout"><h2>Play unicorn memory online</h2><p>Find six matching pairs at your own pace, on a phone or computer.</p><a class="button" href="/tools/unicorn-memory-game.html">Play the free memory game</a></aside><h2>Pick games for your party</h2><p>These ages, group sizes and timings are planning suggestions, not product age ratings. Adjust for the children, space and available supervision.</p>
       """ + affiliate_note() + """<p>Amazon links below open search results for supplies, not specific reviewed products. Check age labels, pack quantities and delivery to your country. You can play the paper-based versions with supplies you already have.</p>""" + sections + """
       <h2>A simple three-activity plan</h2><ol><li>Start with decorating a unicorn while guests arrive.</li><li>Move to a short treasure hunt or ring toss after everyone has settled in.</li><li>Finish with bingo when a seated activity suits the group.</li></ol>
       <p>Leave room for food and breaks. Use the <a href="/tools/unicorn-party-planner.html">party budget and supplies planner</a> for quantities and the <a href="/tools/birthday-cake-servings-calculator.html">unicorn cake guide</a> for cake ideas, videos and portions.</p>
@@ -813,6 +815,7 @@ def main() -> None:
     ))
 
     write("tools/unicorn-treasure-hunt.html", treasure_hunt(page, affiliate_note))
+    write("tools/unicorn-memory-game.html", memory_game(page))
     write("tools/unicorn-party-planner.html", party_planner())
     write("tools/unicorn-gift-finder.html", gift_finder())
     about_body = f'''<main id="main"><div class="page-intro"><div class="wrap"><span class="eyebrow">Behind the picks</span><h1>About Unicorn Finds</h1><p>A small independent guide to unicorn gifts, lighting and decor.</p></div></div>
@@ -839,7 +842,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'

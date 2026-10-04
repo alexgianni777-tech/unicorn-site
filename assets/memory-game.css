@@ -1,0 +1,14 @@
+.memory-page { max-width:780px; }
+.memory-toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+#memory-status { min-height:3.2em; font-weight:700; color:var(--plum); }
+.memory-board { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.7rem; margin:1rem 0; }
+.memory-card { min-width:0; aspect-ratio:1; border:2px solid #967493; border-radius:1rem; background:var(--plum); color:white; cursor:pointer; display:grid; place-items:center; padding:.5rem; }
+.memory-back { font-size:2.5rem; }
+.memory-card.revealed { background:#fff; color:var(--plum); }
+.memory-card.matched { background:#e7f7ef; border:3px solid #327354; }
+.memory-front svg { width:48px; height:48px; fill:#853b78; display:block; margin:auto; }
+.unicorn-face { display:block; font-size:2.5rem; line-height:1.25; }
+.memory-name { display:block; font-size:.8rem; font-weight:700; margin-top:.25rem; }
+.memory-card:focus-visible { outline:4px solid #1479a0; outline-offset:3px; }
+.memory-card[aria-disabled="true"] { cursor:default; }
+@media(max-width:460px) { .memory-board { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; } .memory-card { border-radius:.6rem; } }
