@@ -388,7 +388,7 @@ def party_planner() -> str:
       <div class="breadcrumbs"><a href="/">Home</a> / Free tools</div>
       <span class="eyebrow">Plan, then play</span><h1>Free unicorn party planner</h1>
       <p>Estimate supplies and your own budget in one place. Print the result for a shopping trip or a conversation with another organiser.</p>
-    </div></div><div class="article wrap party-page">
+    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
       <p>This planner runs in your browser. It does not send your numbers to us, save a guest list or assume current shop prices. Enter the prices you find and adjust the quantities for your particular party.</p>
       <form id="party-planner" class="planner-form">
         <fieldset><legend>People and supplies</legend><div class="planner-fields">
@@ -438,7 +438,7 @@ def cake_calculator() -> str:
       <h1>Plan your unicorn birthday cake</h1>
       <p>Work out how many cakes to order for a unicorn party or any birthday. Use your baker's stated servings instead of guessing from a photo.</p>
       <div class="hero-actions"><a class="button" href="#cake-calculator">Calculate servings</a><a class="button button-light" href="#cake-tools">Explore decorating tools</a></div>
-    </div></div><div class="article wrap party-page">
+    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
       <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real white birthday cake with pink drip icing, colourful decorations and a silver unicorn topper on a pink stand" width="1000" height="1675" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
       <section id="cake-video" aria-labelledby="cake-video-title"><h2 id="cake-video-title">Watch: decorate a unicorn cake</h2>
       <p>Follow Cupcake Jemma's <em>Full Unicorn Cake Tutorial &amp; How-To</em> for the unicorn finish. This decorating tutorial starts with a baked, filled and crumb-coated cake. Use the cake and buttercream recipes linked in the creator's video description for the baking stage.</p>
@@ -511,14 +511,26 @@ def party_games() -> str:
         ("Rainbow treasure hunt", "Suggested ages 4+ · 2–12 players · 15–20 minutes", "Hide six coloured paper clues in an agreed area. Try these prompts: find somewhere shoes rest; look beside a storybook; check near a chair; look where coats hang; find a cushion; finish beside the party table. Adapt each clue to your space and keep clues away from roads, water and climbing spots. Let everyone share the final discovery.", "unicorn+party+favor+bags", "Browse unicorn favor bags"),
         ("Unicorn ring toss", "Suggested ages 5+ · 2–12 players · 10 minutes", "Use a floor-standing target and soft rings. Mark a throwing line, give each player three throws and award one point per ring that lands on the target. Bring the line closer for younger players. Keep the target off people's heads and let everyone finish throwing before collecting rings.", "unicorn+ring+toss+game", "Browse unicorn ring-toss sets"),
         ("Decorate your own unicorn", "Suggested ages 4+ with an adult · 2–12 players · 15–25 minutes", "Draw a simple unicorn outline on paper and offer crayons, paper shapes and washable colouring supplies. Invite each child to give their unicorn a name and one magical ability. Display everyone's creation rather than judging a winner. Choose age-appropriate supplies and follow their labels.", "unicorn+craft+kit+kids", "Browse unicorn craft kits"),
-        ("Unicorn word bingo", "Suggested ages 6+ or with reading help · 2–12 players · 10–20 minutes", "Print one different card per player using the generator below. The host calls words at random and players mark matching squares. Agree the winning pattern first: four across, down or diagonally. No free square. Check each winning word against the host's called-word list.", "unicorn+bingo+game", "Browse ready-made unicorn bingo"),
+        ("Unicorn word bingo", "Suggested ages 6+ or with reading help · 2–12 players · 10–20 minutes", "Print one different card per player using the generator above. The host calls words at random and players mark matching squares. Agree the winning pattern first: four across, down or diagonally. No free square. Check each winning word against the host's called-word list.", "unicorn+bingo+game", "Browse ready-made unicorn bingo"),
     ]
-    sections = "".join(f'<section class="game-rule"><h2>{esc(name)}</h2><p class="eyebrow">{esc(meta)}</p><p>{esc(rule)}</p><a href="https://www.amazon.com/s?k={query}&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">{esc(label)} (paid link)</a></section>' for name,meta,rule,query,label in games)
+    sections = "".join(f'<section class="game-rule" id="game-{number}"><h2>{esc(name)}</h2><p class="eyebrow">{esc(meta)}</p><p>{esc(rule)}</p><a class="button game-shop" href="https://www.amazon.com/s?k={query}&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">{esc(label)} (paid link)</a></section>' for number,(name,meta,rule,query,label) in enumerate(games, 1))
+    comparisons = [
+        ("A quick group game", "Paper picture, paper horns and reusable adhesive", "Check the number of horns and whether adhesive is included."),
+        ("Exploring together", "Six paper clues; bags are optional", "Count one favor bag per child if you use them."),
+        ("An active game", "Soft rings and a stable floor target", "Check target dimensions, ring count and age guidance."),
+        ("A calm arrival activity", "Paper and crayons, or a craft kit", "Check usable pieces per child and whether colouring supplies are included."),
+        ("A seated group game", "Our free cards and pencils, or a ready-made set", "Check how many different player cards the box contains."),
+    ]
+    shopping = '<section id="choose-game"><h2>Choose a game and its supplies</h2><p>Pick the activity first. Each option includes a version you can prepare yourself and an optional ready-made alternative.</p>' + affiliate_note() + '<p>Paid links open Amazon.com search results. Compare the selected item and delivery to your country before buying.</p><div class="game-choice-grid">'
+    for number, ((name,meta,rule,query,label),(fit,diy,check)) in enumerate(zip(games, comparisons),1):
+        shopping += f'<article class="game-choice"><span class="eyebrow">{esc(fit)}</span><h3>{esc(name)}</h3><p>{esc(meta)}</p><p><strong>Prepare it yourself:</strong> {esc(diy)}.</p><p><strong>If buying:</strong> {esc(check)}</p><a href="#game-{number}">Read the game rules</a><a class="button game-shop" href="https://www.amazon.com/s?k={query}&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">{esc(label)}</a><small>Paid link · Amazon search results</small></article>'
+    shopping += '</div></section>'
     body = """<main id="main"><div class="page-intro"><div class="wrap">
       <div class="breadcrumbs"><a href="/">Home</a> / Party games</div><h1>Unicorn party games &amp; free printable bingo</h1>
       <p>Five easy party activities, with suggested ages, group sizes and instructions. Make different bingo cards for up to 12 players, then use the on-screen word caller to host.</p>
-      <a class="button" href="#bingo">Make free bingo cards</a>
-    </div></div><div class="article wrap games-page">
+      <div class="hero-actions"><a class="button" href="#bingo">Make free bingo cards</a><a class="button button-light" href="#choose-game">Compare games &amp; supplies</a></div>
+    </div></div><div class="article wrap games-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
+      """ + shopping + """
       <section id="bingo" aria-labelledby="bingo-title"><h2 id="bingo-title">Free unicorn bingo generator</h2>
       <p>Each card has 16 words in a 4 × 4 grid. Cards use different selections from the same 24-word pool. Children who are still learning to read can play with a helper.</p>
       <noscript><p>Enable JavaScript to generate cards. You can still use all five party-game instructions below without it.</p></noscript>
@@ -539,7 +551,7 @@ def party_games() -> str:
       <p>Leave room for food and breaks. Use the <a href="/tools/unicorn-party-planner.html">party budget and supplies planner</a> for quantities and the <a href="/tools/birthday-cake-servings-calculator.html">unicorn cake guide</a> for cake ideas, videos and portions.</p>
       <h2>Do you need prizes?</h2><p>No. Applause, choosing the next game or naming the group's unicorn can be enough. If you use take-home gifts, consider one for every child; our <a href="/guides/unicorn-party-favor-ideas.html">party favor guide</a> helps with quantities and age checks.</p>
     </div><script src="/assets/unicorn-bingo.js" defer></script></main>"""
-    return page("Unicorn Party Games & Free Printable Bingo | Unicorn Finds", "Plan five unicorn party games and generate free printable bingo cards for up to 12 players. Includes a random word caller, rules and optional party supplies.", "/tools/unicorn-party-games.html", body).replace('</head>', '<link rel="stylesheet" href="/assets/unicorn-bingo.css"></head>')
+    return page("Unicorn Party Games & Free Printable Bingo | Unicorn Finds", "Plan five unicorn party games and generate free printable bingo cards for up to 12 players. Includes a random word caller, rules and optional party supplies.", "/tools/unicorn-party-games.html", body).replace('</head>', '<link rel="stylesheet" href="/assets/unicorn-bingo.css?v=20261004"></head>')
 
 
 def write(path: str, contents: str) -> None:

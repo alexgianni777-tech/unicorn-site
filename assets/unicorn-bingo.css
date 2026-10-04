@@ -20,3 +20,12 @@
  .bingo-card td { height:16mm; font-size:12pt; }
  .bingo-word-list { break-inside:avoid; }
 }
+
+#choose-game, .game-rule { scroll-margin-top:6rem; }
+.game-choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-bottom:2rem; }
+.game-choice { display:flex; flex-direction:column; gap:.7rem; padding:1.25rem; border:1px solid #dfd0df; border-radius:1rem; background:#fff; }
+.article .game-choice h3, .game-choice p { margin:0; }
+.game-choice small { font-size:.875rem; }
+.game-choice .game-shop { margin-top:auto; text-align:center; }
+.game-shop { white-space:normal; }
+@media(max-width:620px) { .game-choice-grid { grid-template-columns:1fr; } }
