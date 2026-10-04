@@ -27,7 +27,10 @@ if (typeof document !== 'undefined') {
   const restart = document.getElementById('memory-reset');
   const next = document.getElementById('memory-continue');
   const templates = [...document.querySelectorAll('[data-memory-symbol]')];
-  let game, buttons;
+  const level = document.getElementById('memory-level');
+  const win = document.getElementById('memory-win');
+  let game, buttons, targetPairs;
+
   function paint() {
     game.cards.forEach((card, index) => {
       const shown = card.matched || game.open.includes(index);
@@ -44,7 +47,11 @@ if (typeof document !== 'undefined') {
     next.hidden = game.open.length !== 2;
   }
   function start() {
-    game = new UnicornMemory(templates.map(t => t.dataset.memorySymbol));
+    targetPairs = level.value === '3' ? 3 : 6;
+    game = new UnicornMemory(templates.slice(0, targetPairs).map(t => t.dataset.memorySymbol));
+    document.getElementById('memory-total').textContent = targetPairs;
+    board.classList.toggle('memory-easy', targetPairs === 3);
+    win.hidden = true;
     board.replaceChildren();
     buttons = game.cards.map((card, index) => {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'memory-card';
@@ -56,8 +63,12 @@ if (typeof document !== 'undefined') {
       button.addEventListener('click', () => {
         const outcome = game.choose(index); if (outcome === 'ignored') return;
         paint();
-        status.textContent = outcome === 'first' ? `${card.symbol}. Choose another card.` : outcome === 'miss' ? 'Different pictures. Remember them, then select “Turn these cards back”.' : game.pairs === templates.length ? `You found all six pairs in ${game.moves} moves! Choose New game to play again.` : `A ${card.symbol} pair! ${game.pairs} of 6 pairs found.`;
+        status.textContent = outcome === 'first' ? `${card.symbol}. Choose another card.` : outcome === 'miss' ? 'Different pictures. Remember them, then select “Turn these cards back”.' : game.pairs === targetPairs ? `You found all ${targetPairs} pairs in ${game.moves} moves! Choose New game to play again.` : `A ${card.symbol} pair! ${game.pairs} of ${targetPairs} pairs found.`;
         if (outcome === 'miss') next.focus();
+        if (game.pairs === targetPairs) {
+          document.getElementById('memory-win-text').textContent = `${targetPairs} pairs in ${game.moves} moves. ${game.moves === targetPairs ? 'A perfect game!' : 'Play again with a fresh shuffle, or try another activity.'}`;
+          win.hidden = false;
+        }
       });
       board.append(button); return button;
     });
@@ -65,5 +76,7 @@ if (typeof document !== 'undefined') {
   }
   next.addEventListener('click', () => { const first = game.open[0]; game.turnBack(); paint(); status.textContent = 'Choose two cards to try again.'; buttons[first].focus(); });
   restart.addEventListener('click', () => { start(); buttons[0].focus(); });
+  level.addEventListener('change', start);
+  document.getElementById('memory-replay').addEventListener('click', () => { start(); buttons[0].focus(); });
   start();
 }

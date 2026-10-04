@@ -12,3 +12,11 @@
 .memory-card:focus-visible { outline:4px solid #1479a0; outline-offset:3px; }
 .memory-card[aria-disabled="true"] { cursor:default; }
 @media(max-width:460px) { .memory-board { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; } .memory-card { border-radius:.6rem; } }
+
+.memory-level { margin:1rem 0; }
+.memory-level label { font-weight:700; display:block; margin-bottom:.4rem; }
+.memory-level select { padding:.75rem; border:1px solid #967493; border-radius:.5rem; font:inherit; background:white; max-width:100%; }
+.memory-board.memory-easy { grid-template-columns:repeat(3,minmax(0,1fr)); max-width:520px; }
+.memory-win { background:#e7f7ef; border:2px solid #327354; border-radius:1rem; padding:1.25rem; margin:1.2rem 0; }
+.memory-win h3 { margin-top:0; }
+.memory-win a { display:inline-block; margin:.7rem; }

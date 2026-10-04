@@ -1,7 +1,7 @@
 """A browsable overview of the site's existing free activities."""
 def render(page):
     items=[
-      ('Play online','🦄','Unicorn memory','Find six matching pairs at your own pace. Twelve cards, a move counter and a fresh shuffle each game.','Phone or computer · 1 player or take turns','/tools/unicorn-memory-game.html','Play memory'),
+      ('Play online','🦄','Unicorn memory','Choose an easy three-pair game or the classic six-pair challenge. No timer, with a fresh shuffle each game.','Phone or computer · 1 player or take turns','/tools/unicorn-memory-game.html','Play memory'),
       ('Print and play','✨','Unicorn treasure hunt','Hide six picture cards, then tick off matching symbols. Includes cards, a player sheet and setup instructions.','Printer and pencils · solo or group','/tools/unicorn-treasure-hunt.html','Get the treasure hunt'),
       ('Party game','🌈','Unicorn bingo','Generate different word cards for up to 12 players and use the on-screen caller to host your game.','Printer · readers or adult helpers','/tools/unicorn-party-games.html#bingo','Make bingo cards'),
     ]
