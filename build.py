@@ -212,7 +212,7 @@ def home() -> str:
         <div><div class="eyebrow">Ten gift ideas · real product photos</div>
           <h1>Give a little magic <em>they’ll actually use.</em></h1>
           <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
-          <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="#shop">See all ten ideas</a></div>
+          <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/unicorn-party-games.html">Free games &amp; printables</a></div>
           <p class="hero-note">Independent gift guide · clear paid-link disclosure · current Amazon details checked before you buy</p>
         </div>
         <div class="hero-collage" aria-label="Unicorn gift product photos">
@@ -543,6 +543,7 @@ def party_games() -> str:
       <p>Five easy party activities, with suggested ages, group sizes and instructions. Make different bingo cards for up to 12 players, then use the on-screen word caller to host.</p>
       <div class="hero-actions"><a class="button" href="#bingo">Make free bingo cards</a><a class="button button-light" href="#choose-game">Compare games &amp; supplies</a></div>
     </div></div><div class="article wrap games-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
+      <aside class="callout"><h2>New: free printable unicorn treasure hunt</h2><p>Hide six picture cards, then let children find and tick matching symbols. Includes a player sheet and simple setup instructions.</p><a class="button" href="/tools/unicorn-treasure-hunt.html">Get the free treasure hunt</a></aside><aside class="callout"><h2>Play unicorn memory online</h2><p>Find six matching pairs at your own pace, on a phone or computer.</p><a class="button" href="/tools/unicorn-memory-game.html">Play the free memory game</a></aside>
       """ + shopping + """
       <section id="bingo" aria-labelledby="bingo-title"><h2 id="bingo-title">Free unicorn bingo generator</h2>
       <p>Each card has 16 words in a 4 × 4 grid. Cards use different selections from the same 24-word pool. Children who are still learning to read can play with a helper.</p>
@@ -558,7 +559,7 @@ def party_games() -> str:
         <p id="bingo-current" role="status">Ready for the first word.</p><p id="bingo-history"></p></section>
       <section class="bingo-word-list"><h3>Host word list</h3><p>Unicorn · Rainbow · Star · Moon · Cloud · Sparkle · Castle · Crown · Wand · Wings · Flower · Heart · Crystal · Meadow · Cupcake · Ribbon · Balloon · Wish · Magic · Sunshine · Butterfly · Jewel · Dream · Friendship</p><p>Winning pattern: four in a row across, down or diagonally. No free square.</p></section>
       <p class="field-help">Free for your personal party use. No account or download required. The tool does not save your cards or send your inputs; keep the page open while hosting. Printing can also save a PDF through your browser.</p></section>
-      <aside class="callout"><h2>New: free printable unicorn treasure hunt</h2><p>Hide six picture cards, then let children find and tick matching symbols. Includes a player sheet and simple setup instructions.</p><a class="button" href="/tools/unicorn-treasure-hunt.html">Get the free treasure hunt</a></aside><aside class="callout"><h2>Play unicorn memory online</h2><p>Find six matching pairs at your own pace, on a phone or computer.</p><a class="button" href="/tools/unicorn-memory-game.html">Play the free memory game</a></aside><h2>Pick games for your party</h2><p>These ages, group sizes and timings are planning suggestions, not product age ratings. Adjust for the children, space and available supervision.</p>
+      <h2>Pick games for your party</h2><p>These ages, group sizes and timings are planning suggestions, not product age ratings. Adjust for the children, space and available supervision.</p>
       """ + affiliate_note() + """<p>Amazon links below open search results for supplies, not specific reviewed products. Check age labels, pack quantities and delivery to your country. You can play the paper-based versions with supplies you already have.</p>""" + sections + """
       <h2>A simple three-activity plan</h2><ol><li>Start with decorating a unicorn while guests arrive.</li><li>Move to a short treasure hunt or ring toss after everyone has settled in.</li><li>Finish with bingo when a seated activity suits the group.</li></ol>
       <p>Leave room for food and breaks. Use the <a href="/tools/unicorn-party-planner.html">party budget and supplies planner</a> for quantities and the <a href="/tools/birthday-cake-servings-calculator.html">unicorn cake guide</a> for cake ideas, videos and portions.</p>
