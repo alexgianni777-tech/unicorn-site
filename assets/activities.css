@@ -1,0 +1,9 @@
+.activities-page { padding-top:2rem; padding-bottom:2rem; }
+.activity-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; }
+.activity-card { display:flex; flex-direction:column; gap:.8rem; border:1px solid var(--line); border-radius:1.2rem; padding:1.4rem; background:#fff; min-width:0; }
+.activity-card h2,.activity-card p { margin:0; }
+.activity-preview { display:grid; place-items:center; height:130px; font-size:4rem; border-radius:.8rem; background:linear-gradient(135deg,#fae6f0,#e9e0fa); }
+.activity-card .button { margin-top:auto; text-align:center; white-space:normal; }
+.activity-choices dt { font-weight:800; margin-top:1rem; }
+.activity-choices dd { margin:.3rem 0 1rem; }
+@media(max-width:800px) { .activity-grid { grid-template-columns:1fr; } .activity-preview { height:100px; } }

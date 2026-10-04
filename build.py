@@ -8,6 +8,7 @@ availability, Amazon ratings or customer reviews are stored here.
 from __future__ import annotations
 
 import html
+from activities import render as activities
 from memory_game import render as memory_game
 from treasure_hunt import render as treasure_hunt
 import json
@@ -212,7 +213,7 @@ def home() -> str:
         <div><div class="eyebrow">Ten gift ideas · real product photos</div>
           <h1>Give a little magic <em>they’ll actually use.</em></h1>
           <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
-          <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/unicorn-party-games.html">Free games &amp; printables</a></div>
+          <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/free-unicorn-games.html">Free games &amp; printables</a></div>
           <p class="hero-note">Independent gift guide · clear paid-link disclosure · current Amazon details checked before you buy</p>
         </div>
         <div class="hero-collage" aria-label="Unicorn gift product photos">
@@ -539,7 +540,7 @@ def party_games() -> str:
         shopping += f'<article class="game-choice"><span class="eyebrow">{esc(fit)}</span><h3>{esc(name)}</h3><p>{esc(meta)}</p><p><strong>Prepare it yourself:</strong> {esc(diy)}.</p><p><strong>If buying:</strong> {esc(check)}</p><a href="#game-{number}">Read the game rules</a><a class="button game-shop" href="https://www.amazon.com/s?k={query}&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">{esc(label)}</a><small>Paid link · Amazon search results</small></article>'
     shopping += '</div></section>'
     body = """<main id="main"><div class="page-intro"><div class="wrap">
-      <div class="breadcrumbs"><a href="/">Home</a> / Party games</div><h1>Unicorn party games &amp; free printable bingo</h1>
+      <div class="breadcrumbs"><a href="/">Home</a> / <a href="/tools/free-unicorn-games.html">Free games &amp; printables</a> / Party games</div><h1>Unicorn party games &amp; free printable bingo</h1>
       <p>Five easy party activities, with suggested ages, group sizes and instructions. Make different bingo cards for up to 12 players, then use the on-screen word caller to host.</p>
       <div class="hero-actions"><a class="button" href="#bingo">Make free bingo cards</a><a class="button button-light" href="#choose-game">Compare games &amp; supplies</a></div>
     </div></div><div class="article wrap games-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
@@ -816,6 +817,7 @@ def main() -> None:
     ))
 
     write("tools/unicorn-treasure-hunt.html", treasure_hunt(page, affiliate_note))
+    write("tools/free-unicorn-games.html", activities(page))
     write("tools/unicorn-memory-game.html", memory_game(page))
     write("tools/unicorn-party-planner.html", party_planner())
     write("tools/unicorn-gift-finder.html", gift_finder())
@@ -843,7 +845,7 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
     ) + '</urlset>\n'
