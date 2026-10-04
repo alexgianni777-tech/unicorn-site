@@ -48,7 +48,7 @@ def header(active: str = "") -> str:
         ("Gift guides", "/guides/index.html"),
         ("Gift finder", "/tools/unicorn-gift-finder.html"),
         ("Party planner", "/tools/unicorn-party-planner.html"),
-        ("Night lights", "/guides/unicorn-night-lights.html"),
+        ("Free games", "/tools/free-unicorn-games.html"),
         ("Our approach", "/about.html"),
     ]
     items = "".join(
@@ -78,6 +78,12 @@ def footer() -> str:
           <a href="/guides/unicorn-gift-basket-ideas.html">Gift baskets</a><a href="/guides/small-unicorn-gifts-stocking-stuffers.html">Small gifts</a>
           <a href="/guides/unicorn-party-favor-ideas.html">Party favors</a><a href="/guides/unicorn-night-lights.html">Night lights</a>
           <a href="/guides/unicorn-room-decor.html">Room decor</a><a href="/guides/unicorn-bedroom-ideas.html">Bedroom ideas</a>
+          <strong>Free games &amp; planning tools</strong>
+          <a href="/tools/free-unicorn-games.html">All free activities</a>
+          <a href="/tools/unicorn-memory-game.html">Play unicorn memory</a>
+          <a href="/tools/unicorn-treasure-hunt.html">Printable treasure hunt</a>
+          <a href="/tools/unicorn-party-games.html#bingo">Printable bingo</a>
+          <a href="/tools/birthday-cake-servings-calculator.html">Cake guide &amp; servings calculator</a>
           <a href="/tools/unicorn-party-planner.html">Free party planner</a></div>
         <div class="footer-links"><strong>Information</strong>
           <a href="/about.html">About and affiliate disclosure</a><a href="/privacy.html">Privacy</a></div>
@@ -138,7 +144,7 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
   <script src="/assets/ads.js" defer></script>
 </head>
 <body>
-{header(active)}
+{header(active or path)}
 {body}
 {footer()}
 </body>

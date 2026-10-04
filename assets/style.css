@@ -258,3 +258,7 @@ h3 { font-size: 1.14rem; margin: 0 0 .45rem; }
 .party-page details { padding: 1rem 0; border-bottom: 1px solid var(--line); }
 .party-page summary { font-weight: 700; cursor: pointer; }
 @media print { #cake-video { display: none !important; } }
+
+/* Comfortable navigation targets on touch screens and keyboards. */
+.nav a { display:inline-flex; align-items:center; min-height:44px; }
+.nav a:focus-visible { outline:3px solid #1479a0; outline-offset:3px; border-radius:3px; }
