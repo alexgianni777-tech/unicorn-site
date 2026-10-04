@@ -364,7 +364,7 @@ def gift_finder() -> str:
       </section>
       <section id="finder-result" class="finder-result" aria-live="polite">
         <h2>Your three starting points</h2>
-        <p>Choose a gift type above to see three ideas.</p>
+        <p>Choose a gift type above to see three ideas. If the selector does not load, <a href="/#shop">browse all ten gifts here</a>.</p>
       </section>
       <div id="finder-products" hidden>
         <template data-product="mug-set">''' + inline_pick("mug-set", "A playful mug idea; check the current design, capacity and care instructions.") + '''</template>
@@ -378,13 +378,13 @@ def gift_finder() -> str:
         <template data-product="pillow-cover">''' + inline_pick("pillow-cover", "A small room refresh; check dimensions, fabric and whether an insert is included.") + '''</template>
         <template data-product="sculpted-mug">''' + inline_pick("sculpted-mug", "A more decorative mug; check size, cleaning advice and included parts.") + '''</template>
       </div>
-      <p class="finder-next"><a href="/guides/unicorn-birthday-gifts.html">Shopping for a birthday? Read the birthday guide →</a></p>
-    </div><script src="/assets/gift-finder.js" defer></script></main>'''
+      <p class="field-help">Bookmark or copy the page address after selecting a gift type to return to the same category. No personal details are included.</p><p class="finder-next"><a href="/guides/unicorn-birthday-gifts.html">Shopping for a birthday? Read the birthday guide →</a></p>
+    </div><script src="/assets/gift-finder.js?v=20261004" defer></script></main>'''
     return page(
         "Unicorn Gift Finder: Quick Gift Ideas | Unicorn Finds",
         "Use a free unicorn gift finder to narrow ten curated gift ideas to three starting points for everyday gifts, room lighting, creative gifts or small surprises.",
         "/tools/unicorn-gift-finder.html", body, active="/tools/unicorn-gift-finder.html",
-    )
+    ).replace("</head>", '<link rel="stylesheet" href="/assets/gift-finder.css"></head>')
 
 
 def party_planner() -> str:

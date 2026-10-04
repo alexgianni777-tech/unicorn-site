@@ -21,6 +21,13 @@ const MODES = {
   },
 };
 
+const CHOICE_HELP = {
+ everyday: 'Compare by routine: a mug set for a gift box, a tumbler for carrying drinks, or a sculpted mug for a decorative desk gift.',
+ glow: 'Compare by effect: a compact lamp for a local glow, a projector for patterns across the room, or search results to explore more styles.',
+ creative: 'Compare by activity: planters for a hands-on idea, wall art for an empty wall, or a pillow cover for an existing cushion.',
+ small: 'Compare by fit: a keychain for a bag, a mug set for a small gift box, or a pillow cover when you know the cushion size. Small does not necessarily mean low-priced.',
+};
+
 if (typeof document !== "undefined") {
   const result = document.getElementById("finder-result");
   const templates = document.getElementById("finder-products");
@@ -35,7 +42,7 @@ if (typeof document !== "undefined") {
       return template ? template.innerHTML : "";
     }).join("");
 
-    result.innerHTML = `<h2>${config.title}</h2><p>${config.text}</p><div class="finder-picks">${picks}</div>`;
+    result.innerHTML = `<h2>${config.title}</h2><p>${config.text}</p><p class="finder-check"><strong>How to choose:</strong> ${CHOICE_HELP[mode]}</p><div class="finder-picks">${picks}</div>`;
 
     buttons.forEach((button) => {
       const active = button.dataset.mode === mode;
@@ -43,8 +50,17 @@ if (typeof document !== "undefined") {
     });
   }
 
+  function fromAddress() {
+    const mode = location.hash.slice(1);
+    render(Object.hasOwn(MODES, mode) ? mode : "everyday");
+  }
+  fromAddress();
+  window.addEventListener("hashchange", fromAddress);
   buttons.forEach((button) => {
-    button.setAttribute("aria-pressed", "false");
-    button.addEventListener("click", () => render(button.dataset.mode));
+    button.addEventListener("click", () => {
+      const mode = button.dataset.mode;
+      history.replaceState(null, "", `#${mode}`);
+      render(mode);
+    });
   });
 }
