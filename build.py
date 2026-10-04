@@ -396,19 +396,28 @@ def party_planner() -> str:
           <label>Hosts and other people <input id="party-hosts" type="number" min="0" max="100" step="1" value="2" required></label>
           <label>Extra supplies (%) <input id="party-buffer" type="number" min="0" max="100" step="1" value="10" required></label>
         </div><p class="field-help">The supply estimate starts at one plate and one cup per person. Adjust it for reusable tableware, multiple servings and your guest list.</p></fieldset>
+        <fieldset><legend>How many packs do you need?</legend><div class="planner-fields">
+          <label>Plates in one pack <input id="party-plate-pack" type="number" min="1" max="1000" step="1" value="8" required></label>
+          <label>Cups in one pack <input id="party-cup-pack" type="number" min="1" max="1000" step="1" value="8" required></label>
+          <label>Favor bags in one pack <input id="party-bag-pack" type="number" min="1" max="1000" step="1" value="12" required></label>
+        </div><p class="field-help">These pack sizes are examples. Replace them with the quantities in the listing you are considering. For mixed sets, count each item separately: a “100-piece set” may serve far fewer than 100 people.</p></fieldset>
         <fieldset><legend>Enter your own estimated costs</legend><div class="planner-fields">
           <label>Currency <select id="party-currency"><option value="USD">USD ($)</option><option value="GBP">GBP (£)</option><option value="EUR">EUR (€)</option><option value="SEK">SEK (kr)</option></select></label>
           <label>Food and drink per person <input id="party-food" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
           <label>Favor per invited guest <input id="party-favor" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
           <label>Cake or dessert, total <input id="party-cake" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
           <label>Decorations, total <input id="party-decor" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Tableware and other costs, total <input id="party-other" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
+          <label>Target budget (optional) <input id="party-target" type="number" min="0" max="10000000" step="0.01" inputmode="decimal" placeholder="Your spending limit"></label>
           <label>Activities, total <input id="party-activities" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="0.00"></label>
         </div><p class="field-help">These are planning inputs, not quotes or live prices. Leaving an amount blank counts it as zero.</p></fieldset>
       </form>
       <section id="party-result" class="planner-result" aria-live="polite" aria-atomic="true">
         <h2>Your starting list</h2><p>For 12 guests and 2 other people, start with 16 plates and 16 cups if using one of each per person. Plan 12 favors. Add your own estimated costs above to see a budget.</p>
       </section>
+      <noscript><p>Enable JavaScript to calculate your quantities and budget. You can still use the shopping checklist and party outline below.</p></noscript>
       <button class="button planner-print" id="party-print" type="button">Print this plan</button>
+      <section id="party-shopping"><h2>Your party shopping checklist</h2><p>Use the pack counts above, then check what you already own before buying. Tick items as you arrange them; ticks are kept only until you reload. Your printout includes this checklist.</p>''' + affiliate_note() + '''<div class="supply-grid"><article class="supply-card"><span aria-hidden="true">🍽️</span><h3>Plates</h3><p>Check the number of dinner plates, their size and whether smaller cake plates are separate.</p><label><input type="checkbox"> Plates sorted</label><a class="button" href="https://www.amazon.com/s?k=unicorn+party+plates&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Find plates on Amazon</a><small>Paid link · Amazon search results</small></article><article class="supply-card"><span aria-hidden="true">🥤</span><h3>Cups</h3><p>Check the cup count, capacity and suitability for the drinks you will serve.</p><label><input type="checkbox"> Cups sorted</label><a class="button" href="https://www.amazon.com/s?k=unicorn+party+cups&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Find cups on Amazon</a><small>Paid link · Amazon search results</small></article><article class="supply-card"><span aria-hidden="true">🎁</span><h3>Favor bags</h3><p>Check bag dimensions and pack count. Bags may be sold empty; fillings are a separate choice.</p><label><input type="checkbox"> Favor bags sorted</label><a class="button" href="https://www.amazon.com/s?k=unicorn+party+favor+bags&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer">Find favor bags on Amazon</a><small>Paid link · Amazon search results</small></article></div><p>Finish with <a href="/tools/birthday-cake-servings-calculator.html#cake-tools">cake decorating tools</a>, <a href="/tools/unicorn-party-games.html#choose-game">game supplies</a> and <a href="/guides/unicorn-party-favor-ideas.html">favor filling ideas</a>.</p></section>
       <p>Ordering cake? Use the <a href="/tools/birthday-cake-servings-calculator.html">birthday cake servings calculator</a> to check portions and cake quantities.</p>
       <p>Choose activities from our <a href="/tools/unicorn-party-games.html">unicorn party games and free printable bingo</a>.</p><h2>A flexible 90-minute party outline</h2>
       <ol><li><strong>First 15 minutes:</strong> Welcome guests and offer a simple arrival activity while everyone settles in.</li>
@@ -424,12 +433,12 @@ def party_planner() -> str:
       <p>A paintable planter could be one craft idea if the listing's quantity and age guidance suit your group. Confirm whether paint, brushes and protective table covering are included.</p>
       ''' + affiliate_note() + inline_pick("planters", "A possible craft activity; verify the current pack size and included supplies before planning for a group.") + '''
       <p>Looking for a lasting room accent after the party? <a href="/guides/unicorn-room-decor.html">Read the room decor guide</a>. For a present, <a href="/guides/unicorn-gifts-for-adults.html">start with the gift guide</a>.</p>
-    </div><script src="/assets/party-planner.js" defer></script></main>'''
+    </div><script src="/assets/party-planner.js?v=20261004" defer></script></main>'''
     return page(
         "Free Unicorn Birthday Party Planner & Budget | Unicorn Finds",
         "Plan a unicorn party with a free guest supply and budget calculator, a printable list and a flexible 90-minute outline. No account or live prices needed.",
         "/tools/unicorn-party-planner.html", body, active="/tools/unicorn-party-planner.html",
-    )
+    ).replace("</head>", '<link rel="stylesheet" href="/assets/party-planner.css?v=20261004"></head>')
 
 
 def cake_calculator() -> str:
