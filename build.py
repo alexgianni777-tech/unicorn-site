@@ -287,6 +287,7 @@ def home() -> str:
         <div class="section-heading"><span class="eyebrow">The full collection</span><h2>All ten unicorn finds</h2>
           <p>Browse by use, then check the exact listing on Amazon. These are curated starting points, not hands-on reviews or promises of current price, rating, stock or delivery.</p></div>
         {affiliate_note()}
+        <form id="shop-filter" class="shop-filter" hidden aria-label="Filter gift ideas"><label for="shop-search">Search gift ideas<input id="shop-search" type="search" placeholder="Try mug, lamp or keychain" maxlength="100" autocomplete="off"></label><label for="shop-type">Gift category<select id="shop-type"><option value="all">All categories</option><option value="drinkware">Mugs &amp; drinkware</option><option value="lights">Lights &amp; projectors</option><option value="decor">Decor &amp; small gifts</option></select></label><button id="shop-clear" class="button button-light" type="button">Clear filters</button></form><p id="shop-count" role="status" aria-live="polite" aria-atomic="true"></p><p id="shop-empty" hidden>No gifts match these filters. Try a shorter search or choose All categories.</p>
         {category('drinkware','Unicorn mugs &amp; drinkware','For a desk, a morning routine or a themed gift box. Think about how the recipient will use it before choosing a decorative shape.')}
         {category('lights','Night lights &amp; glowing rooms','A gentle bedside light, a decorative lamp and a projector create very different effects. The lighting guide helps you compare them.')}
         {category('decor','Decor &amp; small gifts','A wall, a sofa, a shelf or a backpack can carry the theme. Check sizes and what the listing actually includes.')}
@@ -309,7 +310,7 @@ def home() -> str:
         "Unicorn Gifts: 10 Gift Ideas & Decor | Unicorn Finds",
         "Find unicorn gift ideas faster with four quick picks, a simple comparison and ten curated mugs, lights and room decor ideas with clearly marked Amazon links.",
         "/", body,
-    )
+    ).replace('</head>', '<link rel="stylesheet" href="/assets/shop-filter.css"><script src="/assets/shop-filter.js" defer></script></head>')
 
 
 def guide_page(title: str, description: str, path: str, intro: str, article: str) -> str:

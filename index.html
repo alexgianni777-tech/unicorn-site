@@ -20,7 +20,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108579336605864" crossorigin="anonymous"></script>
   <script src="/assets/ads-config.js"></script>
   <script src="/assets/ads.js" defer></script>
-</head>
+<link rel="stylesheet" href="/assets/shop-filter.css"><script src="/assets/shop-filter.js" defer></script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a><div class="topline">A little wonder for everyday spaces ✦</div><header class="site-header"><div class="header-inner"><a class="brand" href="/" aria-label="Unicorn Finds home"><span class="brand-mark" aria-hidden="true">🦄</span>Unicorn Finds</a><nav class="nav" aria-label="Main navigation"><a href="/#shop">Shop</a><a href="/guides/index.html">Gift guides</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a><a href="/tools/unicorn-party-planner.html">Party planner</a><a href="/tools/free-unicorn-games.html">Free games</a><a href="/about.html">Our approach</a></nav></div></header>
 <main id="main">
@@ -138,6 +138,7 @@
         <div class="section-heading"><span class="eyebrow">The full collection</span><h2>All ten unicorn finds</h2>
           <p>Browse by use, then check the exact listing on Amazon. These are curated starting points, not hands-on reviews or promises of current price, rating, stock or delivery.</p></div>
         <aside class="disclosure" aria-label="Affiliate disclosure"><strong>Affiliate disclosure</strong><p>Some product links are paid links. As an Amazon Associate I earn from qualifying purchases. Your price does not change because you use these links. Product details, prices and availability should be checked on Amazon.</p></aside>
+        <form id="shop-filter" class="shop-filter" hidden aria-label="Filter gift ideas"><label for="shop-search">Search gift ideas<input id="shop-search" type="search" placeholder="Try mug, lamp or keychain" maxlength="100" autocomplete="off"></label><label for="shop-type">Gift category<select id="shop-type"><option value="all">All categories</option><option value="drinkware">Mugs &amp; drinkware</option><option value="lights">Lights &amp; projectors</option><option value="decor">Decor &amp; small gifts</option></select></label><button id="shop-clear" class="button button-light" type="button">Clear filters</button></form><p id="shop-count" role="status" aria-live="polite" aria-atomic="true"></p><p id="shop-empty" hidden>No gifts match these filters. Try a shorter search or choose All categories.</p>
         <section class="category" id="drinkware">
       <h2>Unicorn mugs &amp; drinkware</h2><p class="category-intro">For a desk, a morning routine or a themed gift box. Think about how the recipient will use it before choosing a decorative shape.</p>
       <div class="product-grid"><article class="product" id="mug-set">
