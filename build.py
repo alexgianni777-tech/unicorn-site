@@ -520,7 +520,7 @@ def cake_calculator() -> str:
       <ul><li>Confirm attendance and whether accompanying adults want cake.</li><li>Ask about dietary requirements and arrange suitable alternatives with your baker.</li><li>Confirm portion sizes, collection time, storage instructions and the final price.</li><li>A decorative cake and plain extra portions can be compared as a mixed order; ask the baker for a quote.</li></ul>
       <p>Your calculator inputs stay in your browser and are not saved or sent by this tool. See our <a href="/privacy.html">privacy notice</a> for information about advertising.</p>
     </div><script src="/assets/cake-calculator.js" defer></script></main>"""
-    return page("Unicorn Cake Guide, Tools & Servings Calculator | Unicorn Finds",
+    return page("Unicorn Cake Guide & Servings Calculator | Unicorn Finds",
         "Plan a unicorn birthday cake with real cake inspiration, decorating videos, an interactive checklist, baking-tool ideas and a free cake servings calculator.",
         "/tools/birthday-cake-servings-calculator.html", body).replace('/assets/style.css', '/assets/style.css?v=cake-20261003')
 
