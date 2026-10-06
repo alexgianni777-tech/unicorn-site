@@ -17,6 +17,41 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://unicornsite.online/assets/decor.svg">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "name": "Unicorn Bedroom Ideas | Unicorn Finds", "description": "Plan a unicorn bedroom by focal point, zones, scale and colour. Use lighting, wall art, cushions and small accents without making every surface compete.", "url": "https://unicornsite.online/guides/unicorn-bedroom-ideas.html", "isPartOf": {"@type": "WebSite", "name": "Unicorn Finds", "url": "https://unicornsite.online/"}, "headline": "Unicorn Bedroom Ideas", "image": ["https://unicornsite.online/assets/decor.svg"], "datePublished": "2026-10-02", "dateModified": "2026-10-02", "author": {"@type": "Organization", "name": "Unicorn Finds", "url": "https://unicornsite.online/about.html", "logo": {"@type": "ImageObject", "url": "https://unicornsite.online/assets/favicon.svg"}}}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49L2S41MXQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-49L2S41MXQ');
+
+    // Track Amazon affiliate clicks as a dedicated GA4 event.
+    document.addEventListener('click', function(event) {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+
+      let url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (e) {
+        return;
+      }
+
+      const host = url.hostname.toLowerCase().replace(/^www\./, '');
+      const isAmazon = host === 'amzn.to' || host === 'amazon.com' || host.startsWith('amazon.') || host.includes('.amazon.');
+      if (!isAmazon) return;
+
+      const card = link.closest('.product, .quick-pick, .inline-pick, article, li, tr');
+      const heading = card ? card.querySelector('h1, h2, h3, h4, th') : null;
+
+      gtag('event', 'amazon_click', {
+        link_url: url.href,
+        link_text: (link.textContent || '').trim().slice(0, 120),
+        item_name: heading ? heading.textContent.trim().slice(0, 120) : '',
+        page_path: window.location.pathname
+      });
+    });
+  </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108579336605864" crossorigin="anonymous"></script>
   <script src="/assets/ads-config.js"></script>
   <script src="/assets/ads.js" defer></script>
