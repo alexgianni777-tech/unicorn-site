@@ -907,7 +907,7 @@ def main() -> None:
         "/privacy.html", privacy_body,
     ))
     write("guides/unicorn-christmas-gifts.html", guide_page(
-        "Unicorn Christmas Gifts 2026: Ideas by Recipient | Unicorn Finds",
+        "Unicorn Christmas Gifts 2026 | Unicorn Finds",
         "Choose unicorn Christmas gifts for kids, teens and adults by daily use, room style and gift size. Includes stocking-stuffer and Amazon shopping checks.",
         "/guides/unicorn-christmas-gifts.html",
         "Start with the person, not the unicorn theme. A useful mug, a small accessory, a creative project or a room accent can all work when the size and use fit.",
