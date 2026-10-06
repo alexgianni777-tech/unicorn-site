@@ -2,12 +2,14 @@
   {
     "id": "mug-set",
     "section": "drinkware",
-    "title": "Browse unicorn mug sets",
-    "label": "A cosy gift-box idea",
-    "description": "A unicorn mug set is easy to turn into a ready-to-give coffee, tea or cocoa gift. Use the photo as inspiration, then compare the current designs, sizes and care instructions on Amazon.",
+    "title": "Color-changing unicorn coffee mug",
+    "label": "A cosy everyday gift",
+    "description": "A colour-changing unicorn mug is an easy coffee, tea or cocoa gift. Check the current capacity, care instructions and heat-sensitive finish on the Amazon product page.",
     "image": "assets/products/mug-set.jpg",
     "alt": "Example product photo of a unicorn-themed mug set",
-    "url": "https://www.amazon.com/s?k=unicorn+mug+set&tag=unicornmagic2-20"
+    "url": "https://www.amazon.com/dp/B0G6HGX1PS?tag=unicornmagic2-20",
+    "asin": "B0G6HGX1PS",
+    "verified": "2026-10-06"
   },
   {
     "id": "sculpted-mug",
@@ -67,36 +69,44 @@
     "description": "A coordinated wall-art set can make a bedroom feel finished quickly. Check the exact dimensions and whether the selected set arrives framed or needs separate hanging hardware.",
     "image": "assets/products/wall-art.jpg",
     "alt": "Product photo of a unicorn wall art set",
-    "url": "https://amzn.to/48tvgkf"
+    "url": "https://www.amazon.com/dp/B07QVM91J6?tag=unicornmagic2-20",
+    "asin": "B07QVM91J6",
+    "verified": "2026-10-06"
   },
   {
     "id": "pillow-cover",
     "section": "decor",
-    "title": "Unicorn galaxy pillow cover",
+    "title": "Swono magical unicorn pillow cover",
     "label": "A low-commitment room update",
     "description": "A unicorn cushion cover adds the theme without replacing furniture or bedding. Check the cover dimensions, fabric and whether a cushion insert is included.",
     "image": "assets/products/pillow-cover.jpg",
     "alt": "Product photo of a unicorn galaxy pillow cover",
-    "url": "https://amzn.to/4t0IVGV"
+    "url": "https://www.amazon.com/dp/B098TPFNXN?tag=unicornmagic2-20",
+    "asin": "B098TPFNXN",
+    "verified": "2026-10-06"
   },
   {
     "id": "keychain",
     "section": "decor",
-    "title": "Plush unicorn keychain",
+    "title": "Ruzucoda plush unicorn keychain",
     "label": "A small gift that travels",
     "description": "A plush unicorn keychain is an easy little surprise for a backpack, handbag or keys and needs almost no guesswork about room style. Check the size and clip style.",
     "image": "assets/products/keychain.jpg",
     "alt": "Product photo of a plush unicorn keychain",
-    "url": "https://amzn.to/41Hupsc"
+    "url": "https://www.amazon.com/dp/B0CZ6FLTQ3?tag=unicornmagic2-20",
+    "asin": "B0CZ6FLTQ3",
+    "verified": "2026-10-06"
   },
   {
     "id": "planters",
     "section": "decor",
-    "title": "Browse unicorn planter sets",
+    "title": "Paint-your-own unicorn planter set",
     "label": "A creative shelf gift",
-    "description": "Unicorn planters can be a cute craft or shelf gift for someone who likes plants and small decor. Use the photo as inspiration, then compare set sizes, drainage and included supplies on Amazon.",
+    "description": "A paint-your-own unicorn planter set combines a craft activity with a small shelf gift. Check the current pack quantity, included painting supplies, pot dimensions and age guidance on Amazon.",
     "image": "assets/products/planters.jpg",
     "alt": "Example product photo of a unicorn planter set",
-    "url": "https://www.amazon.com/s?k=unicorn+succulent+planter+set&tag=unicornmagic2-20"
+    "url": "https://www.amazon.com/dp/B0GR9KGL6J?tag=unicornmagic2-20",
+    "asin": "B0GR9KGL6J",
+    "verified": "2026-10-06"
   }
 ]
