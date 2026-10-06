@@ -25,8 +25,18 @@
     gtag('js', new Date());
     gtag('config', 'G-49L2S41MXQ');
 
-    // Track Amazon affiliate clicks as a dedicated GA4 event.
+    // Track revenue clicks and interactions with free tools.
     document.addEventListener('click', function(event) {
+      const button = event.target.closest('button');
+      if (button && window.location.pathname.startsWith('/tools/')) {
+        gtag('event', 'tool_interaction', {
+          tool_name: window.location.pathname.split('/').pop().replace('.html',''),
+          control_id: button.id || '',
+          control_text: (button.textContent || '').trim().slice(0, 100),
+          page_path: window.location.pathname
+        });
+      }
+
       const link = event.target.closest('a[href]');
       if (!link) return;
 
