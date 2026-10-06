@@ -8,6 +8,7 @@ availability, Amazon ratings or customer reviews are stored here.
 from __future__ import annotations
 
 import html
+from party_guide import render as party_guide
 from activities import render as activities
 from invitations import render as invitations
 from memory_game import render as memory_game
@@ -221,6 +222,7 @@ def home() -> str:
           <h1>Give a little magic <em>they’ll actually use.</em></h1>
           <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
           <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/free-unicorn-games.html">Free games &amp; printables</a></div>
+          <p class="hero-note">Planning a birthday? <a href="/tools/unicorn-party-planner.html">Use the free unicorn party checklist and budget planner →</a></p>
           <p class="hero-note">Independent gift guide · paid links clearly marked · check current details on Amazon</p>
         </div>
         <div class="hero-collage" aria-label="Unicorn gift product photos">
@@ -443,6 +445,7 @@ def party_planner() -> str:
         <li><strong>Next 20 minutes:</strong> Pause for food, drinks and cake. Ask guests about dietary needs when planning the menu.</li>
         <li><strong>Last 25 minutes:</strong> Leave room for a quieter game, pictures and a relaxed goodbye. Keep a no-supplies backup activity ready.</li></ol>
       <p>This outline is an example, not a fixed schedule. Allow more time for setup, cleanup, travel or a larger group.</p>
+      ''' + party_guide() + '''
       <h2>Before you buy</h2>
       <ul><li>Confirm how many people are actually coming, including adults who will eat.</li>
         <li>Check package counts, age guidance and what each set includes. The planner's plate and cup figures are only a starting point.</li>
@@ -454,9 +457,9 @@ def party_planner() -> str:
     </div><script src="/assets/party-planner.js?v=20261004" defer></script></main>'''
     return page(
         "Free Unicorn Birthday Party Planner & Budget | Unicorn Finds",
-        "Plan a unicorn party with a free guest supply and budget calculator, a printable list and a flexible 90-minute outline. No account or live prices needed.",
+        "Plan a unicorn birthday party with a free budget calculator, printable preparation checklist, a 12-guest supply example and a 90-minute party outline.",
         "/tools/unicorn-party-planner.html", body, active="/tools/unicorn-party-planner.html",
-    ).replace("</head>", '<link rel="stylesheet" href="/assets/party-planner.css?v=20261004"></head>')
+    ).replace("</head>", '<link rel="stylesheet" href="/assets/party-planner.css?v=20261006"></head>')
 
 
 def cake_calculator() -> str:
@@ -860,8 +863,9 @@ def main() -> None:
         "/privacy.html", privacy_body,
     ))
     urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
-        f'  <url><loc>{xml_escape(BASE + path)}</loc></url>\n' for path in urls
+        f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'
     write("sitemap.xml", sitemap)
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: https://unicornsite.online/sitemap.xml\n")
