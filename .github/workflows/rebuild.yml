@@ -1,0 +1,41 @@
+name: Rebuild Unicorn static site
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "products.json"
+      - "build.py"
+      - "activities.py"
+      - "invitations.py"
+      - "memory_game.py"
+      - "party_guide.py"
+      - "treasure_hunt.py"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild static files
+        run: python build.py
+      - name: Commit generated site
+        run: |
+          if git diff --quiet; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html about.html privacy.html sitemap.xml robots.txt ads.txt guides tools "unicorn-store (2).html"
+          git commit -m "Rebuild static Unicorn site"
+          git push
