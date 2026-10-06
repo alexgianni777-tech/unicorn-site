@@ -5,7 +5,7 @@ human has checked its destination against the label and image. No prices,
 availability, Amazon ratings or customer reviews are stored here.
 """
 
-from __future__ import annotations
+# Q4 growth pass: 2026-10-06\nfrom __future__ import annotations
 
 import html
 from party_guide import render as party_guide
