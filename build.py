@@ -77,7 +77,7 @@ def footer() -> str:
           <a href="/#shop">All picks</a><a href="/guides/index.html">All gift guides</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a>
           <a href="/guides/unicorn-birthday-gifts.html">Birthday gifts</a><a href="/guides/unicorn-gifts-for-kids.html">Gifts for kids</a>
           <a href="/guides/unicorn-gifts-for-teens.html">Gifts for teens</a><a href="/guides/unicorn-gifts-for-adults.html">Gifts for adults</a>
-          <a href="/guides/unicorn-gift-basket-ideas.html">Gift baskets</a><a href="/guides/small-unicorn-gifts-stocking-stuffers.html">Small gifts</a>
+          <a href="/guides/unicorn-gift-basket-ideas.html">Gift baskets</a><a href="/guides/small-unicorn-gifts-stocking-stuffers.html">Small gifts</a><a href="/guides/unicorn-christmas-gifts.html">Christmas gifts</a>
           <a href="/guides/unicorn-party-favor-ideas.html">Party favors</a><a href="/guides/unicorn-night-lights.html">Night lights</a>
           <a href="/guides/unicorn-room-decor.html">Room decor</a><a href="/guides/unicorn-bedroom-ideas.html">Bedroom ideas</a>
           <strong>Free games &amp; planning tools</strong>
@@ -323,6 +323,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-party-favor-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn party favor ideas</h3><p>Plan small take-home gifts by usefulness, quantity and age guidance.</p><span class="tile-link">Plan party favors →</span></a>
           <a class="guide-tile" href="/guides/unicorn-bedroom-ideas.html"><span class="tile-icon" aria-hidden="true">🛏️</span><h3>Unicorn bedroom ideas</h3><p>Plan a calmer themed bedroom by zones, scale and repeatable colours.</p><span class="tile-link">Plan the room →</span></a>
           <a class="guide-tile" href="/guides/small-unicorn-gifts-stocking-stuffers.html"><span class="tile-icon" aria-hidden="true">🧦</span><h3>Small unicorn gifts</h3><p>Stocking-stuffer and little-surprise ideas with size and usefulness in mind.</p><span class="tile-link">See small gift ideas →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-christmas-gifts.html"><span class="tile-icon" aria-hidden="true">🎄</span><h3>Unicorn Christmas gifts</h3><p>Choose a seasonal gift by age, use and how easy it is to give.</p><span class="tile-link">See Christmas gift ideas →</span></a>
           <a class="guide-tile" href="/tools/unicorn-memory-game.html"><span class="tile-icon" aria-hidden="true">🦄</span><h3>Play unicorn memory</h3><p>Find six matching pairs in a free browser game. No timer or sign-up.</p><span class="tile-link">Play now →</span></a>
           <a class="guide-tile" href="/tools/unicorn-birthday-invitations.html"><span class="tile-icon" aria-hidden="true">💌</span><h3>Free unicorn invitations</h3><p>Add your party details and print a personalized invitation, or save it as a PDF.</p><span class="tile-link">Make your invitation →</span></a><a class="guide-tile" href="/tools/unicorn-treasure-hunt.html"><span class="tile-icon" aria-hidden="true">✨</span><h3>Free unicorn treasure hunt</h3><p>Print six hiding cards and a picture-matching sheet for an easy party adventure.</p><span class="tile-link">Get the printable game →</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-games.html"><span class="tile-icon" aria-hidden="true">🌈</span><h3>Party games &amp; free bingo</h3><p>Five easy games, printable cards and a word caller for your unicorn party.</p><span class="tile-link">Choose a game</span></a>
@@ -362,6 +363,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
         "/guides/unicorn-party-favor-ideas.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/unicorn-bedroom-ideas.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/small-unicorn-gifts-stocking-stuffers.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-christmas-gifts.html": ("/assets/decor.svg", "2026-10-06"),
     }
     article_image, article_published = article_meta.get(path, ("/assets/decor.svg", "2026-09-29"))
     related = '''<nav class="related-guides" aria-label="Related unicorn guides">
@@ -372,6 +374,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
         <a href="/guides/unicorn-gifts-for-teens.html"><strong>Gifts for teens</strong><span>Practical ideas for rooms, desks and bags →</span></a>
         <a href="/guides/unicorn-gift-basket-ideas.html"><strong>Gift baskets</strong><span>Build a useful themed bundle →</span></a>
         <a href="/guides/small-unicorn-gifts-stocking-stuffers.html"><strong>Small gifts</strong><span>Compact gifts and stocking stuffers →</span></a>
+        <a href="/guides/unicorn-christmas-gifts.html"><strong>Christmas gifts</strong><span>Seasonal gifts by recipient and use →</span></a>
         <a href="/guides/unicorn-party-favor-ideas.html"><strong>Party favors</strong><span>Plan small take-home gifts →</span></a>
         <a href="/guides/unicorn-bedroom-ideas.html"><strong>Bedroom ideas</strong><span>Plan a unicorn room by zones →</span></a>
         <a href="/guides/unicorn-night-lights.html"><strong>Night lights</strong><span>Compare lamps and projectors →</span></a>
@@ -897,8 +900,32 @@ def main() -> None:
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
     ))
-    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
-    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06'}
+    write("guides/unicorn-christmas-gifts.html", guide_page(
+        "Unicorn Christmas Gifts 2026: Ideas by Recipient | Unicorn Finds",
+        "Choose unicorn Christmas gifts for kids, teens and adults by daily use, room style and gift size. Includes stocking-stuffer and Amazon shopping checks.",
+        "/guides/unicorn-christmas-gifts.html",
+        "Start with the person, not the unicorn theme. A useful mug, a small accessory, a creative project or a room accent can all work when the size and use fit.",
+        '''<h2>Quick Christmas picks by recipient</h2>
+        <p>For younger unicorn fans, choose something simple to use and check the current age guidance. For teens, room accents and drinkware can feel more useful than novelty clutter. For adults, keep the theme smaller and tie it to an existing habit such as coffee, plants or desk decor.</p>
+        <h2>Small gifts and stocking stuffers</h2>
+        <p>Small accessories are easier to wrap, easier to fit into a stocking and lower-risk when you do not know the recipient's room dimensions. Check the attachment size and materials before ordering.</p>'''
+        + inline_pick("keychain", "A compact stocking-stuffer idea; verify size and clip style on the current listing.")
+        + '''<h2>Useful gifts for a daily routine</h2>
+        <p>A mug or tumbler works best when you know how the person drinks. Compare capacity, lid style, care instructions and whether the selected design is the one shown.</p>'''
+        + inline_pick("mug-set", "A heat-sensitive mug route; this exact Amazon ASIN was matched to the current product title.")
+        + inline_pick("tumbler", "A browse link for unicorn tumblers; choose the exact size and lid on Amazon.")
+        + '''<h2>Room gifts with more visual impact</h2>
+        <p>Lighting and wall art make a bigger statement, so measure the available space first. A small lamp suits a shelf or bedside table; a projector changes a whole room; wall art needs the right dimensions.</p>'''
+        + inline_pick("cloud-lamp", "Browse current unicorn cloud-base lamp options and check power method and size.")
+        + inline_pick("wall-art", "An exact Amazon wall-art ASIN; confirm the selected size and set before purchase.")
+        + '''<h2>Christmas buying checklist</h2>
+        <ol><li>Match the gift to the recipient's age and routine.</li><li>Confirm the exact selected product, seller and quantity.</li><li>Check dimensions before buying room decor.</li><li>Review delivery dates and return terms before the holiday deadline.</li><li>For a smaller present, use the <a href="/guides/small-unicorn-gifts-stocking-stuffers.html">stocking-stuffer guide</a>; for a bigger room present, use the <a href="/guides/unicorn-night-lights.html">night-light guide</a>.</li></ol>
+        <h2>More ways to narrow the choice</h2>
+        <p>Use the <a href="/tools/unicorn-gift-finder.html">free unicorn gift finder</a> for three starting points, or browse <a href="/guides/unicorn-gifts-for-kids.html">gifts for kids</a>, <a href="/guides/unicorn-gifts-for-teens.html">gifts for teens</a> and <a href="/guides/unicorn-gifts-for-adults.html">gifts for adults</a>.</p>'''
+    ))
+
+    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'
