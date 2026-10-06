@@ -41,7 +41,8 @@
     "description": "Use the photo as inspiration and compare unicorn night lights by glow, controls, power source and size. This link opens Amazon search results rather than one specific lamp.",
     "image": "assets/products/night-light-search.jpg",
     "alt": "Example product photo of a unicorn night light",
-    "url": "https://www.amazon.com/s?k=unicorn+night+lamp&crid=2URDKKW94LNXO&sprefix=unicorn+night+lamp%2Caps%2C238&linkCode=ll2&tag=unicornmagic2-20&linkId=c0a6dfb910a5a8c264a8d040870ed77d&language=en_US&ref_=as_li_ss_tl"
+    "url": "https://www.amazon.com/s?k=unicorn+night+lamp&crid=2URDKKW94LNXO&sprefix=unicorn+night+lamp%2Caps%2C238&linkCode=ll2&tag=unicornmagic2-20&linkId=c0a6dfb910a5a8c264a8d040870ed77d&language=en_US&ref_=as_li_ss_tl",
+    "link_note": "Amazon search link; choose and verify the exact product on the current Amazon results page."
   },
   {
     "id": "cloud-lamp",
