@@ -18,8 +18,9 @@
     "label": "A playful desk favourite",
     "description": "The sculpted shape makes this feel more special than a plain mug and gives it instant gift-box appeal. Check capacity, lid details and washing instructions before ordering.",
     "image": "assets/products/sculpted-mug.jpg",
-    "alt": "Product photo of a sculpted unicorn mug with lid",
-    "url": "https://amzn.to/3QliG00"
+    "alt": "Example product photo of a sculpted unicorn mug with lid",
+    "url": "https://www.amazon.com/s?k=sculpted+unicorn+mug+with+lid&tag=unicornmagic2-20",
+    "link_note": "Amazon search link used until an exact ASIN is independently matched to the pictured item."
   },
   {
     "id": "tumbler",
@@ -28,8 +29,9 @@
     "label": "For cold-drink fans",
     "description": "A colourful everyday option for smoothies, iced coffee or water. Check the selected size, lid, straw and cleaning instructions on the current Amazon listing.",
     "image": "assets/products/tumbler.jpg",
-    "alt": "Product photo of a unicorn-themed tumbler with straw",
-    "url": "https://amzn.to/42gN8Lo"
+    "alt": "Example product photo of a unicorn-themed tumbler with straw",
+    "url": "https://www.amazon.com/s?k=unicorn+tumbler+with+straw&tag=unicornmagic2-20",
+    "link_note": "Amazon search link used until an exact ASIN is independently matched to the pictured item."
   },
   {
     "id": "night-light-search",
@@ -48,8 +50,9 @@
     "label": "A bedside wow-factor",
     "description": "A small unicorn lamp can turn an ordinary bedside table into a themed corner without changing the whole room. Check the current dimensions, power method and controls.",
     "image": "assets/products/cloud-lamp.jpg",
-    "alt": "Product photo of a unicorn lamp on a cloud base",
-    "url": "https://amzn.to/4sFGXv4"
+    "alt": "Example product photo of a unicorn lamp on a cloud base",
+    "url": "https://www.amazon.com/s?k=unicorn+lamp+cloud+base&tag=unicornmagic2-20",
+    "link_note": "Amazon search link used until an exact ASIN is independently matched to the pictured item."
   },
   {
     "id": "projector",
@@ -58,8 +61,9 @@
     "label": "For a bigger room effect",
     "description": "A projector creates a much larger visual moment than a small lamp, making it a fun gift for bedroom makeovers and sleepover-style spaces. Check scenes, controls and projection distance.",
     "image": "assets/products/projector.jpg",
-    "alt": "Product photo of a unicorn-themed star projector",
-    "url": "https://amzn.to/3OL3x7O"
+    "alt": "Example product photo of a unicorn-themed star projector",
+    "url": "https://www.amazon.com/s?k=unicorn+star+projector+for+kids&tag=unicornmagic2-20",
+    "link_note": "Amazon search link used until an exact ASIN is independently matched to the pictured item."
   },
   {
     "id": "wall-art",
