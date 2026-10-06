@@ -141,6 +141,41 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
   <meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}">
   {f'<meta name="twitter:image" content="{esc(social_image)}">' if social_image else ''}
   <script type="application/ld+json">{structured}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49L2S41MXQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-49L2S41MXQ');
+
+    // Track Amazon affiliate clicks as a dedicated GA4 event.
+    document.addEventListener('click', function(event) {{
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+
+      let url;
+      try {{
+        url = new URL(link.href, window.location.href);
+      }} catch (e) {{
+        return;
+      }}
+
+      const host = url.hostname.toLowerCase().replace(/^www\./, '');
+      const isAmazon = host === 'amzn.to' || host === 'amazon.com' || host.startsWith('amazon.') || host.includes('.amazon.');
+      if (!isAmazon) return;
+
+      const card = link.closest('.product, .quick-pick, .inline-pick, article, li, tr');
+      const heading = card ? card.querySelector('h1, h2, h3, h4, th') : null;
+
+      gtag('event', 'amazon_click', {{
+        link_url: url.href,
+        link_text: (link.textContent || '').trim().slice(0, 120),
+        item_name: heading ? heading.textContent.trim().slice(0, 120) : '',
+        page_path: window.location.pathname
+      }});
+    }});
+  </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8108579336605864" crossorigin="anonymous"></script>
   <script src="/assets/ads-config.js"></script>
   <script src="/assets/ads.js" defer></script>
