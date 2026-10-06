@@ -198,7 +198,12 @@ def ad_slot(label: str, key: str) -> str:
 
 def product_card(product: dict) -> str:
     browse = "/s?" in product["url"]
-    cta = "Browse similar on Amazon" if browse else "View on Amazon"
+    cta = "Browse similar on Amazon" if browse else "View exact Amazon listing"
+    match_note = (
+        "Amazon search · choose the exact product shown on the listing"
+        if browse else
+        "Exact ASIN link" + (f" · checked {product.get('verified')}" if product.get("verified") else "")
+    )
     return f'''<article class="product" id="{esc(product['id'])}">
       <a class="product-picture" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank" aria-label="{esc(cta + ': ' + product['title'])}">
         <img src="/{esc(product['image'])}" alt="{esc(product['alt'])}" loading="lazy" width="560" height="500">
@@ -206,6 +211,7 @@ def product_card(product: dict) -> str:
       </a>
       <div class="product-content"><h3>{esc(product['title'])}</h3>
         <p>{esc(product['description'])}</p>
+        <span class="product-footnote">{esc(match_note)}</span>
         <a class="button product-cta" href="{esc(product['url'])}" rel="sponsored nofollow noopener noreferrer" target="_blank">{esc(cta)} <span aria-hidden="true">↗</span></a>
         <span class="product-footnote">Paid link · Check the selected item, seller and current details on Amazon</span>
       </div>
