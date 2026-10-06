@@ -26,7 +26,17 @@ BY_ID = {product["id"]: product for product in PRODUCTS}
 assert len(PRODUCTS) == len(BY_ID) == 10
 for product in PRODUCTS:
     assert urlparse(product["url"]).scheme == "https"
-    assert urlparse(product["url"]).hostname in {"amzn.to", "www.amazon.com"}
+    assert urlparse(product["url"]).hostname == "www.amazon.com"
+    assert "tag=unicornmagic2-20" in product["url"], product["id"]
+    if "/dp/" in product["url"]:
+        assert product.get("asin"), product["id"]
+        assert f"/dp/{product['asin']}" in product["url"], product["id"]
+        assert product.get("verified"), product["id"]
+    elif "/s?" in product["url"]:
+        assert not product.get("asin"), product["id"]
+        assert product.get("link_note"), product["id"]
+    else:
+        raise AssertionError(f"Unclassified Amazon destination: {product['id']}")
 
 
 def esc(value: str) -> str:
