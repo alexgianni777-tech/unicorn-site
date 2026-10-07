@@ -283,7 +283,7 @@ def home() -> str:
           <h1>Give a little magic <em>they’ll actually use.</em></h1>
           <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
           <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/free-unicorn-games.html">Free games &amp; printables</a></div>
-          <p class="hero-note">Planning a birthday? <a href="/tools/unicorn-party-planner.html">Use the free unicorn party checklist and budget planner →</a></p>
+          <p class="hero-note">Planning a birthday? <a href="/guides/unicorn-birthday-party-ideas.html">Start with the unicorn birthday party hub →</a></p>
           <p class="hero-note">Independent gift guide · paid links clearly marked · check current details on Amazon</p>
         </div>
         <div class="hero-collage" aria-label="Unicorn gift product photos">
@@ -836,6 +836,14 @@ def main() -> None:
         <p>A cake can look large in a product photo and still serve fewer guests than expected. Use your baker's stated serving size and the confirmed guest count. The <a href="/tools/birthday-cake-servings-calculator.html">cake servings calculator</a> helps estimate how many cakes or portions you need without pretending there is one universal cake size.</p>
         <h2>Use the unicorn theme in a few visible places</h2>
         <p>Choose one focal area such as the cake table, backdrop or entrance, then repeat the colours in smaller details. You do not need every plate, cup and chair to carry a unicorn print. A simple colour palette plus one or two themed accents is easier to set up and usually photographs more clearly.</p>
+        <h2>Shop by the job the item needs to do</h2>
+        <p>When you do need supplies, search by function rather than buying a giant all-in-one bundle. These are live Amazon searches, not endorsements of one fixed product. Check pack quantities, measurements, age guidance and the current seller before ordering.</p>
+        <div class="linkcards visual">
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+backdrop+decorations&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🌈</span><strong>Backdrop &amp; decorations</strong><span class="path-fit">Create one focal area instead of decorating everything</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+favor+bags+kids&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🎁</span><strong>Favor bags</strong><span class="path-fit">Compare pack count and bag size</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+cake+topper+birthday&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🎂</span><strong>Cake toppers</strong><span class="path-fit">Check dimensions against the cake size</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+plates+cups+tableware&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🍽️</span><strong>Tableware</strong><span class="path-fit">Count guests before choosing pack quantities</span><span class="shop-cta">Browse Amazon ↗</span></a>
+        </div>
         <h2>Keep party favors useful and easy to count</h2>
         <p>One compact take-home item can be easier than a bag full of filler. Check pack quantities, age guidance and small parts before ordering. The <a href="/guides/unicorn-party-favor-ideas.html">party-favor guide</a> compares single-item favors, mini bags and craft-style take-home ideas.</p>'''
         + inline_pick("keychain", "A compact favor route; verify size, attachment style and current age guidance.")
