@@ -85,7 +85,7 @@ def footer() -> str:
           <p>Thoughtful ideas for unicorn gifts and decor. We organise options and explain what to check before you choose. We do not sell or ship products.</p></div>
         <div class="footer-links"><strong>Explore</strong>
           <a href="/#shop">All picks</a><a href="/guides/index.html">All gift guides</a><a href="/tools/unicorn-gift-finder.html">Gift finder</a>
-          <a href="/guides/unicorn-birthday-gifts.html">Birthday gifts</a><a href="/guides/unicorn-gifts-for-kids.html">Gifts for kids</a>
+          <a href="/guides/unicorn-birthday-gifts.html">Birthday gifts</a><a href="/guides/unicorn-birthday-party-ideas.html">Birthday party ideas</a><a href="/guides/unicorn-gifts-for-kids.html">Gifts for kids</a>
           <a href="/guides/unicorn-gifts-for-teens.html">Gifts for teens</a><a href="/guides/unicorn-gifts-for-adults.html">Gifts for adults</a>
           <a href="/guides/unicorn-gift-basket-ideas.html">Gift baskets</a><a href="/guides/small-unicorn-gifts-stocking-stuffers.html">Small gifts</a><a href="/guides/unicorn-christmas-gifts.html">Christmas gifts</a>
           <a href="/guides/unicorn-party-favor-ideas.html">Party favors</a><a href="/guides/unicorn-night-lights.html">Night lights</a>
@@ -283,7 +283,7 @@ def home() -> str:
           <h1>Give a little magic <em>they’ll actually use.</em></h1>
           <p class="hero-lede">Skip the endless scrolling. Start with four gift-ready shortcuts, compare the details that matter, then jump to Amazon when a mug, light or room accent feels right.</p>
           <div class="hero-actions"><a class="button" href="#quick-picks">Find a gift ↓</a><a class="button button-light" href="/tools/free-unicorn-games.html">Free games &amp; printables</a></div>
-          <p class="hero-note">Planning a birthday? <a href="/tools/unicorn-party-planner.html">Use the free unicorn party checklist and budget planner →</a></p>
+          <p class="hero-note">Planning a birthday? <a href="/guides/unicorn-birthday-party-ideas.html">Start with the unicorn birthday party hub →</a></p>
           <p class="hero-note">Independent gift guide · paid links clearly marked · check current details on Amazon</p>
         </div>
         <div class="hero-collage" aria-label="Unicorn gift product photos">
@@ -352,6 +352,7 @@ def home() -> str:
           <a class="guide-tile" href="/guides/unicorn-christmas-gifts.html"><span class="tile-icon" aria-hidden="true">🎄</span><h3>Unicorn Christmas gifts</h3><p>Choose a seasonal gift by age, use and how easy it is to give.</p><span class="tile-link">See Christmas gift ideas →</span></a>
           <a class="guide-tile" href="/tools/unicorn-memory-game.html"><span class="tile-icon" aria-hidden="true">🦄</span><h3>Play unicorn memory</h3><p>Find six matching pairs in a free browser game. No timer or sign-up.</p><span class="tile-link">Play now →</span></a>
           <a class="guide-tile" href="/tools/unicorn-birthday-invitations.html"><span class="tile-icon" aria-hidden="true">💌</span><h3>Free unicorn invitations</h3><p>Add your party details and print a personalized invitation, or save it as a PDF.</p><span class="tile-link">Make your invitation →</span></a><a class="guide-tile" href="/tools/unicorn-treasure-hunt.html"><span class="tile-icon" aria-hidden="true">✨</span><h3>Free unicorn treasure hunt</h3><p>Print six hiding cards and a picture-matching sheet for an easy party adventure.</p><span class="tile-link">Get the printable game →</span></a>
+          <a class="guide-tile" href="/guides/unicorn-birthday-party-ideas.html"><span class="tile-icon" aria-hidden="true">🎈</span><h3>Unicorn birthday party ideas</h3><p>One planning hub for invitations, games, cake, favors and the free party planner.</p><span class="tile-link">Plan the whole party →</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-games.html"><span class="tile-icon" aria-hidden="true">🌈</span><h3>Party games &amp; free bingo</h3><p>Five easy games, printable cards and a word caller for your unicorn party.</p><span class="tile-link">Choose a game</span></a>
           <a class="guide-tile" href="/tools/birthday-cake-servings-calculator.html"><span class="tile-icon" aria-hidden="true">🎂</span><h3>Cake servings calculator</h3><p>Calculate how many cakes to order using your guest count and baker’s portion sizes.</p><span class="tile-link">Plan cake portions</span></a>
           <a class="guide-tile" href="/tools/unicorn-party-planner.html"><span class="tile-icon" aria-hidden="true">🎉</span><h3>Free unicorn party planner</h3><p>Work out guest supplies and your own budget, then print a simple party plan.</p><span class="tile-link">Plan a party →</span></a>
@@ -380,6 +381,7 @@ def home() -> str:
 def guide_page(title: str, description: str, path: str, intro: str, article: str) -> str:
     article_meta = {
         "/guides/unicorn-birthday-gifts.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-birthday-party-ideas.html": ("/assets/decor.svg", "2026-10-07"),
         "/guides/unicorn-gifts-for-kids.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/unicorn-gifts-for-adults.html": ("/assets/mugs.svg", "2026-09-29"),
         "/guides/unicorn-night-lights.html": ("/assets/lights.svg", "2026-09-29"),
@@ -401,6 +403,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
         <a href="/guides/unicorn-gift-basket-ideas.html"><strong>Gift baskets</strong><span>Build a useful themed bundle →</span></a>
         <a href="/guides/small-unicorn-gifts-stocking-stuffers.html"><strong>Small gifts</strong><span>Compact gifts and stocking stuffers →</span></a>
         <a href="/guides/unicorn-christmas-gifts.html"><strong>Christmas gifts</strong><span>Seasonal gifts by recipient and use →</span></a>
+        <a href="/guides/unicorn-birthday-party-ideas.html"><strong>Birthday party ideas</strong><span>Plan invitations, games, cake and favors →</span></a>
         <a href="/guides/unicorn-party-favor-ideas.html"><strong>Party favors</strong><span>Plan small take-home gifts →</span></a>
         <a href="/guides/unicorn-bedroom-ideas.html"><strong>Bedroom ideas</strong><span>Plan a unicorn room by zones →</span></a>
         <a href="/guides/unicorn-night-lights.html"><strong>Night lights</strong><span>Compare lamps and projectors →</span></a>
@@ -472,7 +475,7 @@ def party_planner() -> str:
       <div class="breadcrumbs"><a href="/">Home</a> / Free tools</div>
       <span class="eyebrow">Plan, then play</span><h1>Free unicorn party planner</h1>
       <p>Estimate supplies and your own budget in one place. Print the result for a shopping trip or a conversation with another organiser.</p>
-    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
+    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/guides/unicorn-birthday-party-ideas.html">Party ideas hub</a> · <a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
       <p>This planner runs in your browser. It does not send your numbers to us, save a guest list or assume current shop prices. Enter the prices you find and adjust the quantities for your particular party.</p>
       <form id="party-planner" class="planner-form">
         <fieldset><legend>People and supplies</legend><div class="planner-fields">
@@ -532,7 +535,7 @@ def cake_calculator() -> str:
       <h1>Plan your unicorn birthday cake</h1>
       <p>Work out how many cakes to order for a unicorn party or any birthday. Use your baker's stated servings instead of guessing from a photo.</p>
       <div class="hero-actions"><a class="button" href="#cake-calculator">Calculate servings</a><a class="button button-light" href="#cake-tools">Explore decorating tools</a></div>
-    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
+    </div></div><div class="article wrap party-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/guides/unicorn-birthday-party-ideas.html">Party ideas hub</a> · <a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
       <figure class="cake-photo"><img src="https://images.unsplash.com/photo-1557164158-11e97f2bb220?auto=format&amp;fit=max&amp;w=1000&amp;q=85" alt="Real white birthday cake with pink drip icing, colourful decorations and a silver unicorn topper on a pink stand" width="1000" height="1675" fetchpriority="high"><figcaption>Unicorn cake inspiration. Photo by <a href="https://unsplash.com/photos/white-and-pink-unicorn-cake-on-a-pink-stand-TiSLq6Gbftg">Deva Williamson / Unsplash</a>, used under the <a href="https://unsplash.com/license">Unsplash License</a>. The photo does not show products sold through the links below.</figcaption></figure>
       <section id="cake-video" aria-labelledby="cake-video-title"><h2 id="cake-video-title">Watch: decorate a unicorn cake</h2>
       <p>Follow Cupcake Jemma's <em>Full Unicorn Cake Tutorial &amp; How-To</em> for the unicorn finish. This decorating tutorial starts with a baked, filled and crumb-coated cake. Use the cake and buttercream recipes linked in the creator's video description for the baking stage.</p>
@@ -623,7 +626,7 @@ def party_games() -> str:
       <div class="breadcrumbs"><a href="/">Home</a> / <a href="/tools/free-unicorn-games.html">Free games &amp; printables</a> / Party games</div><h1>Unicorn party games &amp; free printable bingo</h1>
       <p>Five easy party activities, with suggested ages, group sizes and instructions. Make different bingo cards for up to 12 players, then use the on-screen word caller to host.</p>
       <div class="hero-actions"><a class="button" href="#bingo">Make free bingo cards</a><a class="button button-light" href="#choose-game">Compare games &amp; supplies</a></div>
-    </div></div><div class="article wrap games-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
+    </div></div><div class="article wrap games-page"><nav class="callout" aria-label="Unicorn party tools"><strong>Plan your unicorn party</strong><p><a href="/guides/unicorn-birthday-party-ideas.html">Party ideas hub</a> · <a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake &amp; decorating tools</a></p></nav>
       <aside class="callout"><h2>New: free printable unicorn treasure hunt</h2><p>Hide six picture cards, then let children find and tick matching symbols. Includes a player sheet and simple setup instructions.</p><a class="button" href="/tools/unicorn-treasure-hunt.html">Get the free treasure hunt</a></aside><aside class="callout"><h2>Play unicorn memory online</h2><p>Find six matching pairs at your own pace, on a phone or computer.</p><a class="button" href="/tools/unicorn-memory-game.html">Play the free memory game</a></aside>
       """ + shopping + """
       <section id="bingo" aria-labelledby="bingo-title"><h2 id="bingo-title">Free unicorn bingo generator</h2>
@@ -818,6 +821,41 @@ def main() -> None:
         <p>If you know the teen's room well, lighting or decor can feel personal. If you know their routines but not their room, choose drinkware or a small accessory. If you know they enjoy crafts, a creative item may be more engaging than passive decor. In every case, confirm the selected version and current listing details before buying.</p>
         <p>For more room-specific planning, see the <a href="/guides/unicorn-bedroom-ideas.html">unicorn bedroom ideas guide</a>. If you need a smaller present, use the <a href="/guides/small-unicorn-gifts-stocking-stuffers.html">small unicorn gifts guide</a>.</p>'''
     ))
+    write("guides/unicorn-birthday-party-ideas.html", guide_page(
+        "Unicorn Birthday Party Ideas & Free Planning Tools | Unicorn Finds",
+        "Plan a unicorn birthday party with free invitations, games, a budget planner, cake servings calculator, treasure hunt and practical party-favor ideas.",
+        "/guides/unicorn-birthday-party-ideas.html",
+        "A good unicorn party does not need dozens of themed purchases. Start with the guest list and schedule, then use a few strong visual details and free planning tools to make the day easier.",
+        '''<h2>Start with the guest list and a simple schedule</h2>
+        <p>Decide the guest count before buying decorations or favor packs. A smaller confirmed number makes it easier to estimate seating, food, cake and take-home items. Use the <a href="/tools/unicorn-party-planner.html">free unicorn party planner</a> to work through supplies and your own budget without relying on fixed store prices.</p>
+        <h2>Send invitations that contain the useful details</h2>
+        <p>The theme should not hide the practical information. Include the date, start and finish time, location, RSVP details and anything guests need to bring. The <a href="/tools/unicorn-birthday-invitations.html">free invitation maker</a> lets you add party details and print the result or save it as a PDF.</p>
+        <h2>Choose two or three activities, not ten</h2>
+        <p>A party usually works better with a short sequence than a packed list of games. Pick one arrival activity, one active group game and one quieter option. The <a href="/tools/unicorn-party-games.html">party games page</a> includes printable bingo, while the <a href="/tools/unicorn-treasure-hunt.html">treasure hunt</a> gives you a ready-made search activity. For a calmer table game, use the <a href="/tools/unicorn-memory-game.html">browser memory game</a>.</p>
+        <h2>Plan cake from servings, not the photo</h2>
+        <p>A cake can look large in a product photo and still serve fewer guests than expected. Use your baker's stated serving size and the confirmed guest count. The <a href="/tools/birthday-cake-servings-calculator.html">cake servings calculator</a> helps estimate how many cakes or portions you need without pretending there is one universal cake size.</p>
+        <h2>Use the unicorn theme in a few visible places</h2>
+        <p>Choose one focal area such as the cake table, backdrop or entrance, then repeat the colours in smaller details. You do not need every plate, cup and chair to carry a unicorn print. A simple colour palette plus one or two themed accents is easier to set up and usually photographs more clearly.</p>
+        <h2>Shop by the job the item needs to do</h2>
+        <p>When you do need supplies, search by function rather than buying a giant all-in-one bundle. These are live Amazon searches, not endorsements of one fixed product. Check pack quantities, measurements, age guidance and the current seller before ordering.</p>
+        <div class="linkcards visual">
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+backdrop+decorations&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🌈</span><strong>Backdrop &amp; decorations</strong><span class="path-fit">Create one focal area instead of decorating everything</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+favor+bags+kids&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🎁</span><strong>Favor bags</strong><span class="path-fit">Compare pack count and bag size</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+cake+topper+birthday&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🎂</span><strong>Cake toppers</strong><span class="path-fit">Check dimensions against the cake size</span><span class="shop-cta">Browse Amazon ↗</span></a>
+          <a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+plates+cups+tableware&tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🍽️</span><strong>Tableware</strong><span class="path-fit">Count guests before choosing pack quantities</span><span class="shop-cta">Browse Amazon ↗</span></a>
+        </div>
+        <h2>Keep party favors useful and easy to count</h2>
+        <p>One compact take-home item can be easier than a bag full of filler. Check pack quantities, age guidance and small parts before ordering. The <a href="/guides/unicorn-party-favor-ideas.html">party-favor guide</a> compares single-item favors, mini bags and craft-style take-home ideas.</p>'''
+        + inline_pick("keychain", "A compact favor route; verify size, attachment style and current age guidance.")
+        + '''<h2>Add a birthday gift only if it fits the person</h2>
+        <p>If you also need a present for the birthday child, choose by use rather than by theme alone. A creative item, small room accent or everyday object may be more useful than another party decoration. The <a href="/guides/unicorn-birthday-gifts.html">birthday gift guide</a> separates those routes.</p>
+        <h2>A simple 90-minute party outline</h2>
+        <ol><li><strong>0–15 minutes:</strong> arrivals and a quiet activity.</li><li><strong>15–35 minutes:</strong> treasure hunt, bingo or another group game.</li><li><strong>35–55 minutes:</strong> food, drinks and a reset.</li><li><strong>55–70 minutes:</strong> cake and birthday moment.</li><li><strong>70–85 minutes:</strong> one final activity or free play.</li><li><strong>85–90 minutes:</strong> favors and pickup.</li></ol>
+        <p>Adjust the timing for the guests, venue and age group. The purpose of a schedule is to reduce rushing, not to force every minute.</p>
+        <h2>Party-day checklist</h2>
+        <ul><li>Confirm the guest count and RSVP changes.</li><li>Print or save the invitation details and address.</li><li>Prepare only the games you actually plan to use.</li><li>Check cake servings and any food or allergy information directly with families and suppliers.</li><li>Count favors and add a small buffer.</li><li>Charge devices used for music, photos or browser-based games.</li><li>Keep cleanup bags, wipes and spare labels where adults can find them.</li></ul>
+        <div class="callout"><strong>Free planning route</strong><p><a href="/tools/unicorn-party-planner.html">Budget &amp; supplies</a> · <a href="/tools/unicorn-birthday-invitations.html">Invitations</a> · <a href="/tools/unicorn-party-games.html">Games &amp; bingo</a> · <a href="/tools/unicorn-treasure-hunt.html">Treasure hunt</a> · <a href="/tools/birthday-cake-servings-calculator.html">Cake calculator</a></p></div>'''
+    ))
     write("guides/unicorn-party-favor-ideas.html", guide_page(
         "Unicorn Party Favor Ideas | Unicorn Finds",
         "Plan unicorn party favors by quantity, usefulness, age guidance and packing. Includes ideas for small accessories and creative take-home items.",
@@ -950,8 +988,8 @@ def main() -> None:
         <p>Use the <a href="/tools/unicorn-gift-finder.html">free unicorn gift finder</a> for three starting points, or browse <a href="/guides/unicorn-gifts-for-kids.html">gifts for kids</a>, <a href="/guides/unicorn-gifts-for-teens.html">gifts for teens</a> and <a href="/guides/unicorn-gifts-for-adults.html">gifts for adults</a>.</p>'''
     ))
 
-    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
-    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06'}
+    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-birthday-party-ideas.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    lastmods = {'/': '2026-10-07', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-birthday-party-ideas.html': '2026-10-07'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'
