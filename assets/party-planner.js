@@ -66,6 +66,9 @@ if (typeof document !== "undefined") {
       <h3>Packs to compare</h3><ul class="pack-list">${packs}</ul>
       <p><strong>Estimated budget: ${hasCosts ? money.format(estimate.total) : "add your own costs above"}</strong>${hasCosts ? ` · ${money.format(estimate.total / estimate.people)} per person` : ""}.</p>
       ${budgetStatus}
+      <h3>Your next step</h3>
+      <p>${hasTarget && hasCosts && remaining < 0 ? "Your estimate is over your target. Check reusable tableware and reduce optional favors or decorations before ordering." : "Check what you already own, then compare the pack counts above with each listing. Mixed sets may contain different numbers of plates, cups and bags."}</p>
+      <p><a class="button" href="#party-shopping">Check supplies and Amazon options</a> · <a href="/tools/unicorn-party-games.html">Use free printable party games</a></p>
       <p class="field-help">This is a starting count, not a package recommendation or a current retailer quote. Check servings, extra adults, reusable items and pack sizes.</p>`;
   }
 
