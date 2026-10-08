@@ -387,6 +387,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
         "/guides/unicorn-gift-basket-ideas.html": ("/assets/mugs.svg", "2026-10-02"),
         "/guides/unicorn-gifts-for-teens.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/unicorn-party-favor-ideas.html": ("/assets/decor.svg", "2026-10-02"),
+        "/guides/unicorn-party-supplies-checklist.html": ("/assets/decor.svg", "2026-10-08"),
         "/guides/unicorn-bedroom-ideas.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/small-unicorn-gifts-stocking-stuffers.html": ("/assets/decor.svg", "2026-10-02"),
         "/guides/unicorn-christmas-gifts.html": ("/assets/decor.svg", "2026-10-06"),
@@ -422,7 +423,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
     return page(
         title, description, path, body, kind="article",
         image=article_image, published=article_published,
-        modified="2026-10-03" if path == "/guides/unicorn-night-lights.html" else "2026-10-02",
+        modified="2026-10-08" if path == "/guides/unicorn-party-supplies-checklist.html" else ("2026-10-03" if path == "/guides/unicorn-night-lights.html" else "2026-10-02"),
     )
 
 
@@ -842,6 +843,35 @@ def main() -> None:
         <ol><li>Count confirmed guests and choose a modest buffer.</li><li>Check pack quantities rather than assuming one listing equals one guest.</li><li>Read age guidance and small-parts information.</li><li>Confirm what craft supplies or packaging are actually included.</li><li>Label each favor if different versions are intended for different guests.</li><li>Check the current seller, selected variation and return terms before ordering.</li></ol>
         <p>For the rest of the event, use the <a href="/tools/unicorn-party-planner.html">party planner</a>. If the birthday child still needs a present, the <a href="/guides/unicorn-birthday-gifts.html">unicorn birthday gifts guide</a> separates everyday, creative and room-focused ideas.</p>'''
     ))
+    write("guides/unicorn-party-supplies-checklist.html", guide_page(
+        "Unicorn Party Supplies Checklist: Free Printable Guide | Unicorn Finds",
+        "Plan a unicorn birthday party with a free supplies checklist. Count tableware, food, cake, games, favors and setup needs before you shop.",
+        "/guides/unicorn-party-supplies-checklist.html",
+        "Use this unicorn party supplies checklist to separate the essentials from optional extras, then add your own guest count and budget in the free planner.",
+        '''<h2>Start with the guest count</h2>
+        <p>Count invited children and any adults who will eat or stay for cake. That number drives tableware, drinks, food and seating. Add a modest buffer only after you know the pack sizes in the listings you are considering. A mixed party set can include different numbers of plates, cups and napkins, so do not use the total number of pieces as a guest count.</p>
+        <p>For a personalised starting count, use the <a href="/tools/unicorn-party-planner.html">free unicorn party planner</a>. It turns your guest count and pack sizes into a simple shopping list and lets you enter your own budget estimates.</p>
+        <h2>Unicorn party supplies checklist</h2>
+        <h3>Table and food</h3>
+        <ul><li>Plates for the meal or snacks, plus cake plates if they are separate.</li><li>Cups, drinks, napkins and serving utensils.</li><li>Food and cake, including any dietary needs you already know about.</li><li>A cake knife, candles if you are using them, and a clear serving space.</li><li>A table covering, bin bags and basic cleanup supplies.</li></ul>
+        <h3>Decorations and setup</h3>
+        <ul><li>One focal decoration, such as a banner, backdrop or table display.</li><li>Optional balloons or colour-coordinated accents.</li><li>Enough space for games, food and adults to move safely.</li><li>A camera or phone charging plan if someone will take pictures.</li></ul>
+        <p>Choose one or two visual elements rather than trying to theme every surface. Measure the room and check what the current listing includes before ordering a backdrop, balloon pack or table decoration.</p>
+        <h3>Games and activities</h3>
+        <ul><li>One main activity that suits the youngest guests.</li><li>One quieter backup for arrivals or waiting time.</li><li>Printed copies, pencils and any small supplies for each activity.</li><li>A simple prize only if you want one; applause and choosing the next game can work too.</li></ul>
+        <p>Use the <a href="/tools/unicorn-party-games.html">free unicorn party games and printable bingo</a> for activity ideas, or print a <a href="/tools/unicorn-treasure-hunt.html">unicorn treasure hunt</a> for a more active option. Both are free and avoid adding another item to the shopping list.</p>
+        <h3>Favors and invitations</h3>
+        <ul><li>Favor bags only if you want take-home gifts.</li><li>One small useful item or a craft the guests made themselves.</li><li>Names or labels if different guests need different bags.</li><li>Invitations with the time, address, RSVP date and contact details.</li></ul>
+        <p>For a craft-based or small-item option, read the <a href="/guides/unicorn-party-favor-ideas.html">unicorn party favor guide</a>. You can make and print a personalised invite with the <a href="/tools/unicorn-birthday-invitations.html">free unicorn birthday invitation maker</a>.</p>
+        <h2>Check pack sizes before shopping</h2>
+        <p>Compare the required number of items with the actual pack description. Confirm that cups are suitable for the drinks you plan to serve and that favor bags are not sold empty when you expected fillings. For food, delivery and tax, enter an estimate in the planner rather than treating a retailer page as a fixed quote.</p>
+        <div class="shop-path-intro"><h2>Current Amazon search routes</h2><p>These are broad searches, not endorsements of a specific product. Choose the exact listing only after checking pack count, included items, seller and current delivery details.</p></div>
+        <div class="linkcards visual"><a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+plates&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🍽️</span><strong>Unicorn party plates</strong><span class="shop-cta">Browse current results ↗</span></a><a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+cups&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🥤</span><strong>Unicorn party cups</strong><span class="shop-cta">Browse current results ↗</span></a><a class="linkcard visual" href="https://www.amazon.com/s?k=unicorn+party+favor+bags&amp;tag=unicornmagic2-20" target="_blank" rel="sponsored nofollow noopener noreferrer"><span class="path-icon">🎁</span><strong>Unicorn favor bags</strong><span class="shop-cta">Browse current results ↗</span></a></div>
+        <h2>What can you skip?</h2>
+        <p>A unicorn party does not need a themed kit. Plain cups and plates, one printed game and a small colour palette can carry the theme. Reusing bowls, tablecloths and serving utensils can make the party easier to organise and leave more budget for food, cake or one activity the guests will enjoy.</p>
+        <h2>Before guests arrive</h2>
+        <ol><li>Count tableware and serving items once more.</li><li>Set out the main activity and the quiet backup.</li><li>Put food and drinks where they are easy to reach but away from the game area.</li><li>Keep walkways clear and decide who handles food, games and photos.</li><li>Save or print the final list from the <a href="/tools/unicorn-party-planner.html">party planner</a>.</li></ol>'''
+    ))
     write("guides/unicorn-bedroom-ideas.html", guide_page(
         "Unicorn Bedroom Ideas | Unicorn Finds",
         "Plan a unicorn bedroom by focal point, zones, scale and colour. Use lighting, wall art, cushions and small accents without making every surface compete.",
@@ -950,8 +980,8 @@ def main() -> None:
         <p>Use the <a href="/tools/unicorn-gift-finder.html">free unicorn gift finder</a> for three starting points, or browse <a href="/guides/unicorn-gifts-for-kids.html">gifts for kids</a>, <a href="/guides/unicorn-gifts-for-teens.html">gifts for teens</a> and <a href="/guides/unicorn-gifts-for-adults.html">gifts for adults</a>.</p>'''
     ))
 
-    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
-    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06'}
+    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-party-supplies-checklist.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-08'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'
