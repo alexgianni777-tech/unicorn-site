@@ -518,7 +518,7 @@ def party_planner() -> str:
       <p>A paintable planter could be one craft idea if the listing's quantity and age guidance suit your group. Confirm whether paint, brushes and protective table covering are included.</p>
       ''' + affiliate_note() + inline_pick("planters", "A possible craft activity; verify the current pack size and included supplies before planning for a group.") + '''
       <p>Looking for a lasting room accent after the party? <a href="/guides/unicorn-room-decor.html">Read the room decor guide</a>. For a present, <a href="/guides/unicorn-gifts-for-adults.html">start with the gift guide</a>.</p>
-    </div><script src="/assets/party-planner.js?v=20261004" defer></script></main>'''
+    </div><script src="/assets/party-planner.js?v=20261008" defer></script></main>'''
     return page(
         "Free Unicorn Birthday Party Planner & Budget | Unicorn Finds",
         "Plan a unicorn birthday party with a free budget calculator, printable preparation checklist, a 12-guest supply example and a 90-minute party outline.",
