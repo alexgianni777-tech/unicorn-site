@@ -1,3 +1,24 @@
+// A local text download keeps the calculated list usable away from this page.
+function addPlanDownload(result, title, filename, source) {
+  const text = title + '\n\n' + result.innerText + '\n\nSource: ' + source + '\nEstimates only. Check sizes, quantities and current retailer details before buying.\n';
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'button pc-button plan-download';
+  button.textContent = 'Download shopping list (.txt)';
+  button.addEventListener('click', () => {
+    const url = URL.createObjectURL(new Blob([text], {type: 'text/plain;charset=utf-8'}));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    // Allow the browser to start reading the file before releasing the object URL.
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+  });
+  result.append(button);
+}
+
 // All figures are estimates based only on visitor-entered numbers.
 function estimateParty({ guests, hosts, buffer, food, favor, cake, decor, activities, other = 0 }) {
   const people = guests + hosts;
@@ -70,6 +91,7 @@ if (typeof document !== "undefined") {
       <p>${hasTarget && hasCosts && remaining < 0 ? "Your estimate is over your target. Check reusable tableware and reduce optional favors or decorations before ordering." : "Check what you already own, then compare the pack counts above with each listing. Mixed sets may contain different numbers of plates, cups and bags."}</p>
       <p><a class="button" href="#party-shopping">Check supplies and Amazon options</a> · <a href="/tools/unicorn-party-games.html">Use free printable party games</a></p>
       <p class="field-help">This is a starting count, not a package recommendation or a current retailer quote. Check servings, extra adults, reusable items and pack sizes.</p>`;
+    addPlanDownload(result, "Unicorn party shopping list", "unicorn-party-shopping-list.txt", "https://unicornsite.online/tools/unicorn-party-planner.html");
   }
 
   form.addEventListener("input", update);
@@ -102,7 +124,7 @@ if (typeof document !== "undefined") {
   panel.append(help, save, document.createTextNode(' '), forget, status);
   form.after(panel);
   const style = document.createElement('style');
-  style.textContent = '.plan-save-controls{margin:1rem 0;padding:1rem;border:1px solid currentColor;border-radius:12px}.plan-save-controls button{margin:.25rem;min-height:44px}.plan-save-controls p{margin:.5rem 0}@media print{.plan-save-controls{display:none}}';
+  style.textContent = '.plan-save-controls{margin:1rem 0;padding:1rem;border:1px solid currentColor;border-radius:12px}.plan-save-controls button{margin:.25rem;min-height:44px}.plan-save-controls p{margin:.5rem 0}@media print{.plan-save-controls,.plan-download{display:none}}';
   document.head.append(style);
   let saved = false;
   try {
