@@ -844,7 +844,7 @@ def main() -> None:
         <p>For the rest of the event, use the <a href="/tools/unicorn-party-planner.html">party planner</a>. If the birthday child still needs a present, the <a href="/guides/unicorn-birthday-gifts.html">unicorn birthday gifts guide</a> separates everyday, creative and room-focused ideas.</p>'''
     ))
     write("guides/unicorn-party-supplies-checklist.html", guide_page(
-        "Unicorn Party Supplies Checklist: Free Printable Guide | Unicorn Finds",
+        "Unicorn Party Supplies Checklist (Free) | Unicorn Finds",
         "Plan a unicorn birthday party with a free supplies checklist. Count tableware, food, cake, games, favors and setup needs before you shop.",
         "/guides/unicorn-party-supplies-checklist.html",
         "Use this unicorn party supplies checklist to separate the essentials from optional extras, then add your own guest count and budget in the free planner.",
