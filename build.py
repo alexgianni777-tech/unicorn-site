@@ -851,7 +851,7 @@ def main() -> None:
         '''<h2>Start with the guest count</h2>
         <p>Count invited children and any adults who will eat or stay for cake. That number drives tableware, drinks, food and seating. Add a modest buffer only after you know the pack sizes in the listings you are considering. A mixed party set can include different numbers of plates, cups and napkins, so do not use the total number of pieces as a guest count.</p>
         <p>For a personalised starting count, use the <a href="/tools/unicorn-party-planner.html">free unicorn party planner</a>. It turns your guest count and pack sizes into a simple shopping list and lets you enter your own budget estimates.</p>
-        <h2>Unicorn party supplies checklist</h2>
+        <h2 id="party-supplies-checklist">Unicorn party supplies checklist</h2><script src="/assets/party-checklist.js" defer></script>
         <h3>Table and food</h3>
         <ul><li>Plates for the meal or snacks, plus cake plates if they are separate.</li><li>Cups, drinks, napkins and serving utensils.</li><li>Food and cake, including any dietary needs you already know about.</li><li>A cake knife, candles if you are using them, and a clear serving space.</li><li>A table covering, bin bags and basic cleanup supplies.</li></ul>
         <h3>Decorations and setup</h3>
