@@ -423,7 +423,7 @@ def guide_page(title: str, description: str, path: str, intro: str, article: str
     return page(
         title, description, path, body, kind="article",
         image=article_image, published=article_published,
-        modified="2026-10-08" if path == "/guides/unicorn-party-supplies-checklist.html" else ("2026-10-03" if path == "/guides/unicorn-night-lights.html" else "2026-10-02"),
+        modified="2026-10-10" if path == "/guides/unicorn-party-supplies-checklist.html" else ("2026-10-03" if path == "/guides/unicorn-night-lights.html" else "2026-10-02"),
     )
 
 
@@ -981,7 +981,7 @@ def main() -> None:
     ))
 
     urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-party-supplies-checklist.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
-    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-08'}
+    lastmods = {'/': '2026-10-06', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-10', '/guides/index.html': '2026-10-09'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'
