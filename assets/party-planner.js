@@ -1,6 +1,11 @@
-// A local text download keeps the calculated list usable away from this page.
+// Keep the calculated list and its useful links available outside the page.
 function addPlanDownload(result, title, filename, source) {
-  const text = title + '\n\n' + result.innerText + '\n\nSource: ' + source + '\nEstimates only. Check sizes, quantities and current retailer details before buying.\n';
+  const links = [...result.querySelectorAll('a[href]')].map(link =>
+    link.textContent.trim() + ': ' + new URL(link.getAttribute('href'), source).href
+  );
+  const text = title + '\n\n' + result.innerText +
+    (links.length ? '\n\nUseful links:\n' + [...new Set(links)].join('\n') : '') +
+    '\n\nSource: ' + source + '\nEstimates only. Check sizes, quantities and current retailer details before buying.\n';
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'button pc-button plan-download';
@@ -13,10 +18,27 @@ function addPlanDownload(result, title, filename, source) {
     document.body.append(link);
     link.click();
     link.remove();
-    // Allow the browser to start reading the file before releasing the object URL.
     setTimeout(() => URL.revokeObjectURL(url), 30000);
   });
   result.append(button);
+  if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+    const copy = document.createElement('button');
+    copy.type = 'button';
+    copy.className = 'button pc-button plan-download';
+    copy.textContent = 'Copy shopping list';
+    const status = document.createElement('p');
+    status.className = 'plan-download';
+    status.setAttribute('role', 'status');
+    copy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = 'Copied. Paste your list into notes or a message.';
+      } catch (_) {
+        status.textContent = 'Copy was unavailable. Use Download shopping list to keep a copy.';
+      }
+    });
+    result.append(document.createTextNode(' '), copy, status);
+  }
 }
 
 // All figures are estimates based only on visitor-entered numbers.
