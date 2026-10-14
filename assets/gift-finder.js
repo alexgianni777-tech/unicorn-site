@@ -61,6 +61,13 @@ if (typeof document !== "undefined") {
       const mode = button.dataset.mode;
       history.replaceState(null, "", `#${mode}`);
       render(mode);
+      if (typeof gtag === "function") {
+        gtag("event", "tool_result", {
+          tool_name: "unicorn-gift-finder",
+          result_type: mode,
+          page_path: window.location.pathname,
+        });
+      }
     });
   });
 }

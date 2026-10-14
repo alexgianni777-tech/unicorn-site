@@ -71,6 +71,12 @@ jobs:
           assert "View on Amazon" in home
 
           assert "/assets/gift-finder.js" in finder
+          for measured_tool in [
+              Path("assets/gift-finder.js"),
+              Path("assets/party-planner.js"),
+              Path("assets/cake-calculator.js"),
+          ]:
+              assert "tool_result" in measured_tool.read_text(encoding="utf-8"), measured_tool
           assert finder.count('rel="sponsored nofollow noopener noreferrer"') == 10
           assert "Unicorn gift finder" in finder
           assert "Unicorn gift guides" in guide_hub

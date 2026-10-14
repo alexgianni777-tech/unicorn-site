@@ -27,7 +27,21 @@ if (typeof document !== 'undefined') {
     result.innerHTML = `<h2>Order ${plan.cakes} ${plan.cakes === 1 ? 'cake' : 'cakes'} at ${servings} servings each</h2><p>For ${guests} people plus ${buffer}% extra, plan <strong>${plan.target} servings</strong>.</p><p>Your order provides ${plan.total} servings: ${plan.spare} beyond one per person, including your allowance and any rounding up to whole cakes.</p><p>Confirm these serving sizes with your baker before ordering.</p>`;
     print.hidden = false;
   }
-  form.addEventListener('input', update);
+  let toolResultTimer;
+  form.addEventListener('input', event => {
+    update();
+    if (!event.isTrusted) return;
+    clearTimeout(toolResultTimer);
+    toolResultTimer = setTimeout(() => {
+      if (form.checkValidity() && typeof gtag === 'function') {
+        gtag('event', 'tool_result', {
+          tool_name: 'birthday-cake-servings-calculator',
+          result_type: 'calculation',
+          page_path: window.location.pathname,
+        });
+      }
+    }, 800);
+  });
   form.addEventListener('submit', event => event.preventDefault());
   print.addEventListener('click', () => window.print());
   update();

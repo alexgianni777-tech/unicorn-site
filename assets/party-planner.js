@@ -116,8 +116,22 @@ if (typeof document !== "undefined") {
     addPlanDownload(result, "Unicorn party shopping list", "unicorn-party-shopping-list.txt", "https://unicornsite.online/tools/unicorn-party-planner.html");
   }
 
-  form.addEventListener("input", update);
-  form.addEventListener("change", update);
+  let toolResultTimer;
+  function trackToolResult(event) {
+    if (!event.isTrusted) return;
+    clearTimeout(toolResultTimer);
+    toolResultTimer = setTimeout(() => {
+      if (form.checkValidity() && typeof gtag === "function") {
+        gtag("event", "tool_result", {
+          tool_name: "unicorn-party-planner",
+          result_type: "calculation",
+          page_path: window.location.pathname,
+        });
+      }
+    }, 800);
+  }
+  form.addEventListener("input", (event) => { update(); trackToolResult(event); });
+  form.addEventListener("change", (event) => { update(); trackToolResult(event); });
   form.addEventListener("submit", (event) => event.preventDefault());
   printButton.addEventListener("click", () => window.print());
   update();
