@@ -130,7 +130,51 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
                 },
             },
         })
-    structured = json.dumps(json_ld, ensure_ascii=False).replace("<", "\\u003c")
+    tool_apps = {
+        "/tools/unicorn-gift-finder.html": (
+            "Unicorn Gift Finder",
+            "Choose a unicorn gift route by everyday use, room lighting, creativity or a small surprise.",
+            "ShoppingApplication",
+            ["Four gift routes", "Curated Amazon product links", "No sign-up required"],
+        ),
+        "/tools/unicorn-party-planner.html": (
+            "Unicorn Party Planner",
+            "Estimate party supplies, pack counts and a visitor-entered budget for a unicorn party.",
+            "UtilitiesApplication",
+            ["Guest and supply estimates", "Pack-count calculator", "Printable and downloadable shopping list"],
+        ),
+        "/tools/birthday-cake-servings-calculator.html": (
+            "Birthday Cake Servings Calculator",
+            "Estimate cakes and servings for a birthday party using a guest count and extra-serving allowance.",
+            "UtilitiesApplication",
+            ["Serving calculator", "Printable cake plan", "Preparation checklist"],
+        ),
+    }
+    if path in tool_apps:
+        app_name, app_description, app_category, app_features = tool_apps[path]
+        web_page = {key: value for key, value in json_ld.items() if key != "@context"}
+        structured_data = {
+            "@context": "https://schema.org",
+            "@graph": [
+                web_page,
+                {
+                    "@type": "WebApplication",
+                    "@id": canonical + "#app",
+                    "name": app_name,
+                    "description": app_description,
+                    "url": canonical,
+                    "applicationCategory": app_category,
+                    "operatingSystem": "Any",
+                    "isAccessibleForFree": True,
+                    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                    "featureList": app_features,
+                    "provider": {"@type": "Organization", "name": "Unicorn Finds", "url": BASE + "/"},
+                },
+            ],
+        }
+    else:
+        structured_data = json_ld
+    structured = json.dumps(structured_data, ensure_ascii=False).replace("<", "\\u003c")
     social_image = BASE + image if image else ""
     return f'''<!doctype html>
 <html lang="en">
@@ -1000,7 +1044,7 @@ def main() -> None:
     ))
 
     urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-party-supplies-checklist.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
-    lastmods = {'/': '2026-10-11', '/tools/unicorn-party-planner.html': '2026-10-06', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-10', '/guides/index.html': '2026-10-09'}
+    lastmods = {'/': '2026-10-11', '/tools/unicorn-party-planner.html': '2026-10-15', '/tools/unicorn-gift-finder.html': '2026-10-15', '/tools/birthday-cake-servings-calculator.html': '2026-10-15', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-10', '/guides/index.html': '2026-10-09'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls
     ) + '</urlset>\n'

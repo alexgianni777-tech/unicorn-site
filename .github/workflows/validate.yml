@@ -77,6 +77,12 @@ jobs:
               Path("assets/cake-calculator.js"),
           ]:
               assert "tool_result" in measured_tool.read_text(encoding="utf-8"), measured_tool
+          for app_page in [
+              Path("tools/unicorn-gift-finder.html"),
+              Path("tools/unicorn-party-planner.html"),
+              Path("tools/birthday-cake-servings-calculator.html"),
+          ]:
+              assert '"@type": "WebApplication"' in app_page.read_text(encoding="utf-8"), app_page
           assert finder.count('rel="sponsored nofollow noopener noreferrer"') == 10
           assert "Unicorn gift finder" in finder
           assert "Unicorn gift guides" in guide_hub
