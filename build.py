@@ -1014,11 +1014,16 @@ def main() -> None:
       <h2>When you follow a link</h2><p>Product links take you to Amazon. Amazon may process your visit and purchase according to its own privacy notice and affiliate program. We do not see your payment details or the contents of your order. The site also links to third-party information; their privacy notices apply when you visit them.</p>
       <h2>Changes</h2><p>This page is reviewed when advertising, analytics, newsletter or contact features change. Last revised: 3 October 2026.</p>
       <p><a href="/about.html">Read the affiliate disclosure</a> · <a href="/">Back to the home page</a></p></div></main>'''
-    write("privacy.html", page(
+    privacy_page = page(
         "Privacy | Unicorn Finds",
         "Read how this static gift guide works and what happens when you follow an Amazon affiliate link.",
         "/privacy.html", privacy_body,
-    ))
+    ).replace(
+        '  <meta name="description"',
+        '  <meta name="robots" content="noindex,follow">\n  <meta name="description"',
+        1,
+    )
+    write("privacy.html", privacy_page)
     write("guides/unicorn-christmas-gifts.html", guide_page(
         "Unicorn Christmas Gifts 2026 | Unicorn Finds",
         "Choose unicorn Christmas gifts for kids, teens and adults by daily use, room style and gift size. Includes stocking-stuffer and Amazon shopping checks.",
@@ -1043,7 +1048,7 @@ def main() -> None:
         <p>Use the <a href="/tools/unicorn-gift-finder.html">free unicorn gift finder</a> for three starting points, or browse <a href="/guides/unicorn-gifts-for-kids.html">gifts for kids</a>, <a href="/guides/unicorn-gifts-for-teens.html">gifts for teens</a> and <a href="/guides/unicorn-gifts-for-adults.html">gifts for adults</a>.</p>'''
     ))
 
-    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-party-supplies-checklist.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html", "/privacy.html"]
+    urls = ["/tools/unicorn-birthday-invitations.html", "/tools/free-unicorn-games.html", "/tools/unicorn-memory-game.html", "/tools/unicorn-treasure-hunt.html", "/tools/unicorn-party-games.html", "/tools/birthday-cake-servings-calculator.html", "/", "/guides/index.html", "/guides/unicorn-birthday-gifts.html", "/guides/unicorn-gifts-for-kids.html", "/guides/unicorn-gifts-for-adults.html", "/guides/unicorn-night-lights.html", "/guides/unicorn-room-decor.html", "/guides/unicorn-gift-basket-ideas.html", "/guides/unicorn-gifts-for-teens.html", "/guides/unicorn-party-favor-ideas.html", "/guides/unicorn-party-supplies-checklist.html", "/guides/unicorn-bedroom-ideas.html", "/guides/small-unicorn-gifts-stocking-stuffers.html", "/guides/unicorn-christmas-gifts.html", "/tools/unicorn-gift-finder.html", "/tools/unicorn-party-planner.html", "/about.html"]
     lastmods = {'/': '2026-10-11', '/tools/unicorn-party-planner.html': '2026-10-15', '/tools/unicorn-gift-finder.html': '2026-10-15', '/tools/birthday-cake-servings-calculator.html': '2026-10-15', '/guides/unicorn-christmas-gifts.html': '2026-10-06', '/guides/unicorn-party-supplies-checklist.html': '2026-10-10', '/guides/index.html': '2026-10-09'}
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{xml_escape(BASE + path)}</loc>{("<lastmod>" + lastmods[path] + "</lastmod>") if path in lastmods else ""}</url>\n' for path in urls

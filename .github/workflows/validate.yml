@@ -27,6 +27,8 @@ jobs:
         run: python scripts/check_affiliate_links.py
       - name: Validate internal links
         run: python scripts/check_internal_links.py
+      - name: Validate search indexability
+        run: python scripts/check_search_indexing.py https://unicornsite.online
       - name: Affiliate and funnel smoke checks
         run: |
           python - <<'PY'
