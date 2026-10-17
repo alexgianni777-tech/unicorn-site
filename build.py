@@ -174,7 +174,21 @@ def page(title: str, description: str, path: str, body: str, *, active: str = ""
         }
     else:
         structured_data = json_ld
-    structured = json.dumps(structured_data, ensure_ascii=False).replace("<", "\\u003c")
+    if path != "/":
+        parts = [piece for piece in path.strip("/").split("/") if piece]
+        crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"}]
+        if parts and parts[0] in {"guides", "tools"}:
+            section_name = "Gift guides" if parts[0] == "guides" else "Free tools"
+            section_path = "/guides/index.html" if parts[0] == "guides" else "/tools/free-unicorn-games.html"
+            crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": section_name, "item": BASE + section_path})
+        if not (parts and parts[-1] == "index.html"):
+            crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": title.split(" | ")[0], "item": canonical})
+        breadcrumb = {"@type": "BreadcrumbList", "@id": canonical + "#breadcrumb", "itemListElement": crumbs}
+        if "@graph" in structured_data:
+            structured_data["@graph"].append(breadcrumb)
+        else:
+            structured_data = {"@context": "https://schema.org", "@graph": [structured_data, breadcrumb]}
+    structured = json.dumps(structured_data, ensure_ascii=False).replace("<", "\u003c")
     social_image = BASE + image if image else ""
     return f'''<!doctype html>
 <html lang="en">
