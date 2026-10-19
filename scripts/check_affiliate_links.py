@@ -11,7 +11,7 @@ from urllib.parse import parse_qs, urlsplit
 ANCHOR_RE = re.compile(r"<a\b[^>]*\bhref\s*=\s*([\"'])(.*?)\1[^>]*>", re.IGNORECASE | re.DOTALL)
 REL_RE = re.compile(r"\brel\s*=\s*([\"'])(.*?)\1", re.IGNORECASE | re.DOTALL)
 TARGET_BLANK_RE = re.compile(r"\btarget\s*=\s*([\"'])_blank\1", re.IGNORECASE)
-AFFILIATE_TAG = "unicornmagic2-20"
+AFFILIATE_TAG = "unicornfin0a9-20"
 
 
 def main(root: Path = Path(".")) -> None:

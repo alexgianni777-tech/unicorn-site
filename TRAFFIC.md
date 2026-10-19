@@ -7,7 +7,7 @@
   generic night-light link should remain labelled as Amazon search results.
 - Confirm that the existing product images may be used outside Amazon. Replace
   any image without suitable rights with an original photograph or illustration.
-- The owner confirmed that `unicornmagic2-20` is the selected US tracking ID
+- The owner confirmed that `unicornfin0a9-20` is the selected US tracking ID
   and `unicornsite.online` is on the Associates website list on 29 September
   2026. This does not establish whether Amazon has accepted the application;
   the owner has asked Associates support to confirm earning eligibility.
